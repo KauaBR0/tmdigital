@@ -1,0 +1,20 @@
+<div class="grid p-fluid">
+  <div class="col-12 md:col-6 lg:col-3 mb-4">
+    <p-card header="Total de Leads">
+      <div class="text-6xl text-center text-primary font-bold">{{ totalLeads }}</div>
+    </p-card>
+  </div>
+
+  <div class="flex flex-wrap gap-4">
+    <div class="flex-1 min-w-full md:min-w-0">
+        <p-card header="Leads por Status">
+            <p-chart type="pie" [data]="statusChartData" [options]="chartOptions"></p-chart>
+        </p-card>
+    </div>
+    <div class="flex-1 min-w-full md:min-w-0">
+        <p-card header="Área por Cultura">
+            <p-chart type="bar" [data]="cropChartData" [options]="chartOptions"></p-chart>
+        </p-card>
+    </div>
+  </div>
+</div>

@@ -9,7 +9,7 @@ import { PrimeNG } from 'primeng/config';
   styleUrl: './app.scss',
 })
 export class App implements OnInit {
-  protected title = 'frontend';
+  title = 'frontend';
   private primeng = inject(PrimeNG);
 
   ngOnInit() {
