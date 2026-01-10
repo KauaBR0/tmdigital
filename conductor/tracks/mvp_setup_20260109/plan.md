@@ -21,7 +21,7 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Frontend Development (UI & State)' (Protocol in workflow.md)
 
 ## Phase 4: Dashboard & Priority System
-- [~] Task: Build Dashboard UI with PrimeNG Charts
+- [x] Task: Build Dashboard UI with PrimeNG Charts aa567fb
 - [ ] Task: Implement Priority logic (> 100ha) and visual indicators
 - [ ] Task: Implement Dashboard filtering logic
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Dashboard & Priority System' (Protocol in workflow.md)
