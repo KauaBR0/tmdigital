@@ -20,7 +20,7 @@
 - [x] Task: Implement PT-BR localization and CPF masking/validation 5e52b1b
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Frontend Development (UI & State)' (Protocol in workflow.md)
 
-## Phase 4: Dashboard & Priority System
+## Phase 4: Dashboard & Priority System [checkpoint: 6e62623]
 - [x] Task: Build Dashboard UI with PrimeNG Charts aa567fb
 - [x] Task: Implement Priority logic (> 100ha) and visual indicators ce38106
 - [x] Task: Implement Dashboard filtering logic e3cbe13
