@@ -14,7 +14,7 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Backend Development (Core API)' (Protocol in workflow.md)
 
 ## Phase 3: Frontend Development (UI & State)
-- [ ] Task: Implement NgRx State for Leads and Properties
+- [~] Task: Implement NgRx State for Leads and Properties
 - [ ] Task: Build Lead Management UI (List, Create, Edit, Delete)
 - [ ] Task: Build Property Management UI (Linked to Leads)
 - [ ] Task: Implement PT-BR localization and CPF masking/validation
