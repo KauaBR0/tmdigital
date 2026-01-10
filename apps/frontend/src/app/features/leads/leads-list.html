@@ -10,7 +10,11 @@
     </ng-template>
   </p-toolbar>
 
-  <p-table [value]="(leads$ | async) || []" [loading]="loading$ | async" responsiveLayout="scroll">
+  <p-table
+    [value]="(leads$ | async) || []"
+    [loading]="loading$ | async"
+    responsiveLayout="scroll"
+  >
     <ng-template pTemplate="header">
       <tr>
         <th>Nome</th>
@@ -25,6 +29,14 @@
         <td>{{ lead.cpf }}</td>
         <td>{{ lead.status }}</td>
         <td>
+          <p-button
+            icon="pi pi-map"
+            class="mr-2"
+            [rounded]="true"
+            [text]="true"
+            title="Propriedades"
+            (click)="viewProperties(lead)"
+          ></p-button>
           <p-button
             icon="pi pi-pencil"
             class="mr-2"
@@ -57,4 +69,16 @@
     (save)="onFormSave()"
     (cancel)="displayForm = false"
   ></app-lead-form>
+</p-dialog>
+
+<p-dialog
+  [(visible)]="displayProperties"
+  header="Propriedades do Lead"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+>
+  <app-properties-list
+    *ngIf="displayProperties"
+    [leadId]="currentLeadId!"
+  ></app-properties-list>
 </p-dialog>

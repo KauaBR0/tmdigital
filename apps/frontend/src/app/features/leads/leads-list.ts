@@ -9,6 +9,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { DialogModule } from 'primeng/dialog';
 import { Lead } from '../../core/models/lead.model';
 import { LeadForm } from './lead-form';
+import { PropertiesList } from '../properties/properties-list';
 
 @Component({
   selector: 'app-leads-list',
@@ -19,6 +20,7 @@ import { LeadForm } from './lead-form';
     ToolbarModule,
     DialogModule,
     LeadForm,
+    PropertiesList,
   ],
   templateUrl: './leads-list.html',
 })
@@ -28,7 +30,9 @@ export class LeadsList implements OnInit {
   loading$ = this.store.select(leadsFeature.selectLoading);
 
   displayForm = false;
+  displayProperties = false;
   selectedLead: Lead | null = null;
+  currentLeadId: number | null = null;
 
   ngOnInit() {
     this.store.dispatch(LeadsActions.loadLeads());
@@ -36,13 +40,13 @@ export class LeadsList implements OnInit {
 
   openNew() {
     this.selectedLead = {
-        id: 0,
-        name: '',
-        cpf: '',
-        status: null as any,
-        comments: '',
-        createdAt: '',
-        updatedAt: ''
+      id: 0,
+      name: '',
+      cpf: '',
+      status: null as any,
+      comments: '',
+      createdAt: '',
+      updatedAt: '',
     };
     this.displayForm = true;
   }
@@ -50,6 +54,11 @@ export class LeadsList implements OnInit {
   editLead(lead: Lead) {
     this.selectedLead = { ...lead };
     this.displayForm = true;
+  }
+
+  viewProperties(lead: Lead) {
+    this.currentLeadId = lead.id;
+    this.displayProperties = true;
   }
 
   deleteLead(id: number) {

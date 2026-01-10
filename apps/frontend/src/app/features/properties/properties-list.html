@@ -1,0 +1,56 @@
+<p-button
+  label="Nova Propriedade"
+  icon="pi pi-plus"
+  (click)="openNew()"
+  class="mb-3 block"
+></p-button>
+
+<p-table [value]="(properties$ | async) || []" [loading]="loading$ | async">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Cultura</th>
+      <th>Área (ha)</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-property>
+    <tr>
+      <td>{{ property.crop }}</td>
+      <td>
+        {{ property.area }}
+        <i
+          *ngIf="property.area > 100"
+          class="pi pi-star-fill text-yellow-500 ml-2"
+          title="Prioridade"
+        ></i>
+      </td>
+      <td>
+        <p-button
+          icon="pi pi-pencil"
+          [text]="true"
+          (click)="editProperty(property)"
+        ></p-button>
+        <p-button
+          icon="pi pi-trash"
+          severity="danger"
+          [text]="true"
+          (click)="deleteProperty(property.id)"
+        ></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog
+  [(visible)]="displayForm"
+  [header]="selectedProperty?.id ? 'Editar Propriedade' : 'Nova Propriedade'"
+  [modal]="true"
+  appendTo="body"
+>
+  <app-property-form
+    *ngIf="displayForm"
+    [property]="selectedProperty"
+    (save)="displayForm = false"
+    (cancel)="displayForm = false"
+  ></app-property-form>
+</p-dialog>

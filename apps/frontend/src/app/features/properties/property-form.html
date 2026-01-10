@@ -1,0 +1,46 @@
+<form [formGroup]="form" (ngSubmit)="onSave()">
+  <div class="field mb-3">
+    <label for="crop" class="block mb-1">Cultura</label>
+    <p-select
+      id="crop"
+      [options]="cropOptions"
+      formControlName="crop"
+      placeholder="Selecione a cultura"
+      styleClass="w-full"
+      optionLabel="label"
+      optionValue="value"
+    ></p-select>
+  </div>
+
+  <div class="field mb-3">
+    <label for="area" class="block mb-1">Área (Hectares)</label>
+    <p-inputNumber
+      id="area"
+      formControlName="area"
+      mode="decimal"
+      [minFractionDigits]="2"
+      styleClass="w-full"
+    ></p-inputNumber>
+  </div>
+
+  <div class="field mb-3">
+    <label for="geometry" class="block mb-1">Geometria (Opcional)</label>
+    <input pInputText id="geometry" formControlName="geometry" class="w-full" />
+  </div>
+
+  <div class="flex justify-content-end mt-4">
+    <p-button
+      label="Cancelar"
+      icon="pi pi-times"
+      [text]="true"
+      (click)="cancel.emit()"
+      class="mr-2"
+    ></p-button>
+    <p-button
+      label="Salvar"
+      icon="pi pi-check"
+      type="submit"
+      [disabled]="form.invalid"
+    ></p-button>
+  </div>
+</form>
