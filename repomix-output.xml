@@ -1,0 +1,5257 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.editorconfig
+.gitignore
+.prettierignore
+.prettierrc
+apps/backend-e2e/jest.config.cts
+apps/backend-e2e/project.json
+apps/backend-e2e/src/backend/backend.spec.ts
+apps/backend-e2e/src/support/global-setup.ts
+apps/backend-e2e/src/support/global-teardown.ts
+apps/backend-e2e/src/support/test-setup.ts
+apps/backend-e2e/tsconfig.json
+apps/backend-e2e/tsconfig.spec.json
+apps/backend/jest.config.cts
+apps/backend/project.json
+apps/backend/src/app/app.controller.spec.ts
+apps/backend/src/app/app.controller.ts
+apps/backend/src/app/app.module.ts
+apps/backend/src/app/app.service.ts
+apps/backend/src/app/dashboard/dashboard.controller.ts
+apps/backend/src/app/dashboard/dashboard.module.ts
+apps/backend/src/app/dashboard/dashboard.service.spec.ts
+apps/backend/src/app/dashboard/dashboard.service.ts
+apps/backend/src/app/leads/dto/create-lead.dto.ts
+apps/backend/src/app/leads/dto/update-lead.dto.ts
+apps/backend/src/app/leads/lead.entity.ts
+apps/backend/src/app/leads/leads.controller.ts
+apps/backend/src/app/leads/leads.module.ts
+apps/backend/src/app/leads/leads.service.spec.ts
+apps/backend/src/app/leads/leads.service.ts
+apps/backend/src/app/properties/dto/create-property.dto.ts
+apps/backend/src/app/properties/dto/update-property.dto.ts
+apps/backend/src/app/properties/properties.controller.ts
+apps/backend/src/app/properties/properties.module.ts
+apps/backend/src/app/properties/properties.service.spec.ts
+apps/backend/src/app/properties/properties.service.ts
+apps/backend/src/app/properties/property.entity.ts
+apps/backend/src/assets/.gitkeep
+apps/backend/src/main.ts
+apps/backend/tsconfig.app.json
+apps/backend/tsconfig.json
+apps/backend/tsconfig.spec.json
+apps/backend/webpack.config.js
+apps/frontend-e2e/cypress.config.ts
+apps/frontend-e2e/eslint.config.mjs
+apps/frontend-e2e/project.json
+apps/frontend-e2e/src/e2e/app.cy.ts
+apps/frontend-e2e/src/fixtures/example.json
+apps/frontend-e2e/src/support/app.po.ts
+apps/frontend-e2e/src/support/commands.ts
+apps/frontend-e2e/src/support/e2e.ts
+apps/frontend-e2e/tsconfig.json
+apps/frontend/eslint.config.mjs
+apps/frontend/project.json
+apps/frontend/proxy.conf.json
+apps/frontend/public/favicon.ico
+apps/frontend/src/app/app.config.ts
+apps/frontend/src/app/app.html
+apps/frontend/src/app/app.routes.ts
+apps/frontend/src/app/app.scss
+apps/frontend/src/app/app.spec.ts
+apps/frontend/src/app/app.ts
+apps/frontend/src/app/core/models/lead.model.ts
+apps/frontend/src/app/core/models/property.model.ts
+apps/frontend/src/app/core/services/dashboard.service.ts
+apps/frontend/src/app/core/services/leads.service.ts
+apps/frontend/src/app/core/services/properties.service.ts
+apps/frontend/src/app/features/dashboard.css
+apps/frontend/src/app/features/dashboard.html
+apps/frontend/src/app/features/dashboard.spec.ts
+apps/frontend/src/app/features/dashboard.ts
+apps/frontend/src/app/features/leads/lead-form.css
+apps/frontend/src/app/features/leads/lead-form.html
+apps/frontend/src/app/features/leads/lead-form.spec.ts
+apps/frontend/src/app/features/leads/lead-form.ts
+apps/frontend/src/app/features/leads/leads-list.css
+apps/frontend/src/app/features/leads/leads-list.html
+apps/frontend/src/app/features/leads/leads-list.spec.ts
+apps/frontend/src/app/features/leads/leads-list.ts
+apps/frontend/src/app/features/properties/properties-list.css
+apps/frontend/src/app/features/properties/properties-list.html
+apps/frontend/src/app/features/properties/properties-list.spec.ts
+apps/frontend/src/app/features/properties/properties-list.ts
+apps/frontend/src/app/features/properties/property-form.css
+apps/frontend/src/app/features/properties/property-form.html
+apps/frontend/src/app/features/properties/property-form.spec.ts
+apps/frontend/src/app/features/properties/property-form.ts
+apps/frontend/src/app/nx-welcome.ts
+apps/frontend/src/app/state/leads/leads.actions.ts
+apps/frontend/src/app/state/leads/leads.effects.ts
+apps/frontend/src/app/state/leads/leads.reducer.spec.ts
+apps/frontend/src/app/state/leads/leads.reducer.ts
+apps/frontend/src/app/state/properties/properties.actions.ts
+apps/frontend/src/app/state/properties/properties.effects.ts
+apps/frontend/src/app/state/properties/properties.reducer.ts
+apps/frontend/src/index.html
+apps/frontend/src/main.ts
+apps/frontend/src/styles.scss
+apps/frontend/tsconfig.app.json
+apps/frontend/tsconfig.json
+apps/frontend/tsconfig.spec.json
+avaliacao-tecnica-js-2026.pdf
+conductor/code_styleguides/general.md
+conductor/code_styleguides/html-css.md
+conductor/code_styleguides/javascript.md
+conductor/code_styleguides/typescript.md
+conductor/product-guidelines.md
+conductor/product.md
+conductor/setup_state.json
+conductor/tech-stack.md
+conductor/tracks.md
+conductor/tracks/mvp_setup_20260109/metadata.json
+conductor/tracks/mvp_setup_20260109/plan.md
+conductor/tracks/mvp_setup_20260109/spec.md
+conductor/workflow.md
+docker-compose.yml
+eslint.config.mjs
+jest.config.ts
+jest.preset.js
+nx.json
+package.json
+README.md
+tsconfig.base.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".editorconfig">
+# Editor configuration, see http://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
+</file>
+
+<file path=".gitignore">
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# compiled output
+dist
+tmp
+out-tsc
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.nx/cache
+.nx/workspace-data
+
+.angular
+
+__screenshots__/
+</file>
+
+<file path=".prettierignore">
+# Add files here to ignore them from prettier formatting
+/dist
+/coverage
+/.nx/cache
+/.nx/workspace-data
+.angular
+</file>
+
+<file path=".prettierrc">
+{
+  "singleQuote": true
+}
+</file>
+
+<file path="apps/backend-e2e/jest.config.cts">
+export default {
+  displayName: 'backend-e2e',
+  preset: '../../jest.preset.js',
+  globalSetup: '<rootDir>/src/support/global-setup.ts',
+  globalTeardown: '<rootDir>/src/support/global-teardown.ts',
+  setupFiles: ['<rootDir>/src/support/test-setup.ts'],
+  testEnvironment: 'node',
+  transform: {
+    '^.+\\.[tj]s$': [
+      'ts-jest',
+      {
+        tsconfig: '<rootDir>/tsconfig.spec.json',
+      },
+    ],
+  },
+  moduleFileExtensions: ['ts', 'js', 'html'],
+  coverageDirectory: '../../coverage/backend-e2e',
+};
+</file>
+
+<file path="apps/backend-e2e/project.json">
+{
+  "name": "backend-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "implicitDependencies": ["backend"],
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "options": {
+        "jestConfig": "apps/backend-e2e/jest.config.cts",
+        "passWithNoTests": true
+      },
+      "dependsOn": ["backend:build", "backend:serve"]
+    }
+  }
+}
+</file>
+
+<file path="apps/backend-e2e/src/backend/backend.spec.ts">
+import axios from 'axios';
+
+describe('GET /api', () => {
+  it('should return a message', async () => {
+    const res = await axios.get(`/api`);
+
+    expect(res.status).toBe(200);
+    expect(res.data).toEqual({ message: 'Hello API' });
+  });
+});
+</file>
+
+<file path="apps/backend-e2e/src/support/global-setup.ts">
+import { waitForPortOpen } from '@nx/node/utils';
+
+/* eslint-disable */
+var __TEARDOWN_MESSAGE__: string;
+
+module.exports = async function () {
+  // Start services that that the app needs to run (e.g. database, docker-compose, etc.).
+  console.log('\nSetting up...\n');
+
+  const host = process.env.HOST ?? 'localhost';
+  const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+  await waitForPortOpen(port, { host });
+
+  // Hint: Use `globalThis` to pass variables to global teardown.
+  globalThis.__TEARDOWN_MESSAGE__ = '\nTearing down...\n';
+};
+</file>
+
+<file path="apps/backend-e2e/src/support/global-teardown.ts">
+import { killPort } from '@nx/node/utils';
+/* eslint-disable */
+
+module.exports = async function () {
+  // Put clean up logic here (e.g. stopping services, docker-compose, etc.).
+  // Hint: `globalThis` is shared between setup and teardown.
+  const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+  await killPort(port);
+  console.log(globalThis.__TEARDOWN_MESSAGE__);
+};
+</file>
+
+<file path="apps/backend-e2e/src/support/test-setup.ts">
+/* eslint-disable */
+import axios from 'axios';
+
+module.exports = async function () {
+  // Configure axios for tests to use.
+  const host = process.env.HOST ?? 'localhost';
+  const port = process.env.PORT ?? '3000';
+  axios.defaults.baseURL = `http://${host}:${port}`;
+};
+</file>
+
+<file path="apps/backend-e2e/tsconfig.json">
+{
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true
+  }
+}
+</file>
+
+<file path="apps/backend-e2e/tsconfig.spec.json">
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "module": "commonjs",
+    "types": ["jest", "node"]
+  },
+  "include": ["jest.config.ts", "src/**/*.ts"]
+}
+</file>
+
+<file path="apps/backend/jest.config.cts">
+module.exports = {
+  displayName: 'backend',
+  preset: '../../jest.preset.js',
+  testEnvironment: 'node',
+  coverageDirectory: '../../coverage/apps/backend',
+};
+</file>
+
+<file path="apps/backend/project.json">
+{
+  "name": "backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/backend/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "webpack-cli build",
+        "args": ["--node-env=production"],
+        "cwd": "apps/backend"
+      },
+      "configurations": {
+        "development": {
+          "args": ["--node-env=development"]
+        }
+      }
+    },
+    "prune-lockfile": {
+      "dependsOn": ["build"],
+      "cache": true,
+      "executor": "@nx/js:prune-lockfile",
+      "outputs": [
+        "{workspaceRoot}/dist/apps/backend/package.json",
+        "{workspaceRoot}/dist/apps/backend/package-lock.json"
+      ],
+      "options": {
+        "buildTarget": "build"
+      }
+    },
+    "copy-workspace-modules": {
+      "dependsOn": ["build"],
+      "cache": true,
+      "outputs": ["{workspaceRoot}/dist/apps/backend/workspace_modules"],
+      "executor": "@nx/js:copy-workspace-modules",
+      "options": {
+        "buildTarget": "build"
+      }
+    },
+    "prune": {
+      "dependsOn": ["prune-lockfile", "copy-workspace-modules"],
+      "executor": "nx:noop"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "backend:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "backend:build:development"
+        },
+        "production": {
+          "buildTarget": "backend:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
+</file>
+
+<file path="apps/backend/src/app/app.controller.spec.ts">
+import { Test, TestingModule } from '@nestjs/testing';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
+describe('AppController', () => {
+  let app: TestingModule;
+
+  beforeAll(async () => {
+    app = await Test.createTestingModule({
+      controllers: [AppController],
+      providers: [AppService],
+    }).compile();
+  });
+
+  describe('getData', () => {
+    it('should return "Hello API"', () => {
+      const appController = app.get<AppController>(AppController);
+      expect(appController.getData()).toEqual({ message: 'Hello API' });
+    });
+  });
+});
+</file>
+
+<file path="apps/backend/src/app/app.controller.ts">
+import { Controller, Get } from '@nestjs/common';
+import { AppService } from './app.service';
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getData() {
+    return this.appService.getData();
+  }
+}
+</file>
+
+<file path="apps/backend/src/app/app.service.ts">
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class AppService {
+  getData(): { message: string } {
+    return { message: 'Hello API' };
+  }
+}
+</file>
+
+<file path="apps/backend/src/app/dashboard/dashboard.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { DashboardService } from './dashboard.service';
+import { DashboardController } from './dashboard.controller';
+import { Lead } from '../leads/lead.entity';
+import { Property } from '../properties/property.entity';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Lead, Property])],
+  controllers: [DashboardController],
+  providers: [DashboardService],
+})
+export class DashboardModule {}
+</file>
+
+<file path="apps/backend/src/app/leads/dto/create-lead.dto.ts">
+import { IsString, IsNotEmpty, IsEnum, IsOptional, Matches } from 'class-validator';
+import { LeadStatus } from '../lead.entity';
+
+export class CreateLeadDto {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @Matches(/^\d{11}$|^\d{3}\.\d{3}\.\d{3}-\d{2}$/, { message: 'CPF inválido' })
+  cpf: string;
+
+  @IsEnum(LeadStatus)
+  @IsOptional()
+  status?: LeadStatus;
+
+  @IsString()
+  @IsOptional()
+  comments?: string;
+}
+</file>
+
+<file path="apps/backend/src/app/leads/dto/update-lead.dto.ts">
+import { PartialType } from '@nestjs/mapped-types';
+import { CreateLeadDto } from './create-lead.dto';
+
+export class UpdateLeadDto extends PartialType(CreateLeadDto) {}
+</file>
+
+<file path="apps/backend/src/app/leads/lead.entity.ts">
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Property } from '../properties/property.entity';
+
+export enum LeadStatus {
+  NEW = 'Novo',
+  NEGOTIATION = 'Em negociação',
+  CONVERTED = 'Convertido',
+  LOST = 'Perdido',
+}
+
+@Entity('leads')
+export class Lead {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  name: string;
+
+  @Column({ unique: true })
+  cpf: string;
+
+  @Column({
+    type: 'enum',
+    enum: LeadStatus,
+    default: LeadStatus.NEW,
+  })
+  status: LeadStatus;
+
+  @Column({ type: 'text', nullable: true })
+  comments: string;
+
+  @OneToMany(() => Property, (property) => property.lead)
+  properties: Property[];
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+}
+</file>
+
+<file path="apps/backend/src/app/leads/leads.controller.ts">
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
+import { LeadsService } from './leads.service';
+import { CreateLeadDto } from './dto/create-lead.dto';
+import { UpdateLeadDto } from './dto/update-lead.dto';
+
+@Controller('leads')
+export class LeadsController {
+  constructor(private readonly leadsService: LeadsService) {}
+
+  @Post()
+  create(@Body() createLeadDto: CreateLeadDto) {
+    return this.leadsService.create(createLeadDto);
+  }
+
+  @Get()
+  findAll() {
+    return this.leadsService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.leadsService.findOne(id);
+  }
+
+  @Patch(':id')
+  update(@Param('id', ParseIntPipe) id: number, @Body() updateLeadDto: UpdateLeadDto) {
+    return this.leadsService.update(id, updateLeadDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.leadsService.remove(id);
+  }
+}
+</file>
+
+<file path="apps/backend/src/app/leads/leads.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { LeadsService } from './leads.service';
+import { LeadsController } from './leads.controller';
+import { Lead } from './lead.entity';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Lead])],
+  controllers: [LeadsController],
+  providers: [LeadsService],
+  exports: [LeadsService],
+})
+export class LeadsModule {}
+</file>
+
+<file path="apps/backend/src/app/properties/dto/create-property.dto.ts">
+import { IsNumber, IsEnum, IsString, IsNotEmpty, IsOptional } from 'class-validator';
+import { CropType } from '../property.entity';
+
+export class CreatePropertyDto {
+  @IsEnum(CropType)
+  crop: CropType;
+
+  @IsNumber()
+  area: number;
+
+  @IsString()
+  @IsOptional()
+  geometry?: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  leadId: number;
+}
+</file>
+
+<file path="apps/backend/src/app/properties/dto/update-property.dto.ts">
+import { PartialType } from '@nestjs/mapped-types';
+import { CreatePropertyDto } from './create-property.dto';
+
+export class UpdatePropertyDto extends PartialType(CreatePropertyDto) {}
+</file>
+
+<file path="apps/backend/src/app/properties/properties.controller.ts">
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, Query } from '@nestjs/common';
+import { PropertiesService } from './properties.service';
+import { CreatePropertyDto } from './dto/create-property.dto';
+import { UpdatePropertyDto } from './dto/update-property.dto';
+
+@Controller('properties')
+export class PropertiesController {
+  constructor(private readonly propertiesService: PropertiesService) {}
+
+  @Post()
+  create(@Body() createPropertyDto: CreatePropertyDto) {
+    return this.propertiesService.create(createPropertyDto);
+  }
+
+  @Get()
+  findAll(@Query('leadId') leadId?: string) {
+    return this.propertiesService.findAll(leadId ? +leadId : undefined);
+  }
+
+  @Get(':id')
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.propertiesService.findOne(id);
+  }
+
+  @Patch(':id')
+  update(@Param('id', ParseIntPipe) id: number, @Body() updatePropertyDto: UpdatePropertyDto) {
+    return this.propertiesService.update(id, updatePropertyDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.propertiesService.remove(id);
+  }
+}
+</file>
+
+<file path="apps/backend/src/app/properties/properties.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { PropertiesService } from './properties.service';
+import { PropertiesController } from './properties.controller';
+import { Property } from './property.entity';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([Property])],
+  controllers: [PropertiesController],
+  providers: [PropertiesService],
+  exports: [PropertiesService],
+})
+export class PropertiesModule {}
+</file>
+
+<file path="apps/backend/src/app/properties/properties.service.spec.ts">
+import { Test, TestingModule } from '@nestjs/testing';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { PropertiesService } from './properties.service';
+import { Property, CropType } from './property.entity';
+import { Repository } from 'typeorm';
+import { NotFoundException } from '@nestjs/common';
+
+describe('PropertiesService', () => {
+  let service: PropertiesService;
+  let repository: Repository<Property>;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        PropertiesService,
+        {
+          provide: getRepositoryToken(Property),
+          useValue: {
+            find: jest.fn(),
+            findOneBy: jest.fn(),
+            create: jest.fn(),
+            save: jest.fn(),
+            preload: jest.fn(),
+            remove: jest.fn(),
+          },
+        },
+      ],
+    }).compile();
+
+    service = module.get<PropertiesService>(PropertiesService);
+    repository = module.get<Repository<Property>>(getRepositoryToken(Property));
+  });
+
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+
+  describe('findAll', () => {
+    it('should return all properties if no leadId provided', async () => {
+      const result: Property[] = [];
+      jest.spyOn(repository, 'find').mockResolvedValue(result);
+      expect(await service.findAll()).toBe(result);
+    });
+
+    it('should return properties by leadId', async () => {
+      const result: Property[] = [];
+      jest.spyOn(repository, 'find').mockResolvedValue(result);
+      expect(await service.findAll(1)).toBe(result);
+      expect(repository.find).toHaveBeenCalledWith({ where: { leadId: 1 } });
+    });
+  });
+
+  describe('create', () => {
+    it('should create a property', async () => {
+      const dto = { crop: CropType.SOY, area: 150, leadId: 1 };
+      const property = { id: 1, ...dto } as Property;
+      jest.spyOn(repository, 'create').mockReturnValue(property);
+      jest.spyOn(repository, 'save').mockResolvedValue(property);
+      expect(await service.create(dto)).toBe(property);
+    });
+  });
+
+  describe('findOne', () => {
+    it('should return a property', async () => {
+      const property = { id: 1 } as Property;
+      jest.spyOn(repository, 'findOneBy').mockResolvedValue(property);
+      expect(await service.findOne(1)).toBe(property);
+    });
+
+    it('should throw NotFoundException', async () => {
+      jest.spyOn(repository, 'findOneBy').mockResolvedValue(null);
+      await expect(service.findOne(1)).rejects.toThrow(NotFoundException);
+    });
+  });
+});
+</file>
+
+<file path="apps/backend/src/app/properties/properties.service.ts">
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Property } from './property.entity';
+import { CreatePropertyDto } from './dto/create-property.dto';
+import { UpdatePropertyDto } from './dto/update-property.dto';
+
+@Injectable()
+export class PropertiesService {
+  constructor(
+    @InjectRepository(Property)
+    private readonly propertyRepository: Repository<Property>,
+  ) {}
+
+  async create(createPropertyDto: CreatePropertyDto): Promise<Property> {
+    const property = this.propertyRepository.create(createPropertyDto);
+    return this.propertyRepository.save(property);
+  }
+
+  async findAll(leadId?: number): Promise<Property[]> {
+    if (leadId) {
+      return this.propertyRepository.find({ where: { leadId } });
+    }
+    return this.propertyRepository.find();
+  }
+
+  async findOne(id: number): Promise<Property> {
+    const property = await this.propertyRepository.findOneBy({ id });
+    if (!property) {
+      throw new NotFoundException(`Property #${id} not found`);
+    }
+    return property;
+  }
+
+  async update(id: number, updatePropertyDto: UpdatePropertyDto): Promise<Property> {
+    const property = await this.propertyRepository.preload({
+      id: id,
+      ...updatePropertyDto,
+    });
+    if (!property) {
+      throw new NotFoundException(`Property #${id} not found`);
+    }
+    return this.propertyRepository.save(property);
+  }
+
+  async remove(id: number): Promise<void> {
+    const property = await this.findOne(id);
+    await this.propertyRepository.remove(property);
+  }
+}
+</file>
+
+<file path="apps/backend/src/app/properties/property.entity.ts">
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Lead } from '../leads/lead.entity';
+
+export enum CropType {
+  SOY = 'Soja',
+  CORN = 'Milho',
+  COTTON = 'Algodão',
+}
+
+@Entity('properties')
+export class Property {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({
+    type: 'enum',
+    enum: CropType,
+  })
+  crop: CropType;
+
+  @Column('float')
+  area: number;
+
+  @Column({ type: 'text', nullable: true })
+  geometry: string;
+
+  @ManyToOne(() => Lead, (lead) => lead.properties, { onDelete: 'CASCADE' })
+  lead: Lead;
+
+  @Column()
+  leadId: number;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+}
+</file>
+
+<file path="apps/backend/src/assets/.gitkeep">
+
+</file>
+
+<file path="apps/backend/tsconfig.spec.json">
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "module": "commonjs",
+    "moduleResolution": "node10",
+    "types": ["jest", "node"]
+  },
+  "include": [
+    "jest.config.ts",
+    "jest.config.cts",
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"
+  ]
+}
+</file>
+
+<file path="apps/backend/webpack.config.js">
+const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
+const { join } = require('path');
+
+module.exports = {
+  output: {
+    path: join(__dirname, '../../dist/apps/backend'),
+    clean: true,
+    ...(process.env.NODE_ENV !== 'production' && {
+      devtoolModuleFilenameTemplate: '[absolute-resource-path]',
+    }),
+  },
+  plugins: [
+    new NxAppWebpackPlugin({
+      target: 'node',
+      compiler: 'tsc',
+      main: './src/main.ts',
+      tsConfig: './tsconfig.app.json',
+      assets: ['./src/assets'],
+      optimization: false,
+      outputHashing: 'none',
+      generatePackageJson: true,
+      sourceMap: true,
+    }),
+  ],
+};
+</file>
+
+<file path="apps/frontend-e2e/cypress.config.ts">
+import { nxE2EPreset } from '@nx/cypress/plugins/cypress-preset';
+import { defineConfig } from 'cypress';
+
+export default defineConfig({
+  e2e: {
+    ...nxE2EPreset(__filename, {
+      cypressDir: 'src',
+      webServerCommands: {
+        default: 'npx nx run frontend:serve',
+        production: 'npx nx run frontend:serve-static',
+      },
+      ciWebServerCommand: 'npx nx run frontend:serve-static',
+      ciBaseUrl: 'http://localhost:4200',
+    }),
+    baseUrl: 'http://localhost:4200',
+  },
+});
+</file>
+
+<file path="apps/frontend-e2e/eslint.config.mjs">
+import cypress from 'eslint-plugin-cypress/flat';
+import baseConfig from '../../eslint.config.mjs';
+
+export default [
+  cypress.configs['recommended'],
+  ...baseConfig,
+  {
+    // Override or add rules here
+    rules: {},
+  },
+];
+</file>
+
+<file path="apps/frontend-e2e/project.json">
+{
+  "name": "frontend-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/frontend-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["frontend"],
+  "// targets": "to see all targets run: nx show project frontend-e2e --web",
+  "targets": {}
+}
+</file>
+
+<file path="apps/frontend-e2e/src/e2e/app.cy.ts">
+import { getGreeting } from '../support/app.po';
+
+describe('frontend-e2e', () => {
+  beforeEach(() => cy.visit('/'));
+
+  it('should display welcome message', () => {
+    // Custom command example, see `../support/commands.ts` file
+    cy.login('my-email@something.com', 'myPassword');
+
+    // Function helper example, see `../support/app.po.ts` file
+    getGreeting().contains(/Welcome/);
+  });
+});
+</file>
+
+<file path="apps/frontend-e2e/src/fixtures/example.json">
+{
+  "name": "Using fixtures to represent data",
+  "email": "hello@cypress.io",
+  "body": "Fixtures are a great way to mock data for responses to routes"
+}
+</file>
+
+<file path="apps/frontend-e2e/src/support/app.po.ts">
+export const getGreeting = () => cy.get('h1');
+</file>
+
+<file path="apps/frontend-e2e/src/support/commands.ts">
+/// <reference types="cypress" />
+
+// ***********************************************
+// This example commands.ts shows you how to
+// create various custom commands and overwrite
+// existing commands.
+//
+// For more comprehensive examples of custom
+// commands please read more here:
+// https://on.cypress.io/custom-commands
+// ***********************************************
+
+// eslint-disable-next-line @typescript-eslint/no-namespace
+declare namespace Cypress {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  interface Chainable<Subject> {
+    login(email: string, password: string): void;
+  }
+}
+
+// -- This is a parent command --
+Cypress.Commands.add('login', (email, password) => {
+  console.log('Custom command example: Login', email, password);
+});
+//
+// -- This is a child command --
+// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
+//
+//
+// -- This is a dual command --
+// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
+//
+//
+// -- This will overwrite an existing command --
+// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+</file>
+
+<file path="apps/frontend-e2e/src/support/e2e.ts">
+// ***********************************************************
+// This example support/e2e.ts is processed and
+// loaded automatically before your test files.
+//
+// This is a great place to put global configuration and
+// behavior that modifies Cypress.
+//
+// You can change the location of this file or turn off
+// automatically serving support files with the
+// 'supportFile' configuration option.
+//
+// You can read more here:
+// https://on.cypress.io/configuration
+// ***********************************************************
+
+// Import commands.ts using ES2015 syntax:
+import './commands';
+</file>
+
+<file path="apps/frontend-e2e/tsconfig.json">
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "outDir": "../../dist/out-tsc",
+    "module": "commonjs",
+    "types": ["cypress", "node"],
+    "sourceMap": false,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.js",
+    "cypress.config.ts",
+    "**/*.cy.ts",
+    "**/*.cy.js",
+    "**/*.d.ts"
+  ]
+}
+</file>
+
+<file path="apps/frontend/eslint.config.mjs">
+import nx from '@nx/eslint-plugin';
+import baseConfig from '../../eslint.config.mjs';
+
+export default [
+  ...baseConfig,
+  ...nx.configs['flat/angular'],
+  ...nx.configs['flat/angular-template'],
+  {
+    files: ['**/*.ts'],
+    rules: {
+      '@angular-eslint/directive-selector': [
+        'error',
+        {
+          type: 'attribute',
+          prefix: 'app',
+          style: 'camelCase',
+        },
+      ],
+      '@angular-eslint/component-selector': [
+        'error',
+        {
+          type: 'element',
+          prefix: 'app',
+          style: 'kebab-case',
+        },
+      ],
+    },
+  },
+  {
+    files: ['**/*.html'],
+    // Override or add rules here
+    rules: {},
+  },
+];
+</file>
+
+<file path="apps/frontend/proxy.conf.json">
+{
+  "/api": {
+    "target": "http://localhost:3000",
+    "secure": false
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/app.scss">
+
+</file>
+
+<file path="apps/frontend/src/app/core/models/property.model.ts">
+export enum CropType {
+  SOY = 'Soja',
+  CORN = 'Milho',
+  COTTON = 'Algodão',
+}
+
+export interface Property {
+  id: number;
+  crop: CropType;
+  area: number;
+  geometry?: string;
+  leadId: number;
+  createdAt: string;
+  updatedAt: string;
+}
+</file>
+
+<file path="apps/frontend/src/app/features/dashboard.css">
+
+</file>
+
+<file path="apps/frontend/src/app/features/dashboard.spec.ts">
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Dashboard } from './dashboard';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+
+describe('Dashboard', () => {
+  let component: Dashboard;
+  let fixture: ComponentFixture<Dashboard>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [Dashboard],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(Dashboard);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+</file>
+
+<file path="apps/frontend/src/app/features/leads/lead-form.css">
+
+</file>
+
+<file path="apps/frontend/src/app/features/leads/lead-form.spec.ts">
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LeadForm } from './lead-form';
+import { provideMockStore } from '@ngrx/store/testing';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+
+describe('LeadForm', () => {
+  let component: LeadForm;
+  let fixture: ComponentFixture<LeadForm>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [LeadForm],
+      providers: [provideMockStore(), provideNoopAnimations()],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(LeadForm);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+</file>
+
+<file path="apps/frontend/src/app/features/leads/leads-list.css">
+
+</file>
+
+<file path="apps/frontend/src/app/features/leads/leads-list.spec.ts">
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LeadsList } from './leads-list';
+import { provideMockStore } from '@ngrx/store/testing';
+import { leadsFeature } from '../../state/leads/leads.reducer';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+
+describe('LeadsList', () => {
+  let component: LeadsList;
+  let fixture: ComponentFixture<LeadsList>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [LeadsList],
+      providers: [
+        provideMockStore({
+          initialState: {
+            [leadsFeature.name]: { leads: [], loading: false, error: null },
+          },
+        }),
+        provideNoopAnimations(),
+      ],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(LeadsList);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+</file>
+
+<file path="apps/frontend/src/app/features/properties/properties-list.css">
+
+</file>
+
+<file path="apps/frontend/src/app/features/properties/properties-list.spec.ts">
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PropertiesList } from './properties-list';
+import { provideMockStore } from '@ngrx/store/testing';
+import { propertiesFeature } from '../../state/properties/properties.reducer';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+
+describe('PropertiesList', () => {
+  let component: PropertiesList;
+  let fixture: ComponentFixture<PropertiesList>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [PropertiesList],
+      providers: [
+        provideMockStore({
+          initialState: {
+            [propertiesFeature.name]: { properties: [], loading: false, error: null },
+          },
+        }),
+        provideNoopAnimations(),
+      ],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(PropertiesList);
+    component = fixture.componentInstance;
+    component.leadId = 1;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+</file>
+
+<file path="apps/frontend/src/app/features/properties/properties-list.ts">
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { propertiesFeature } from '../../state/properties/properties.reducer';
+import { PropertiesActions } from '../../state/properties/properties.actions';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { Property } from '../../core/models/property.model';
+import { PropertyForm } from './property-form';
+
+@Component({
+  selector: 'app-properties-list',
+  imports: [CommonModule, TableModule, ButtonModule, DialogModule, PropertyForm],
+  templateUrl: './properties-list.html',
+})
+export class PropertiesList implements OnInit {
+  @Input() leadId!: number;
+
+  private store = inject(Store);
+  properties$ = this.store.select(propertiesFeature.selectProperties);
+  loading$ = this.store.select(propertiesFeature.selectLoading);
+
+  displayForm = false;
+  selectedProperty: Property | null = null;
+
+  ngOnInit() {
+    this.store.dispatch(
+      PropertiesActions.loadProperties({ leadId: this.leadId })
+    );
+  }
+
+  openNew() {
+    this.selectedProperty = {
+      id: 0,
+      crop: null as any,
+      area: 0,
+      leadId: this.leadId,
+      createdAt: '',
+      updatedAt: '',
+    };
+    this.displayForm = true;
+  }
+
+  editProperty(property: Property) {
+    this.selectedProperty = { ...property };
+    this.displayForm = true;
+  }
+
+  deleteProperty(id: number) {
+    if (confirm('Tem certeza?')) {
+      this.store.dispatch(PropertiesActions.deleteProperty({ id }));
+    }
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/features/properties/property-form.css">
+
+</file>
+
+<file path="apps/frontend/src/app/features/properties/property-form.html">
+<form [formGroup]="form" (ngSubmit)="onSave()">
+  <div class="field mb-3">
+    <label for="crop" class="block mb-1">Cultura</label>
+    <p-select
+      id="crop"
+      [options]="cropOptions"
+      formControlName="crop"
+      placeholder="Selecione a cultura"
+      styleClass="w-full"
+      optionLabel="label"
+      optionValue="value"
+    ></p-select>
+  </div>
+
+  <div class="field mb-3">
+    <label for="area" class="block mb-1">Área (Hectares)</label>
+    <p-inputNumber
+      id="area"
+      formControlName="area"
+      mode="decimal"
+      [minFractionDigits]="2"
+      styleClass="w-full"
+    ></p-inputNumber>
+  </div>
+
+  <div class="field mb-3">
+    <label for="geometry" class="block mb-1">Geometria (Opcional)</label>
+    <input pInputText id="geometry" formControlName="geometry" class="w-full" />
+  </div>
+
+  <div class="flex justify-content-end mt-4">
+    <p-button
+      label="Cancelar"
+      icon="pi pi-times"
+      [text]="true"
+      (click)="cancel.emit()"
+      class="mr-2"
+    ></p-button>
+    <p-button
+      label="Salvar"
+      icon="pi pi-check"
+      type="submit"
+      [disabled]="form.invalid"
+    ></p-button>
+  </div>
+</form>
+</file>
+
+<file path="apps/frontend/src/app/features/properties/property-form.spec.ts">
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PropertyForm } from './property-form';
+import { provideMockStore } from '@ngrx/store/testing';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
+
+describe('PropertyForm', () => {
+  let component: PropertyForm;
+  let fixture: ComponentFixture<PropertyForm>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [PropertyForm],
+      providers: [provideMockStore(), provideNoopAnimations()],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(PropertyForm);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+</file>
+
+<file path="apps/frontend/src/app/features/properties/property-form.ts">
+import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Property, CropType } from '../../core/models/property.model';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { SelectModule } from 'primeng/select';
+import { ButtonModule } from 'primeng/button';
+import { Store } from '@ngrx/store';
+import { PropertiesActions } from '../../state/properties/properties.actions';
+
+@Component({
+  selector: 'app-property-form',
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    InputNumberModule,
+    SelectModule,
+    ButtonModule,
+  ],
+  templateUrl: './property-form.html',
+})
+export class PropertyForm {
+  @Input() set property(value: Property | null) {
+    if (value && value.id) {
+      this.form.patchValue(value);
+    } else if (value) {
+      this.form.reset({ id: 0, leadId: value.leadId });
+    }
+  }
+  @Output() save = new EventEmitter<void>();
+  @Output() cancel = new EventEmitter<void>();
+
+  private fb = inject(FormBuilder);
+  private store = inject(Store);
+
+  form: FormGroup = this.fb.group({
+    id: [0],
+    crop: [null, Validators.required],
+    area: [null, [Validators.required, Validators.min(0.1)]],
+    leadId: [null, Validators.required],
+    geometry: [''],
+  });
+
+  cropOptions = Object.values(CropType).map((crop) => ({
+    label: crop,
+    value: crop,
+  }));
+
+  onSave() {
+    if (this.form.valid) {
+      const property = this.form.value;
+      if (property.id) {
+        this.store.dispatch(PropertiesActions.updateProperty({ property }));
+      } else {
+        const { id, ...newProperty } = property;
+        this.store.dispatch(
+          PropertiesActions.addProperty({ property: newProperty })
+        );
+      }
+      this.save.emit();
+    }
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/nx-welcome.ts">
+import { Component, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-nx-welcome',
+  imports: [CommonModule],
+  template: `
+    <!--
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     This is a starter component and can be deleted.
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     Delete this file and get started with your project!
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     -->
+    <style>
+      html {
+        -webkit-text-size-adjust: 100%;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          'Helvetica Neue',
+          Arial,
+          'Noto Sans',
+          sans-serif,
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+          'Noto Color Emoji';
+        line-height: 1.5;
+        tab-size: 4;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: inherit;
+        line-height: inherit;
+        margin: 0;
+      }
+      h1,
+      h2,
+      p,
+      pre {
+        margin: 0;
+      }
+      *,
+      ::before,
+      ::after {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: currentColor;
+      }
+      h1,
+      h2 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      pre {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          'Liberation Mono', 'Courier New', monospace;
+      }
+      svg {
+        display: block;
+        vertical-align: middle;
+      }
+      svg {
+        shape-rendering: auto;
+        text-rendering: optimizeLegibility;
+      }
+      pre {
+        background-color: rgba(55, 65, 81, 1);
+        border-radius: 0.25rem;
+        color: rgba(229, 231, 235, 1);
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          'Liberation Mono', 'Courier New', monospace;
+        overflow: auto;
+        padding: 0.5rem 0.75rem;
+      }
+      .shadow {
+        box-shadow:
+          0 0 #0000,
+          0 0 #0000,
+          0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .rounded {
+        border-radius: 1.5rem;
+      }
+      .wrapper {
+        width: 100%;
+      }
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 768px;
+        padding-bottom: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        color: rgba(55, 65, 81, 1);
+        width: 100%;
+      }
+      #welcome {
+        margin-top: 2.5rem;
+      }
+      #welcome h1 {
+        font-size: 3rem;
+        font-weight: 500;
+        letter-spacing: -0.025em;
+        line-height: 1;
+      }
+      #welcome span {
+        display: block;
+        font-size: 1.875rem;
+        font-weight: 300;
+        line-height: 2.25rem;
+        margin-bottom: 0.5rem;
+      }
+      #hero {
+        align-items: center;
+        background-color: hsla(214, 62%, 21%, 1);
+        border: none;
+        box-sizing: border-box;
+        color: rgba(55, 65, 81, 1);
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 3.5rem;
+      }
+      #hero .text-container {
+        color: rgba(255, 255, 255, 1);
+        padding: 3rem 2rem;
+      }
+      #hero .text-container h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        position: relative;
+      }
+      #hero .text-container h2 svg {
+        color: hsla(162, 47%, 50%, 1);
+        height: 2rem;
+        left: -0.25rem;
+        position: absolute;
+        top: 0;
+        width: 2rem;
+      }
+      #hero .text-container h2 span {
+        margin-left: 2.5rem;
+      }
+      #hero .text-container a {
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 0.75rem;
+        color: rgba(55, 65, 81, 1);
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 1rem 2rem;
+        text-decoration: inherit;
+      }
+      #hero .logo-container {
+        display: none;
+        justify-content: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      #hero .logo-container svg {
+        color: rgba(255, 255, 255, 1);
+        width: 66.666667%;
+      }
+      #middle-content {
+        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 3.5rem;
+      }
+      #middle-content #middle-left-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      #learning-materials {
+        padding: 2.5rem 2rem;
+      }
+      #learning-materials h2 {
+        font-weight: 500;
+        font-size: 1.25rem;
+        letter-spacing: -0.025em;
+        line-height: 1.75rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .list-item-link {
+        align-items: center;
+        border-radius: 0.75rem;
+        display: flex;
+        margin-top: 1rem;
+        padding: 1rem;
+        transition-property:
+          background-color,
+          border-color,
+          color,
+          fill,
+          stroke,
+          opacity,
+          box-shadow,
+          transform,
+          filter,
+          backdrop-filter,
+          -webkit-backdrop-filter;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+        width: 100%;
+      }
+      .list-item-link svg:first-child {
+        margin-right: 1rem;
+        height: 1.5rem;
+        transition-property:
+          background-color,
+          border-color,
+          color,
+          fill,
+          stroke,
+          opacity,
+          box-shadow,
+          transform,
+          filter,
+          backdrop-filter,
+          -webkit-backdrop-filter;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+        width: 1.5rem;
+      }
+      .list-item-link > span {
+        flex-grow: 1;
+        font-weight: 400;
+        transition-property:
+          background-color,
+          border-color,
+          color,
+          fill,
+          stroke,
+          opacity,
+          box-shadow,
+          transform,
+          filter,
+          backdrop-filter,
+          -webkit-backdrop-filter;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .list-item-link > span > span {
+        color: rgba(107, 114, 128, 1);
+        display: block;
+        flex-grow: 1;
+        font-size: 0.75rem;
+        font-weight: 300;
+        line-height: 1rem;
+        transition-property:
+          background-color,
+          border-color,
+          color,
+          fill,
+          stroke,
+          opacity,
+          box-shadow,
+          transform,
+          filter,
+          backdrop-filter,
+          -webkit-backdrop-filter;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .list-item-link svg:last-child {
+        height: 1rem;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+        width: 1rem;
+      }
+      .list-item-link:hover {
+        color: rgba(255, 255, 255, 1);
+        background-color: hsla(162, 55%, 33%, 1);
+      }
+
+      .list-item-link:hover > span > span {
+        color: rgba(243, 244, 246, 1);
+      }
+      .list-item-link:hover svg:last-child {
+        transform: translateX(0.25rem);
+      }
+
+      .button-pill {
+        padding: 1.5rem 2rem;
+        margin-bottom: 2rem;
+        transition-duration: 300ms;
+        transition-property:
+          background-color,
+          border-color,
+          color,
+          fill,
+          stroke,
+          opacity,
+          box-shadow,
+          transform,
+          filter,
+          backdrop-filter,
+          -webkit-backdrop-filter;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        align-items: center;
+        display: flex;
+      }
+      .button-pill svg {
+        transition-property:
+          background-color,
+          border-color,
+          color,
+          fill,
+          stroke,
+          opacity,
+          box-shadow,
+          transform,
+          filter,
+          backdrop-filter,
+          -webkit-backdrop-filter;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+        flex-shrink: 0;
+        width: 3rem;
+      }
+      .button-pill > span {
+        letter-spacing: -0.025em;
+        font-weight: 400;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .button-pill span span {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 300;
+        line-height: 1.25rem;
+      }
+      .button-pill:hover svg,
+      .button-pill:hover {
+        color: rgba(255, 255, 255, 1) !important;
+      }
+      .nx-console:hover {
+        background-color: rgba(0, 122, 204, 1);
+      }
+      .nx-console svg {
+        color: rgba(0, 122, 204, 1);
+      }
+      .nx-console-jetbrains {
+        margin-top: 2rem;
+      }
+      .nx-console-jetbrains:hover {
+        background-color: rgba(255, 49, 140, 1);
+      }
+      .nx-console-jetbrains svg {
+        color: rgba(255, 49, 140, 1);
+      }
+      #nx-repo:hover {
+        background-color: rgba(24, 23, 23, 1);
+      }
+      #nx-repo svg {
+        color: rgba(24, 23, 23, 1);
+      }
+      #nx-cloud {
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        padding: 2.5rem 2rem;
+      }
+      #nx-cloud > div {
+        align-items: center;
+        display: flex;
+      }
+      #nx-cloud > div svg {
+        border-radius: 0.375rem;
+        flex-shrink: 0;
+        width: 3rem;
+      }
+      #nx-cloud > div h2 {
+        font-size: 1.125rem;
+        font-weight: 400;
+        letter-spacing: -0.025em;
+        line-height: 1.75rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      #nx-cloud > div h2 span {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 300;
+        line-height: 1.25rem;
+      }
+      #nx-cloud p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        margin-top: 1rem;
+      }
+      #nx-cloud pre {
+        margin-top: 1rem;
+      }
+      #nx-cloud a {
+        color: rgba(107, 114, 128, 1);
+        display: block;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        margin-top: 1.5rem;
+        text-align: right;
+      }
+      #nx-cloud a:hover {
+        text-decoration: underline;
+      }
+      #commands {
+        padding: 2.5rem 2rem;
+        margin-top: 3.5rem;
+      }
+      #commands h2 {
+        font-size: 1.25rem;
+        font-weight: 400;
+        letter-spacing: -0.025em;
+        line-height: 1.75rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      #commands p {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.5rem;
+        margin-top: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      details {
+        align-items: center;
+        display: flex;
+        margin-top: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 100%;
+      }
+      details pre > span {
+        color: rgba(181, 181, 181, 1);
+      }
+      summary {
+        border-radius: 0.5rem;
+        display: flex;
+        font-weight: 400;
+        padding: 0.5rem;
+        cursor: pointer;
+        transition-property:
+          background-color,
+          border-color,
+          color,
+          fill,
+          stroke,
+          opacity,
+          box-shadow,
+          transform,
+          filter,
+          backdrop-filter,
+          -webkit-backdrop-filter;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      summary:hover {
+        background-color: rgba(243, 244, 246, 1);
+      }
+      summary svg {
+        height: 1.5rem;
+        margin-right: 1rem;
+        width: 1.5rem;
+      }
+      #love {
+        color: rgba(107, 114, 128, 1);
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        margin-top: 3.5rem;
+        opacity: 0.6;
+        text-align: center;
+      }
+      #love svg {
+        color: rgba(252, 165, 165, 1);
+        width: 1.25rem;
+        height: 1.25rem;
+        display: inline;
+        margin-top: -0.25rem;
+      }
+      @media screen and (min-width: 768px) {
+        #hero {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        #hero .logo-container {
+          display: flex;
+        }
+        #middle-content {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 4rem;
+        }
+      }
+    </style>
+    <div class="wrapper">
+      <div class="container">
+        <!--  WELCOME  -->
+        <div id="welcome">
+          <h1>
+            <span> Hello there, </span>
+            Welcome frontend 👋
+          </h1>
+        </div>
+        <!--  HERO  -->
+        <div id="hero" class="rounded">
+          <div class="text-container">
+            <h2>
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                />
+              </svg>
+              <span>You&apos;re up and running</span>
+            </h2>
+            <a href="#commands"> What&apos;s next? </a>
+          </div>
+          <div class="logo-container">
+            <svg
+              fill="currentColor"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.987 14.138l-3.132 4.923-5.193-8.427-.012 8.822H0V4.544h3.691l5.247 8.833.005-3.998 3.044 4.759zm.601-5.761c.024-.048 0-3.784.008-3.833h-3.65c.002.059-.005 3.776-.003 3.833h3.645zm5.634 4.134a2.061 2.061 0 0 0-1.969 1.336 1.963 1.963 0 0 1 2.343-.739c.396.161.917.422 1.33.283a2.1 2.1 0 0 0-1.704-.88zm3.39 1.061c-.375-.13-.8-.277-1.109-.681-.06-.08-.116-.17-.176-.265a2.143 2.143 0 0 0-.533-.642c-.294-.216-.68-.322-1.18-.322a2.482 2.482 0 0 0-2.294 1.536 2.325 2.325 0 0 1 4.002.388.75.75 0 0 0 .836.334c.493-.105.46.36 1.203.518v-.133c-.003-.446-.246-.55-.75-.733zm2.024 1.266a.723.723 0 0 0 .347-.638c-.01-2.957-2.41-5.487-5.37-5.487a5.364 5.364 0 0 0-4.487 2.418c-.01-.026-1.522-2.39-1.538-2.418H8.943l3.463 5.423-3.379 5.32h3.54l1.54-2.366 1.568 2.366h3.541l-3.21-5.052a.7.7 0 0 1-.084-.32 2.69 2.69 0 0 1 2.69-2.691h.001c1.488 0 1.736.89 2.057 1.308.634.826 1.9.464 1.9 1.541a.707.707 0 0 0 1.066.596zm.35.133c-.173.372-.56.338-.755.639-.176.271.114.412.114.412s.337.156.538-.311c.104-.231.14-.488.103-.74z"
+              />
+            </svg>
+          </div>
+        </div>
+        <!--  MIDDLE CONTENT  -->
+        <div id="middle-content">
+          <div id="middle-left-content">
+            <div id="learning-materials" class="rounded shadow">
+              <h2>Learning materials</h2>
+              <a
+                href="https://nx.dev/getting-started/intro?utm_source=nx-project"
+                target="_blank"
+                rel="noreferrer"
+                class="list-item-link"
+              >
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
+                </svg>
+                <span>
+                  Documentation
+                  <span> Everything is in there </span>
+                </span>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://nx.dev/blog?utm_source=nx-project"
+                target="_blank"
+                rel="noreferrer"
+                class="list-item-link"
+              >
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                  />
+                </svg>
+                <span>
+                  Blog
+                  <span> Changelog, features & events </span>
+                </span>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.youtube.com/@NxDevtools/videos?utm_source=nx-project&sub_confirmation=1"
+                target="_blank"
+                rel="noreferrer"
+                class="list-item-link"
+              >
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>YouTube</title>
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+                <span>
+                  YouTube channel
+                  <span> Nx Show, talks & tutorials </span>
+                </span>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://nx.dev/getting-started/tutorials/angular-standalone-tutorial?utm_source=nx-project"
+                target="_blank"
+                rel="noreferrer"
+                class="list-item-link"
+              >
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                  />
+                </svg>
+                <span>
+                  Interactive tutorials
+                  <span> Create an app, step-by-step </span>
+                </span>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </a>
+            </div>
+            <a
+              id="nx-repo"
+              class="button-pill rounded shadow"
+              href="https://github.com/nrwl/nx?utm_source=nx-project"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg
+                fill="currentColor"
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                />
+              </svg>
+              <span>
+                Nx is open source
+                <span> Love Nx? Give us a star! </span>
+              </span>
+            </a>
+          </div>
+          <div id="other-links">
+            <a
+              class="button-pill rounded shadow nx-console"
+              href="https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console&utm_source=nx-project"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg
+                fill="currentColor"
+                role="img"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Visual Studio Code</title>
+                <path
+                  d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"
+                />
+              </svg>
+              <span>
+                Install Nx Console for VSCode
+                <span>The official VSCode extension for Nx.</span>
+              </span>
+            </a>
+            <a
+              class="button-pill rounded shadow nx-console-jetbrains"
+              href="https://plugins.jetbrains.com/plugin/21060-nx-console"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg
+                height="48"
+                width="48"
+                viewBox="20 20 60 60"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="m22.5 22.5h60v60h-60z" />
+                <g fill="#fff">
+                  <path d="m29.03 71.25h22.5v3.75h-22.5z" />
+                  <path
+                    d="m28.09 38 1.67-1.58a1.88 1.88 0 0 0 1.47.87c.64 0 1.06-.44 1.06-1.31v-5.98h2.58v6a3.48 3.48 0 0 1 -.87 2.6 3.56 3.56 0 0 1 -2.57.95 3.84 3.84 0 0 1 -3.34-1.55z"
+                  />
+                  <path
+                    d="m36 30h7.53v2.19h-5v1.44h4.49v2h-4.42v1.49h5v2.21h-7.6z"
+                  />
+                  <path d="m47.23 32.29h-2.8v-2.29h8.21v2.27h-2.81v7.1h-2.6z" />
+                  <path
+                    d="m29.13 43.08h4.42a3.53 3.53 0 0 1 2.55.83 2.09 2.09 0 0 1 .6 1.53 2.16 2.16 0 0 1 -1.44 2.09 2.27 2.27 0 0 1 1.86 2.29c0 1.61-1.31 2.59-3.55 2.59h-4.44zm5 2.89c0-.52-.42-.8-1.18-.8h-1.29v1.64h1.24c.79 0 1.25-.26 1.25-.81zm-.9 2.66h-1.57v1.73h1.62c.8 0 1.24-.31 1.24-.86 0-.5-.4-.87-1.27-.87z"
+                  />
+                  <path
+                    d="m38 43.08h4.1a4.19 4.19 0 0 1 3 1 2.93 2.93 0 0 1 .9 2.19 3 3 0 0 1 -1.93 2.89l2.24 3.27h-3l-1.88-2.84h-.87v2.84h-2.56zm4 4.5c.87 0 1.39-.43 1.39-1.11 0-.75-.54-1.12-1.4-1.12h-1.44v2.26z"
+                  />
+                  <path
+                    d="m49.59 43h2.5l4 9.44h-2.79l-.67-1.69h-3.63l-.67 1.69h-2.71zm2.27 5.73-1-2.65-1.06 2.65z"
+                  />
+                  <path d="m56.46 43.05h2.6v9.37h-2.6z" />
+                  <path
+                    d="m60.06 43.05h2.42l3.37 5v-5h2.57v9.37h-2.26l-3.53-5.14v5.14h-2.57z"
+                  />
+                  <path
+                    d="m68.86 51 1.45-1.73a4.84 4.84 0 0 0 3 1.13c.71 0 1.08-.24 1.08-.65 0-.4-.31-.6-1.59-.91-2-.46-3.53-1-3.53-2.93 0-1.74 1.37-3 3.62-3a5.89 5.89 0 0 1 3.86 1.25l-1.26 1.84a4.63 4.63 0 0 0 -2.62-.92c-.63 0-.94.25-.94.6 0 .42.32.61 1.63.91 2.14.46 3.44 1.16 3.44 2.91 0 1.91-1.51 3-3.79 3a6.58 6.58 0 0 1 -4.35-1.5z"
+                  />
+                </g>
+              </svg>
+              <span>
+                Install Nx Console for JetBrains
+                <span
+                  >Available for WebStorm, Intellij IDEA Ultimate and
+                  more!</span
+                >
+              </span>
+            </a>
+            <div id="nx-cloud" class="rounded shadow">
+              <div>
+                <svg
+                  id="nx-cloud-logo"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="currentColor"
+                  fill="transparent"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-width="2"
+                    d="M23 3.75V6.5c-3.036 0-5.5 2.464-5.5 5.5s-2.464 5.5-5.5 5.5-5.5 2.464-5.5 5.5H3.75C2.232 23 1 21.768 1 20.25V3.75C1 2.232 2.232 1 3.75 1h16.5C21.768 1 23 2.232 23 3.75Z"
+                  />
+                  <path
+                    stroke-width="2"
+                    d="M23 6v14.1667C23 21.7307 21.7307 23 20.1667 23H6c0-3.128 2.53867-5.6667 5.6667-5.6667 3.128 0 5.6666-2.5386 5.6666-5.6666C17.3333 8.53867 19.872 6 23 6Z"
+                  />
+                </svg>
+                <h2>
+                  Nx Cloud
+                  <span> Enable faster CI & better DX </span>
+                </h2>
+              </div>
+              <p>
+                You can activate distributed tasks executions and caching by
+                running:
+              </p>
+              <pre>nx connect</pre>
+              <a
+                href="https://nx.dev/nx-cloud?utm_source=nx-project"
+                target="_blank"
+                rel="noreferrer"
+              >
+                What is Nx Cloud?
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--  COMMANDS  -->
+        <div id="commands" class="rounded shadow">
+          <h2>Next steps</h2>
+          <p>Here are some things you can do with Nx:</p>
+          <details>
+            <summary>
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              Build, test and lint your app
+            </summary>
+            <pre><span># Build</span>
+nx build 
+<span># Test</span>
+nx test 
+<span># Lint</span>
+nx lint 
+<span># Run them together!</span>
+nx run-many -t build test lint</pre>
+          </details>
+          <details>
+            <summary>
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              View project details
+            </summary>
+            <pre>nx show project frontend</pre>
+          </details>
+
+          <details>
+            <summary>
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              View interactive project graph
+            </summary>
+            <pre>nx graph</pre>
+          </details>
+
+          <details>
+            <summary>
+              <svg
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              Add UI library
+            </summary>
+            <pre><span># Generate UI lib</span>
+nx g &#64;nx/angular:lib ui
+<span># Add a component</span>
+nx g &#64;nx/angular:component ui/src/lib/button</pre>
+          </details>
+        </div>
+        <p id="love">
+          Carefully crafted with
+          <svg
+            fill="currentColor"
+            stroke="none"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            />
+          </svg>
+        </p>
+      </div>
+    </div>
+  `,
+  styles: [],
+  encapsulation: ViewEncapsulation.None,
+})
+export class NxWelcome {}
+</file>
+
+<file path="apps/frontend/src/app/state/leads/leads.actions.ts">
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
+import { Lead } from '../../core/models/lead.model';
+
+export const LeadsActions = createActionGroup({
+  source: 'Leads',
+  events: {
+    'Load Leads': emptyProps(),
+    'Load Leads Success': props<{ leads: Lead[] }>(),
+    'Load Leads Failure': props<{ error: any }>(),
+    'Add Lead': props<{ lead: Partial<Lead> }>(),
+    'Add Lead Success': props<{ lead: Lead }>(),
+    'Add Lead Failure': props<{ error: any }>(),
+    'Update Lead': props<{ lead: Lead }>(),
+    'Update Lead Success': props<{ lead: Lead }>(),
+    'Update Lead Failure': props<{ error: any }>(),
+    'Delete Lead': props<{ id: number }>(),
+    'Delete Lead Success': props<{ id: number }>(),
+    'Delete Lead Failure': props<{ error: any }>(),
+  },
+});
+</file>
+
+<file path="apps/frontend/src/app/state/leads/leads.effects.ts">
+import { Injectable, inject } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { LeadsService } from '../../core/services/leads.service';
+import { LeadsActions } from './leads.actions';
+import { catchError, map, mergeMap, of } from 'rxjs';
+
+@Injectable()
+export class LeadsEffects {
+  private actions$ = inject(Actions);
+  private leadsService = inject(LeadsService);
+
+  loadLeads$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(LeadsActions.loadLeads),
+      mergeMap(() =>
+        this.leadsService.getLeads().pipe(
+          map((leads) => LeadsActions.loadLeadsSuccess({ leads })),
+          catchError((error) => of(LeadsActions.loadLeadsFailure({ error })))
+        )
+      )
+    )
+  );
+
+  addLead$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(LeadsActions.addLead),
+      mergeMap(({ lead }) =>
+        this.leadsService.createLead(lead).pipe(
+          map((newLead) => LeadsActions.addLeadSuccess({ lead: newLead })),
+          catchError((error) => of(LeadsActions.addLeadFailure({ error })))
+        )
+      )
+    )
+  );
+
+  updateLead$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(LeadsActions.updateLead),
+      mergeMap(({ lead }) =>
+        this.leadsService.updateLead(lead).pipe(
+          map((updatedLead) => LeadsActions.updateLeadSuccess({ lead: updatedLead })),
+          catchError((error) => of(LeadsActions.updateLeadFailure({ error })))
+        )
+      )
+    )
+  );
+
+  deleteLead$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(LeadsActions.deleteLead),
+      mergeMap(({ id }) =>
+        this.leadsService.deleteLead(id).pipe(
+          map(() => LeadsActions.deleteLeadSuccess({ id })),
+          catchError((error) => of(LeadsActions.deleteLeadFailure({ error })))
+        )
+      )
+    )
+  );
+}
+</file>
+
+<file path="apps/frontend/src/app/state/leads/leads.reducer.spec.ts">
+import { leadsFeature, initialState } from './leads.reducer';
+import { LeadsActions } from './leads.actions';
+import { Lead, LeadStatus } from '../../core/models/lead.model';
+
+describe('Leads Reducer', () => {
+  it('should return the initial state', () => {
+    const { reducer } = leadsFeature;
+    const action = { type: 'Unknown' };
+    const state = reducer(initialState, action as any);
+
+    expect(state).toBe(initialState);
+  });
+
+  it('should load leads and set loading to true', () => {
+    const { reducer } = leadsFeature;
+    const action = LeadsActions.loadLeads();
+    const state = reducer(initialState, action);
+
+    expect(state.loading).toBe(true);
+  });
+
+  it('should update leads on loadLeadsSuccess', () => {
+    const { reducer } = leadsFeature;
+    const leads: Lead[] = [{ id: 1, name: 'Test', cpf: '123', status: LeadStatus.NEW, createdAt: '', updatedAt: '' }];
+    const action = LeadsActions.loadLeadsSuccess({ leads });
+    const state = reducer(initialState, action);
+
+    expect(state.leads).toBe(leads);
+    expect(state.loading).toBe(false);
+  });
+});
+</file>
+
+<file path="apps/frontend/src/app/state/leads/leads.reducer.ts">
+import { createFeature, createReducer, on } from '@ngrx/store';
+import { Lead } from '../../core/models/lead.model';
+import { LeadsActions } from './leads.actions';
+
+export interface LeadsState {
+  leads: Lead[];
+  loading: boolean;
+  error: any;
+}
+
+export const initialState: LeadsState = {
+  leads: [],
+  loading: false,
+  error: null,
+};
+
+export const leadsFeature = createFeature({
+  name: 'leads',
+  reducer: createReducer(
+    initialState,
+    on(LeadsActions.loadLeads, (state) => ({ ...state, loading: true })),
+    on(LeadsActions.loadLeadsSuccess, (state, { leads }) => ({
+      ...state,
+      leads,
+      loading: false,
+    })),
+    on(LeadsActions.loadLeadsFailure, (state, { error }) => ({
+      ...state,
+      error,
+      loading: false,
+    })),
+    on(LeadsActions.addLeadSuccess, (state, { lead }) => ({
+      ...state,
+      leads: [...state.leads, lead],
+    })),
+    on(LeadsActions.updateLeadSuccess, (state, { lead }) => ({
+      ...state,
+      leads: state.leads.map((l) => (l.id === lead.id ? lead : l)),
+    })),
+    on(LeadsActions.deleteLeadSuccess, (state, { id }) => ({
+      ...state,
+      leads: state.leads.filter((l) => l.id !== id),
+    }))
+  ),
+});
+</file>
+
+<file path="apps/frontend/src/app/state/properties/properties.actions.ts">
+import { createActionGroup, props } from '@ngrx/store';
+import { Property } from '../../core/models/property.model';
+
+export const PropertiesActions = createActionGroup({
+  source: 'Properties',
+  events: {
+    'Load Properties': props<{ leadId?: number }>(),
+    'Load Properties Success': props<{ properties: Property[] }>(),
+    'Load Properties Failure': props<{ error: any }>(),
+    'Add Property': props<{ property: Partial<Property> }>(),
+    'Add Property Success': props<{ property: Property }>(),
+    'Add Property Failure': props<{ error: any }>(),
+    'Update Property': props<{ property: Property }>(),
+    'Update Property Success': props<{ property: Property }>(),
+    'Update Property Failure': props<{ error: any }>(),
+    'Delete Property': props<{ id: number }>(),
+    'Delete Property Success': props<{ id: number }>(),
+    'Delete Property Failure': props<{ error: any }>(),
+  },
+});
+</file>
+
+<file path="apps/frontend/src/app/state/properties/properties.effects.ts">
+import { Injectable, inject } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { PropertiesService } from '../../core/services/properties.service';
+import { PropertiesActions } from './properties.actions';
+import { catchError, map, mergeMap, of } from 'rxjs';
+
+@Injectable()
+export class PropertiesEffects {
+  private actions$ = inject(Actions);
+  private propertiesService = inject(PropertiesService);
+
+  loadProperties$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PropertiesActions.loadProperties),
+      mergeMap(({ leadId }) =>
+        this.propertiesService.getProperties(leadId).pipe(
+          map((properties) => PropertiesActions.loadPropertiesSuccess({ properties })),
+          catchError((error) => of(PropertiesActions.loadPropertiesFailure({ error })))
+        )
+      )
+    )
+  );
+
+  addProperty$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PropertiesActions.addProperty),
+      mergeMap(({ property }) =>
+        this.propertiesService.createProperty(property).pipe(
+          map((newProperty) => PropertiesActions.addPropertySuccess({ property: newProperty })),
+          catchError((error) => of(PropertiesActions.addPropertyFailure({ error })))
+        )
+      )
+    )
+  );
+
+  updateProperty$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PropertiesActions.updateProperty),
+      mergeMap(({ property }) =>
+        this.propertiesService.updateProperty(property).pipe(
+          map((updatedProperty) => PropertiesActions.updatePropertySuccess({ property: updatedProperty })),
+          catchError((error) => of(PropertiesActions.updatePropertyFailure({ error })))
+        )
+      )
+    )
+  );
+
+  deleteProperty$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PropertiesActions.deleteProperty),
+      mergeMap(({ id }) =>
+        this.propertiesService.deleteProperty(id).pipe(
+          map(() => PropertiesActions.deletePropertySuccess({ id })),
+          catchError((error) => of(PropertiesActions.deletePropertyFailure({ error })))
+        )
+      )
+    )
+  );
+}
+</file>
+
+<file path="apps/frontend/src/app/state/properties/properties.reducer.ts">
+import { createFeature, createReducer, on } from '@ngrx/store';
+import { Property } from '../../core/models/property.model';
+import { PropertiesActions } from './properties.actions';
+
+export interface PropertiesState {
+  properties: Property[];
+  loading: boolean;
+  error: any;
+}
+
+export const initialState: PropertiesState = {
+  properties: [],
+  loading: false,
+  error: null,
+};
+
+export const propertiesFeature = createFeature({
+  name: 'properties',
+  reducer: createReducer(
+    initialState,
+    on(PropertiesActions.loadProperties, (state) => ({ ...state, loading: true })),
+    on(PropertiesActions.loadPropertiesSuccess, (state, { properties }) => ({
+      ...state,
+      properties,
+      loading: false,
+    })),
+    on(PropertiesActions.loadPropertiesFailure, (state, { error }) => ({
+      ...state,
+      error,
+      loading: false,
+    })),
+    on(PropertiesActions.addPropertySuccess, (state, { property }) => ({
+      ...state,
+      properties: [...state.properties, property],
+    })),
+    on(PropertiesActions.updatePropertySuccess, (state, { property }) => ({
+      ...state,
+      properties: state.properties.map((p) => (p.id === property.id ? property : p)),
+    })),
+    on(PropertiesActions.deletePropertySuccess, (state, { id }) => ({
+      ...state,
+      properties: state.properties.filter((p) => p.id !== id),
+    }))
+  ),
+});
+</file>
+
+<file path="apps/frontend/src/index.html">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>frontend</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>
+</file>
+
+<file path="apps/frontend/src/main.ts">
+import { bootstrapApplication } from '@angular/platform-browser';
+import { appConfig } from './app/app.config';
+import { App } from './app/app';
+
+bootstrapApplication(App, appConfig).catch((err) => console.error(err));
+</file>
+
+<file path="apps/frontend/tsconfig.app.json">
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": []
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.test.ts"]
+}
+</file>
+
+<file path="apps/frontend/tsconfig.json">
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "target": "es2022",
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": false,
+    "module": "preserve"
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}
+</file>
+
+<file path="apps/frontend/tsconfig.spec.json">
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": ["vitest/globals"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts"]
+}
+</file>
+
+<file path="conductor/code_styleguides/general.md">
+# General Code Style Principles
+
+This document outlines general coding principles that apply across all languages and frameworks used in this project.
+
+## Readability
+- Code should be easy to read and understand by humans.
+- Avoid overly clever or obscure constructs.
+
+## Consistency
+- Follow existing patterns in the codebase.
+- Maintain consistent formatting, naming, and structure.
+
+## Simplicity
+- Prefer simple solutions over complex ones.
+- Break down complex problems into smaller, manageable parts.
+
+## Maintainability
+- Write code that is easy to modify and extend.
+- Minimize dependencies and coupling.
+
+## Documentation
+- Document *why* something is done, not just *what*.
+- Keep documentation up-to-date with code changes.
+</file>
+
+<file path="conductor/code_styleguides/html-css.md">
+# Google HTML/CSS Style Guide Summary
+
+This document summarizes key rules and best practices from the Google HTML/CSS Style Guide.
+
+## 1. General Rules
+- **Protocol:** Use HTTPS for all embedded resources.
+- **Indentation:** Indent by 2 spaces. Do not use tabs.
+- **Capitalization:** Use only lowercase for all code (element names, attributes, selectors, properties).
+- **Trailing Whitespace:** Remove all trailing whitespace.
+- **Encoding:** Use UTF-8 (without a BOM). Specify `<meta charset="utf-8">` in HTML.
+
+## 2. HTML Style Rules
+- **Document Type:** Use `<!doctype html>`.
+- **HTML Validity:** Use valid HTML.
+- **Semantics:** Use HTML elements according to their intended purpose (e.g., use `<p>` for paragraphs, not for spacing).
+- **Multimedia Fallback:** Provide `alt` text for images and transcripts/captions for audio/video.
+- **Separation of Concerns:** Strictly separate structure (HTML), presentation (CSS), and behavior (JavaScript). Link to CSS and JS from external files.
+- **`type` Attributes:** Omit `type` attributes for stylesheets (`<link>`) and scripts (`<script>`).
+
+## 3. HTML Formatting Rules
+- **General:** Use a new line for every block, list, or table element, and indent its children.
+- **Quotation Marks:** Use double quotation marks (`""`) for attribute values.
+
+## 4. CSS Style Rules
+- **CSS Validity:** Use valid CSS.
+- **Class Naming:** Use meaningful, generic names. Separate words with a hyphen (`-`).
+  - **Good:** `.video-player`, `.site-navigation`
+  - **Bad:** `.vid`, `.red-text`
+- **ID Selectors:** Avoid using ID selectors for styling. Prefer class selectors.
+- **Shorthand Properties:** Use shorthand properties where possible (e.g., `padding`, `font`).
+- **`0` and Units:** Omit units for `0` values (e.g., `margin: 0;`).
+- **Leading `0`s:** Always include leading `0`s for decimal values (e.g., `font-size: 0.8em;`).
+- **Hexadecimal Notation:** Use 3-character hex notation where possible (e.g., `#fff`).
+- **`!important`:** Avoid using `!important`.
+
+## 5. CSS Formatting Rules
+- **Declaration Order:** Alphabetize declarations within a rule.
+- **Indentation:** Indent all block content.
+- **Semicolons:** Use a semicolon after every declaration.
+- **Spacing:**
+  - Use a space after a property name's colon (`font-weight: bold;`).
+  - Use a space between the last selector and the opening brace (`.foo {`).
+  - Start a new line for each selector and declaration.
+- **Rule Separation:** Separate rules with a new line.
+- **Quotation Marks:** Use single quotes (`''`) for attribute selectors and property values (e.g., `[type='text']`).
+
+**BE CONSISTENT.** When editing code, match the existing style.
+
+*Source: [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)*
+</file>
+
+<file path="conductor/code_styleguides/javascript.md">
+# Google JavaScript Style Guide Summary
+
+This document summarizes key rules and best practices from the Google JavaScript Style Guide.
+
+## 1. Source File Basics
+- **File Naming:** All lowercase, with underscores (`_`) or dashes (`-`). Extension must be `.js`.
+- **File Encoding:** UTF-8.
+- **Whitespace:** Use only ASCII horizontal spaces (0x20). Tabs are forbidden for indentation.
+
+## 2. Source File Structure
+- New files should be ES modules (`import`/`export`).
+- **Exports:** Use named exports (`export {MyClass};`). **Do not use default exports.**
+- **Imports:** Do not use line-wrapped imports. The `.js` extension in import paths is mandatory.
+
+## 3. Formatting
+- **Braces:** Required for all control structures (`if`, `for`, `while`, etc.), even single-line blocks. Use K&R style ("Egyptian brackets").
+- **Indentation:** +2 spaces for each new block.
+- **Semicolons:** Every statement must be terminated with a semicolon.
+- **Column Limit:** 80 characters.
+- **Line-wrapping:** Indent continuation lines at least +4 spaces.
+- **Whitespace:** Use single blank lines between methods. No trailing whitespace.
+
+## 4. Language Features
+- **Variable Declarations:** Use `const` by default, `let` if reassignment is needed. **`var` is forbidden.**
+- **Array Literals:** Use trailing commas. Do not use the `Array` constructor.
+- **Object Literals:** Use trailing commas and shorthand properties. Do not use the `Object` constructor.
+- **Classes:** Do not use JavaScript getter/setter properties (`get name()`). Provide ordinary methods instead.
+- **Functions:** Prefer arrow functions for nested functions to preserve `this` context.
+- **String Literals:** Use single quotes (`'`). Use template literals (`` ` ``) for multi-line strings or complex interpolation.
+- **Control Structures:** Prefer `for-of` loops. `for-in` loops should only be used on dict-style objects.
+- **`this`:** Only use `this` in class constructors, methods, or in arrow functions defined within them.
+- **Equality Checks:** Always use identity operators (`===` / `!==`).
+
+## 5. Disallowed Features
+- `with` keyword.
+- `eval()` or `Function(...string)`.
+- Automatic Semicolon Insertion.
+- Modifying builtin objects (`Array.prototype.foo = ...`).
+
+## 6. Naming
+- **Classes:** `UpperCamelCase`.
+- **Methods & Functions:** `lowerCamelCase`.
+- **Constants:** `CONSTANT_CASE` (all uppercase with underscores).
+- **Non-constant Fields & Variables:** `lowerCamelCase`.
+
+## 7. JSDoc
+- JSDoc is used on all classes, fields, and methods.
+- Use `@param`, `@return`, `@override`, `@deprecated`.
+- Type annotations are enclosed in braces (e.g., `/** @param {string} userName */`).
+
+*Source: [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)*
+</file>
+
+<file path="conductor/code_styleguides/typescript.md">
+# Google TypeScript Style Guide Summary
+
+This document summarizes key rules and best practices from the Google TypeScript Style Guide, which is enforced by the `gts` tool.
+
+## 1. Language Features
+- **Variable Declarations:** Always use `const` or `let`. **`var` is forbidden.** Use `const` by default.
+- **Modules:** Use ES6 modules (`import`/`export`). **Do not use `namespace`.**
+- **Exports:** Use named exports (`export {MyClass};`). **Do not use default exports.**
+- **Classes:**
+  - **Do not use `#private` fields.** Use TypeScript's `private` visibility modifier.
+  - Mark properties never reassigned outside the constructor with `readonly`.
+  - **Never use the `public` modifier** (it's the default). Restrict visibility with `private` or `protected` where possible.
+- **Functions:** Prefer function declarations for named functions. Use arrow functions for anonymous functions/callbacks.
+- **String Literals:** Use single quotes (`'`). Use template literals (`` ` ``) for interpolation and multi-line strings.
+- **Equality Checks:** Always use triple equals (`===`) and not equals (`!==`).
+- **Type Assertions:** **Avoid type assertions (`x as SomeType`) and non-nullability assertions (`y!`)**. If you must use them, provide a clear justification.
+
+## 2. Disallowed Features
+- **`any` Type:** **Avoid `any`**. Prefer `unknown` or a more specific type.
+- **Wrapper Objects:** Do not instantiate `String`, `Boolean`, or `Number` wrapper classes.
+- **Automatic Semicolon Insertion (ASI):** Do not rely on it. **Explicitly end all statements with a semicolon.**
+- **`const enum`:** Do not use `const enum`. Use plain `enum` instead.
+- **`eval()` and `Function(...string)`:** Forbidden.
+
+## 3. Naming
+- **`UpperCamelCase`:** For classes, interfaces, types, enums, and decorators.
+- **`lowerCamelCase`:** For variables, parameters, functions, methods, and properties.
+- **`CONSTANT_CASE`:** For global constant values, including enum values.
+- **`_` Prefix/Suffix:** **Do not use `_` as a prefix or suffix** for identifiers, including for private properties.
+
+## 4. Type System
+- **Type Inference:** Rely on type inference for simple, obvious types. Be explicit for complex types.
+- **`undefined` and `null`:** Both are supported. Be consistent within your project.
+- **Optional vs. `|undefined`:** Prefer optional parameters and fields (`?`) over adding `|undefined` to the type.
+- **`Array<T>` Type:** Use `T[]` for simple types. Use `Array<T>` for more complex union types (e.g., `Array<string | number>`).
+- **`{}` Type:** **Do not use `{}`**. Prefer `unknown`, `Record<string, unknown>`, or `object`.
+
+## 5. Comments and Documentation
+- **JSDoc:** Use `/** JSDoc */` for documentation, `//` for implementation comments.
+- **Redundancy:** **Do not declare types in `@param` or `@return` blocks** (e.g., `/** @param {string} user */`). This is redundant in TypeScript.
+- **Add Information:** Comments must add information, not just restate the code.
+
+*Source: [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html)*
+</file>
+
+<file path="conductor/product-guidelines.md">
+# Product Guidelines - tmDigital Sales Lead Manager
+
+## Tone and Voice
+- **Professional & Efficient:** The interface should use clear, concise language focused on business productivity. Avoid fluff and ensure instructions are direct and actionable.
+
+## Visual Identity
+- **Modern & Clean:** Utilize ample white space, crisp typography (e.g., Roboto or Inter), and a modern layout.
+- **UI Framework:** Leverage PrimeNG's Material or Tailwind themes to ensure a polished and consistent look.
+- **Color Palette:** Focus on professional blues and greens that reflect both the "digital" and "agricultural" nature of the business.
+
+## Brand Messaging
+- **"Data-Driven Growth":** The UI should highlight metrics and insights that demonstrate how the tool helps the distributor expand their market share.
+
+## Interaction Principles
+- **Structured Workflows:** Use multi-step forms or clear wizards for registering complex entities like Leads and Rural Properties to minimize errors.
+- **Interactive Visuals:** Dashboard elements (charts, summaries) should be interactive, allowing users to drill down or filter lists based on the visual data.
+
+## Localization and Accessibility
+- **Portuguese (BR):** All labels, messages, and date/currency formats must be strictly in Brazilian Portuguese.
+- **Responsive Design:** The application must be fully responsive, ensuring a high-quality experience on desktops, laptops, and tablets used by sales teams in the field.
+</file>
+
+<file path="conductor/product.md">
+# Initial Concept
+
+**Goal:** Create a CRUD application for "tmdigital" to help an agricultural inputs distributor in Minas Gerais manage sales leads and their rural properties (Soy, Corn, Cotton).
+
+**Core Features:**
+-   **Lead Management:** Register, list (with filters), edit, and remove leads (Name, CPF, Status, Comments).
+-   **Property Management:** Register, list, edit, and remove rural properties linked to leads (Crop, Area, Geometry).
+-   **Dashboard (Bonus):** Basic metrics (Total leads, Status breakdown, Municipality).
+-   **Priority Indicator (Bonus):** Visual cue for large properties (> 100 ha).
+
+**Tech Stack Requirements:**
+-   Frontend: Angular + PrimeNG
+-   Backend: NestJS + TypeORM + PostgreSQL
+
+# Product Guide - tmDigital Sales Lead Manager
+
+## Product Vision
+To provide a centralized platform for agricultural input distributors to efficiently manage sales leads and rural properties. The application empowers sales teams to move beyond their existing client base, prioritize potential leads through data-driven insights, and maintain a clear history of lead interactions.
+
+## Target Users
+- **Sales Team & Managers:** Primary users who manage the lead pipeline and analyze performance metrics.
+- **Farmers (Leads):** Stakeholders whose data and property information are the core of the system.
+
+## Primary Goals
+- **Lead Optimization:** Enable the sales team to discover and prioritize new leads efficiently.
+- **Centralized Management:** Organize leads and rural properties in a single, accessible database.
+- **Visual Insights:** Provide a dashboard with metrics and visual indicators for better decision-making.
+
+## Core Features
+- **Lead CRUD:** Full management of lead profiles (name, CPF, status, and history).
+- **Rural Property Management:** Registration and tracking of crops (soy, corn, cotton) and land area.
+- **Management Dashboard:** A summary view of total leads and status metrics.
+- **Priority System:** Visual tagging and filtering for properties > 100 hectares, with dedicated dashboard highlights.
+
+## Future Roadmap
+- **Expansion:** Support more crops and geographic regions beyond Minas Gerais (MG).
+- **Integration:** Connect with external APIs for agricultural market data or geographical mapping.
+</file>
+
+<file path="conductor/setup_state.json">
+{"last_successful_step": "3.3_initial_track_generated"}
+</file>
+
+<file path="conductor/tech-stack.md">
+# Tech Stack - tmDigital Sales Lead Manager
+
+## Frontend
+- **Framework:** Angular (latest stable version)
+- **UI Component Library:** PrimeNG
+- **State Management:** NgRx
+- **Reactive Programming:** RxJS (Core Angular)
+- **Charts:** PrimeNG Charts (Chart.js integration)
+
+## Backend
+- **Framework:** NestJS
+- **ORM:** TypeORM
+- **Validation:** class-validator & class-transformer
+- **Documentation:** Swagger (OpenAPI)
+
+## Database
+- **Primary Database:** PostgreSQL
+
+## Infrastructure & DevOps
+- **Containerization:** Docker & Docker Compose (for DB and app services)
+- **Code Quality:** ESLint, Prettier
+- **Testing:** Jest (Unit and Integration)
+- **Version Control:** Git
+
+## Architecture
+- **Repository Pattern:** Monorepo (Nx recommended)
+- **Pattern:** Layered Architecture (Controllers, Services, Modules, DTOs)
+- **Communication:** RESTful API
+</file>
+
+<file path="conductor/tracks/mvp_setup_20260109/metadata.json">
+{
+  "track_id": "mvp_setup_20260109",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-09T22:15:00Z",
+  "updated_at": "2026-01-09T22:15:00Z",
+  "description": "Build the core Lead and Property Management system with a dashboard and priority indicators."
+}
+</file>
+
+<file path="conductor/tracks/mvp_setup_20260109/spec.md">
+# Specification - MVP Setup
+
+## Overview
+This track implements the core functionality for the tmDigital Sales Lead Manager, including Lead and Property CRUD, a Dashboard, and a Priority Indicator system.
+
+## Functional Requirements
+- **Lead Management:**
+  - Create, Read, Update, Delete leads.
+  - Fields: Name, CPF (validated), Status (New, In Negotiation, Converted, Lost), Comments.
+- **Property Management:**
+  - Create, Read, Update, Delete properties.
+  - Fields: Crop (Soy, Corn, Cotton), Area (Hectares), Geometry/Location.
+  - Must be linked to a Lead.
+- **Dashboard:**
+  - Metrics: Total leads, status breakdown, municipality count, crop summary.
+  - Interactive filters.
+- **Priority System:**
+  - Automated rule: Properties > 100 hectares = Priority.
+  - Visual badges and filtering for priority leads.
+
+## Technical Requirements
+- **Frontend:** Angular + PrimeNG + NgRx.
+- **Backend:** NestJS + TypeORM + PostgreSQL.
+- **Architecture:** Monorepo (Nx), REST API.
+- **Localization:** PT-BR.
+</file>
+
+<file path="conductor/workflow.md">
+# Project Workflow
+
+## Guiding Principles
+
+1. **The Plan is the Source of Truth:** All work must be tracked in `plan.md`
+2. **The Tech Stack is Deliberate:** Changes to the tech stack must be documented in `tech-stack.md` *before* implementation
+3. **Test-Driven Development:** Write unit tests before implementing functionality
+4. **High Code Coverage:** Aim for >80% code coverage for all modules
+5. **User Experience First:** Every decision should prioritize user experience
+6. **Non-Interactive & CI-Aware:** Prefer non-interactive commands. Use `CI=true` for watch-mode tools (tests, linters) to ensure single execution.
+
+## Task Workflow
+
+All tasks follow a strict lifecycle:
+
+### Standard Task Workflow
+
+1. **Select Task:** Choose the next available task from `plan.md` in sequential order
+
+2. **Mark In Progress:** Before beginning work, edit `plan.md` and change the task from `[ ]` to `[~]`
+
+3. **Write Failing Tests (Red Phase):**
+   - Create a new test file for the feature or bug fix.
+   - Write one or more unit tests that clearly define the expected behavior and acceptance criteria for the task.
+   - **CRITICAL:** Run the tests and confirm that they fail as expected. This is the "Red" phase of TDD. Do not proceed until you have failing tests.
+
+4. **Implement to Pass Tests (Green Phase):**
+   - Write the minimum amount of application code necessary to make the failing tests pass.
+   - Run the test suite again and confirm that all tests now pass. This is the "Green" phase.
+
+5. **Refactor (Optional but Recommended):**
+   - With the safety of passing tests, refactor the implementation code and the test code to improve clarity, remove duplication, and enhance performance without changing the external behavior.
+   - Rerun tests to ensure they still pass after refactoring.
+
+6. **Verify Coverage:** Run coverage reports using the project's chosen tools. For example, in a Python project, this might look like:
+   ```bash
+   pytest --cov=app --cov-report=html
+   ```
+   Target: >80% coverage for new code. The specific tools and commands will vary by language and framework.
+
+7. **Document Deviations:** If implementation differs from tech stack:
+   - **STOP** implementation
+   - Update `tech-stack.md` with new design
+   - Add dated note explaining the change
+   - Resume implementation
+
+8. **Commit Code Changes:**
+   - Stage all code changes related to the task.
+   - Propose a clear, concise commit message e.g, `feat(ui): Create basic HTML structure for calculator`.
+   - Perform the commit.
+
+9. **Attach Task Summary with Git Notes:**
+   - **Step 9.1: Get Commit Hash:** Obtain the hash of the *just-completed commit* (`git log -1 --format="%H"`).
+   - **Step 9.2: Draft Note Content:** Create a detailed summary for the completed task. This should include the task name, a summary of changes, a list of all created/modified files, and the core "why" for the change.
+   - **Step 9.3: Attach Note:** Use the `git notes` command to attach the summary to the commit.
+     ```bash
+     # The note content from the previous step is passed via the -m flag.
+     git notes add -m "<note content>" <commit_hash>
+     ```
+
+10. **Get and Record Task Commit SHA:**
+    - **Step 10.1: Update Plan:** Read `plan.md`, find the line for the completed task, update its status from `[~]` to `[x]`, and append the first 7 characters of the *just-completed commit's* commit hash.
+    - **Step 10.2: Write Plan:** Write the updated content back to `plan.md`.
+
+11. **Commit Plan Update:**
+    - **Action:** Stage the modified `plan.md` file.
+    - **Action:** Commit this change with a descriptive message (e.g., `conductor(plan): Mark task 'Create user model' as complete`).
+
+### Phase Completion Verification and Checkpointing Protocol
+
+**Trigger:** This protocol is executed immediately after a task is completed that also concludes a phase in `plan.md`.
+
+1.  **Announce Protocol Start:** Inform the user that the phase is complete and the verification and checkpointing protocol has begun.
+
+2.  **Ensure Test Coverage for Phase Changes:**
+    -   **Step 2.1: Determine Phase Scope:** To identify the files changed in this phase, you must first find the starting point. Read `plan.md` to find the Git commit SHA of the *previous* phase's checkpoint. If no previous checkpoint exists, the scope is all changes since the first commit.
+    -   **Step 2.2: List Changed Files:** Execute `git diff --name-only <previous_checkpoint_sha> HEAD` to get a precise list of all files modified during this phase.
+    -   **Step 2.3: Verify and Create Tests:** For each file in the list:
+        -   **CRITICAL:** First, check its extension. Exclude non-code files (e.g., `.json`, `.md`, `.yaml`).
+        -   For each remaining code file, verify a corresponding test file exists.
+        -   If a test file is missing, you **must** create one. Before writing the test, **first, analyze other test files in the repository to determine the correct naming convention and testing style.** The new tests **must** validate the functionality described in this phase's tasks (`plan.md`).
+
+3.  **Execute Automated Tests with Proactive Debugging:**
+    -   Before execution, you **must** announce the exact shell command you will use to run the tests.
+    -   **Example Announcement:** "I will now run the automated test suite to verify the phase. **Command:** `CI=true npm test`"
+    -   Execute the announced command.
+    -   If tests fail, you **must** inform the user and begin debugging. You may attempt to propose a fix a **maximum of two times**. If the tests still fail after your second proposed fix, you **must stop**, report the persistent failure, and ask the user for guidance.
+
+4.  **Propose a Detailed, Actionable Manual Verification Plan:**
+    -   **CRITICAL:** To generate the plan, first analyze `product.md`, `product-guidelines.md`, and `plan.md` to determine the user-facing goals of the completed phase.
+    -   You **must** generate a step-by-step plan that walks the user through the verification process, including any necessary commands and specific, expected outcomes.
+    -   The plan you present to the user **must** follow this format:
+
+        **For a Frontend Change:**
+        ```
+        The automated tests have passed. For manual verification, please follow these steps:
+
+        **Manual Verification Steps:**
+        1.  **Start the development server with the command:** `npm run dev`
+        2.  **Open your browser to:** `http://localhost:3000`
+        3.  **Confirm that you see:** The new user profile page, with the user's name and email displayed correctly.
+        ```
+
+        **For a Backend Change:**
+        ```
+        The automated tests have passed. For manual verification, please follow these steps:
+
+        **Manual Verification Steps:**
+        1.  **Ensure the server is running.**
+        2.  **Execute the following command in your terminal:** `curl -X POST http://localhost:8080/api/v1/users -d '{"name": "test"}'`
+        3.  **Confirm that you receive:** A JSON response with a status of `201 Created`.
+        ```
+
+5.  **Await Explicit User Feedback:**
+    -   After presenting the detailed plan, ask the user for confirmation: "**Does this meet your expectations? Please confirm with yes or provide feedback on what needs to be changed.**"
+    -   **PAUSE** and await the user's response. Do not proceed without an explicit yes or confirmation.
+
+6.  **Create Checkpoint Commit:**
+    -   Stage all changes. If no changes occurred in this step, proceed with an empty commit.
+    -   Perform the commit with a clear and concise message (e.g., `conductor(checkpoint): Checkpoint end of Phase X`).
+
+7.  **Attach Auditable Verification Report using Git Notes:**
+    -   **Step 8.1: Draft Note Content:** Create a detailed verification report including the automated test command, the manual verification steps, and the user's confirmation.
+    -   **Step 8.2: Attach Note:** Use the `git notes` command and the full commit hash from the previous step to attach the full report to the checkpoint commit.
+
+8.  **Get and Record Phase Checkpoint SHA:**
+    -   **Step 7.1: Get Commit Hash:** Obtain the hash of the *just-created checkpoint commit* (`git log -1 --format="%H"`).
+    -   **Step 7.2: Update Plan:** Read `plan.md`, find the heading for the completed phase, and append the first 7 characters of the commit hash in the format `[checkpoint: <sha>]`.
+    -   **Step 7.3: Write Plan:** Write the updated content back to `plan.md`.
+
+9. **Commit Plan Update:**
+    - **Action:** Stage the modified `plan.md` file.
+    - **Action:** Commit this change with a descriptive message following the format `conductor(plan): Mark phase '<PHASE NAME>' as complete`.
+
+10.  **Announce Completion:** Inform the user that the phase is complete and the checkpoint has been created, with the detailed verification report attached as a git note.
+
+### Quality Gates
+
+Before marking any task complete, verify:
+
+- [ ] All tests pass
+- [ ] Code coverage meets requirements (>80%)
+- [ ] Code follows project's code style guidelines (as defined in `code_styleguides/`)
+- [ ] All public functions/methods are documented (e.g., docstrings, JSDoc, GoDoc)
+- [ ] Type safety is enforced (e.g., type hints, TypeScript types, Go types)
+- [ ] No linting or static analysis errors (using the project's configured tools)
+- [ ] Works correctly on mobile (if applicable)
+- [ ] Documentation updated if needed
+- [ ] No security vulnerabilities introduced
+
+## Development Commands
+
+**AI AGENT INSTRUCTION: This section should be adapted to the project's specific language, framework, and build tools.**
+
+### Setup
+```bash
+# Example: Commands to set up the development environment (e.g., install dependencies, configure database)
+# e.g., for a Node.js project: npm install
+# e.g., for a Go project: go mod tidy
+```
+
+### Daily Development
+```bash
+# Example: Commands for common daily tasks (e.g., start dev server, run tests, lint, format)
+# e.g., for a Node.js project: npm run dev, npm test, npm run lint
+# e.g., for a Go project: go run main.go, go test ./..., go fmt ./...
+```
+
+### Before Committing
+```bash
+# Example: Commands to run all pre-commit checks (e.g., format, lint, type check, run tests)
+# e.g., for a Node.js project: npm run check
+# e.g., for a Go project: make check (if a Makefile exists)
+```
+
+## Testing Requirements
+
+### Unit Testing
+- Every module must have corresponding tests.
+- Use appropriate test setup/teardown mechanisms (e.g., fixtures, beforeEach/afterEach).
+- Mock external dependencies.
+- Test both success and failure cases.
+
+### Integration Testing
+- Test complete user flows
+- Verify database transactions
+- Test authentication and authorization
+- Check form submissions
+
+### Mobile Testing
+- Test on actual iPhone when possible
+- Use Safari developer tools
+- Test touch interactions
+- Verify responsive layouts
+- Check performance on 3G/4G
+
+## Code Review Process
+
+### Self-Review Checklist
+Before requesting review:
+
+1. **Functionality**
+   - Feature works as specified
+   - Edge cases handled
+   - Error messages are user-friendly
+
+2. **Code Quality**
+   - Follows style guide
+   - DRY principle applied
+   - Clear variable/function names
+   - Appropriate comments
+
+3. **Testing**
+   - Unit tests comprehensive
+   - Integration tests pass
+   - Coverage adequate (>80%)
+
+4. **Security**
+   - No hardcoded secrets
+   - Input validation present
+   - SQL injection prevented
+   - XSS protection in place
+
+5. **Performance**
+   - Database queries optimized
+   - Images optimized
+   - Caching implemented where needed
+
+6. **Mobile Experience**
+   - Touch targets adequate (44x44px)
+   - Text readable without zooming
+   - Performance acceptable on mobile
+   - Interactions feel native
+
+## Commit Guidelines
+
+### Message Format
+```
+<type>(<scope>): <description>
+
+[optional body]
+
+[optional footer]
+```
+
+### Types
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation only
+- `style`: Formatting, missing semicolons, etc.
+- `refactor`: Code change that neither fixes a bug nor adds a feature
+- `test`: Adding missing tests
+- `chore`: Maintenance tasks
+
+### Examples
+```bash
+git commit -m "feat(auth): Add remember me functionality"
+git commit -m "fix(posts): Correct excerpt generation for short posts"
+git commit -m "test(comments): Add tests for emoji reaction limits"
+git commit -m "style(mobile): Improve button touch targets"
+```
+
+## Definition of Done
+
+A task is complete when:
+
+1. All code implemented to specification
+2. Unit tests written and passing
+3. Code coverage meets project requirements
+4. Documentation complete (if applicable)
+5. Code passes all configured linting and static analysis checks
+6. Works beautifully on mobile (if applicable)
+7. Implementation notes added to `plan.md`
+8. Changes committed with proper message
+9. Git note with task summary attached to the commit
+
+## Emergency Procedures
+
+### Critical Bug in Production
+1. Create hotfix branch from main
+2. Write failing test for bug
+3. Implement minimal fix
+4. Test thoroughly including mobile
+5. Deploy immediately
+6. Document in plan.md
+
+### Data Loss
+1. Stop all write operations
+2. Restore from latest backup
+3. Verify data integrity
+4. Document incident
+5. Update backup procedures
+
+### Security Breach
+1. Rotate all secrets immediately
+2. Review access logs
+3. Patch vulnerability
+4. Notify affected users (if any)
+5. Document and update security procedures
+
+## Deployment Workflow
+
+### Pre-Deployment Checklist
+- [ ] All tests passing
+- [ ] Coverage >80%
+- [ ] No linting errors
+- [ ] Mobile testing complete
+- [ ] Environment variables configured
+- [ ] Database migrations ready
+- [ ] Backup created
+
+### Deployment Steps
+1. Merge feature branch to main
+2. Tag release with version
+3. Push to deployment service
+4. Run database migrations
+5. Verify deployment
+6. Test critical paths
+7. Monitor for errors
+
+### Post-Deployment
+1. Monitor analytics
+2. Check error logs
+3. Gather user feedback
+4. Plan next iteration
+
+## Continuous Improvement
+
+- Review workflow weekly
+- Update based on pain points
+- Document lessons learned
+- Optimize for user happiness
+- Keep things simple and maintainable
+</file>
+
+<file path="docker-compose.yml">
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tmdigital_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  db_data:
+</file>
+
+<file path="eslint.config.mjs">
+import nx from '@nx/eslint-plugin';
+
+export default [
+  ...nx.configs['flat/base'],
+  ...nx.configs['flat/typescript'],
+  ...nx.configs['flat/javascript'],
+  {
+    ignores: ['**/dist', '**/out-tsc'],
+  },
+  {
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    rules: {
+      '@nx/enforce-module-boundaries': [
+        'error',
+        {
+          enforceBuildableLibDependency: true,
+          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
+          depConstraints: [
+            {
+              sourceTag: '*',
+              onlyDependOnLibsWithTags: ['*'],
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: [
+      '**/*.ts',
+      '**/*.tsx',
+      '**/*.cts',
+      '**/*.mts',
+      '**/*.js',
+      '**/*.jsx',
+      '**/*.cjs',
+      '**/*.mjs',
+    ],
+    // Override or add rules here
+    rules: {},
+  },
+];
+</file>
+
+<file path="jest.config.ts">
+import type { Config } from 'jest';
+import { getJestProjectsAsync } from '@nx/jest';
+
+export default async (): Promise<Config> => ({
+  projects: await getJestProjectsAsync(),
+});
+</file>
+
+<file path="jest.preset.js">
+const nxPreset = require('@nx/jest/preset').default;
+
+module.exports = { ...nxPreset };
+</file>
+
+<file path="README.md">
+# TempWorkspace
+
+<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+
+✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+
+[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+
+## Run tasks
+
+To run tasks with Nx use:
+
+```sh
+npx nx <target> <project-name>
+```
+
+For example:
+
+```sh
+npx nx build myproject
+```
+
+These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+
+[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+## Add new projects
+
+While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+
+To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
+```sh
+npx nx add @nx/react
+```
+
+Use the plugin's generator to create new projects. For example, to create a new React app or library:
+
+```sh
+# Generate an app
+npx nx g @nx/react:app demo
+
+# Generate a library
+npx nx g @nx/react:lib some-lib
+```
+
+You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+
+[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+## Set up CI!
+
+### Step 1
+
+To connect to Nx Cloud, run the following command:
+
+```sh
+npx nx connect
+```
+
+Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+
+- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+### Step 2
+
+Use the following command to configure a CI workflow for your workspace:
+
+```sh
+npx nx g ci-workflow
+```
+
+[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+## Install Nx Console
+
+Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+
+[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+## Useful links
+
+Learn more:
+
+- [Learn more about this workspace setup](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
+- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+And join the Nx community:
+- [Discord](https://go.nx.dev/community)
+- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
+- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
+- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+</file>
+
+<file path="tsconfig.base.json">
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {}
+  },
+  "exclude": ["node_modules", "tmp"]
+}
+</file>
+
+<file path="apps/backend/src/app/dashboard/dashboard.controller.ts">
+import { Controller, Get, Query } from '@nestjs/common';
+import { DashboardService } from './dashboard.service';
+import { CropType } from '../properties/property.entity';
+
+@Controller('dashboard')
+export class DashboardController {
+  constructor(private readonly dashboardService: DashboardService) {}
+
+  @Get('metrics')
+  getMetrics(@Query('crop') crop?: CropType) {
+    return this.dashboardService.getMetrics(crop);
+  }
+}
+</file>
+
+<file path="apps/backend/src/app/dashboard/dashboard.service.spec.ts">
+import { Test, TestingModule } from '@nestjs/testing';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { DashboardService } from './dashboard.service';
+import { Lead } from '../leads/lead.entity';
+import { Property } from '../properties/property.entity';
+import { Repository } from 'typeorm';
+
+describe('DashboardService', () => {
+  let service: DashboardService;
+  let leadRepository: Repository<Lead>;
+  let propertyRepository: Repository<Property>;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        DashboardService,
+        {
+          provide: getRepositoryToken(Lead),
+          useValue: {
+            count: jest.fn(),
+            createQueryBuilder: jest.fn(() => ({
+              select: jest.fn().mockReturnThis(),
+              addSelect: jest.fn().mockReturnThis(),
+              groupBy: jest.fn().mockReturnThis(),
+              innerJoin: jest.fn().mockReturnThis(),
+              where: jest.fn().mockReturnThis(),
+              getRawMany: jest.fn(),
+              getCount: jest.fn().mockResolvedValue(10), // Mock getCount
+            })),
+          },
+        },
+        {
+          provide: getRepositoryToken(Property),
+          useValue: {
+            createQueryBuilder: jest.fn(() => ({
+              select: jest.fn().mockReturnThis(),
+              addSelect: jest.fn().mockReturnThis(),
+              groupBy: jest.fn().mockReturnThis(),
+              where: jest.fn().mockReturnThis(),
+              getRawMany: jest.fn(),
+            })),
+          },
+        },
+      ],
+    }).compile();
+
+    service = module.get<DashboardService>(DashboardService);
+    leadRepository = module.get<Repository<Lead>>(getRepositoryToken(Lead));
+    propertyRepository = module.get<Repository<Property>>(getRepositoryToken(Property));
+  });
+
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+
+  describe('getMetrics', () => {
+    it('should return metrics', async () => {
+      // No need to spyOn leadRepository.count directly if using query builder for count now
+      // Actually, my implementation uses leadQuery.getCount() which comes from createQueryBuilder
+      
+      const metrics = await service.getMetrics();
+      expect(metrics.totalLeads).toBe(10);
+      expect(metrics).toHaveProperty('statusBreakdown');
+      expect(metrics).toHaveProperty('cropSummary');
+    });
+  });
+});
+</file>
+
+<file path="apps/backend/src/app/dashboard/dashboard.service.ts">
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Lead } from '../leads/lead.entity';
+import { Property, CropType } from '../properties/property.entity';
+
+@Injectable()
+export class DashboardService {
+  constructor(
+    @InjectRepository(Lead)
+    private readonly leadRepository: Repository<Lead>,
+    @InjectRepository(Property)
+    private readonly propertyRepository: Repository<Property>,
+  ) {}
+
+  async getMetrics(crop?: CropType) {
+    const leadQuery = this.leadRepository.createQueryBuilder('lead');
+    if (crop) {
+      leadQuery.innerJoin(
+        'lead.properties',
+        'property',
+        'property.crop = :crop',
+        { crop }
+      );
+    }
+    const totalLeads = await leadQuery.getCount();
+
+    const statusBreakdown = await leadQuery
+      .select('lead.status', 'status')
+      .addSelect('COUNT(lead.id)', 'count')
+      .groupBy('lead.status')
+      .getRawMany();
+
+    const propertyQuery =
+      this.propertyRepository.createQueryBuilder('property');
+    if (crop) {
+      propertyQuery.where('property.crop = :crop', { crop });
+    }
+    const cropSummary = await propertyQuery
+      .select('property.crop', 'crop')
+      .addSelect('SUM(property.area)', 'totalArea')
+      .addSelect('COUNT(property.id)', 'count')
+      .groupBy('property.crop')
+      .getRawMany();
+
+    return {
+      totalLeads,
+      statusBreakdown,
+      cropSummary,
+    };
+  }
+}
+</file>
+
+<file path="apps/backend/src/app/leads/leads.service.spec.ts">
+import { Test, TestingModule } from '@nestjs/testing';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { LeadsService } from './leads.service';
+import { Lead, LeadStatus } from './lead.entity';
+import { Repository } from 'typeorm';
+import { NotFoundException } from '@nestjs/common';
+
+describe('LeadsService', () => {
+  let service: LeadsService;
+  let repository: Repository<Lead>;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        LeadsService,
+        {
+          provide: getRepositoryToken(Lead),
+          useValue: {
+            find: jest.fn(),
+            findOneBy: jest.fn(),
+            create: jest.fn(),
+            save: jest.fn(),
+            preload: jest.fn(),
+            remove: jest.fn(),
+          },
+        },
+      ],
+    }).compile();
+
+    service = module.get<LeadsService>(LeadsService);
+    repository = module.get<Repository<Lead>>(getRepositoryToken(Lead));
+  });
+
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+
+  describe('findAll', () => {
+    it('should return an array of leads with priority', async () => {
+      const result = [{ id: 1, properties: [{ area: 150 }] }] as any;
+      jest.spyOn(repository, 'find').mockResolvedValue(result);
+
+      const leads = await service.findAll();
+      expect(leads[0].isPriority).toBe(true);
+    });
+  });
+
+  describe('create', () => {
+    it('should create a new lead', async () => {
+      const dto = { name: 'Test', cpf: '12345678901' };
+      const lead = { id: 1, ...dto, status: LeadStatus.NEW } as Lead;
+      jest.spyOn(repository, 'create').mockReturnValue(lead);
+      jest.spyOn(repository, 'save').mockResolvedValue(lead);
+
+      expect(await service.create(dto)).toEqual(lead);
+    });
+  });
+
+  describe('findOne', () => {
+    it('should return a lead if it exists', async () => {
+      const lead = { id: 1, name: 'Test' } as Lead;
+      jest.spyOn(repository, 'findOneBy').mockResolvedValue(lead);
+
+      expect(await service.findOne(1)).toEqual(lead);
+    });
+
+    it('should throw NotFoundException if lead does not exist', async () => {
+      jest.spyOn(repository, 'findOneBy').mockResolvedValue(null);
+
+      await expect(service.findOne(1)).rejects.toThrow(NotFoundException);
+    });
+  });
+
+  describe('update', () => {
+    it('should update a lead', async () => {
+      const lead = { id: 1, name: 'Updated' } as Lead;
+      jest.spyOn(repository, 'preload').mockResolvedValue(lead);
+      jest.spyOn(repository, 'save').mockResolvedValue(lead);
+
+      expect(await service.update(1, { name: 'Updated' })).toEqual(lead);
+    });
+
+    it('should throw NotFoundException if lead to update does not exist', async () => {
+      jest.spyOn(repository, 'preload').mockResolvedValue(null);
+
+      await expect(service.update(1, { name: 'Updated' })).rejects.toThrow(NotFoundException);
+    });
+  });
+
+  describe('remove', () => {
+    it('should remove a lead', async () => {
+      const lead = { id: 1 } as Lead;
+      jest.spyOn(repository, 'findOneBy').mockResolvedValue(lead);
+      jest.spyOn(repository, 'remove').mockResolvedValue(lead);
+
+      await service.remove(1);
+      expect(repository.remove).toHaveBeenCalledWith(lead);
+    });
+  });
+});
+</file>
+
+<file path="apps/backend/src/app/leads/leads.service.ts">
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Lead } from './lead.entity';
+import { CreateLeadDto } from './dto/create-lead.dto';
+import { UpdateLeadDto } from './dto/update-lead.dto';
+
+@Injectable()
+export class LeadsService {
+  constructor(
+    @InjectRepository(Lead)
+    private readonly leadRepository: Repository<Lead>,
+  ) {}
+
+  async create(createLeadDto: CreateLeadDto): Promise<Lead> {
+    const lead = this.leadRepository.create(createLeadDto);
+    return this.leadRepository.save(lead);
+  }
+
+  async findAll(): Promise<any[]> {
+    const leads = await this.leadRepository.find({
+      relations: ['properties'],
+    });
+    return leads.map((lead) => ({
+      ...lead,
+      isPriority: lead.properties.some((p) => p.area > 100),
+    }));
+  }
+
+  async findOne(id: number): Promise<Lead> {
+    const lead = await this.leadRepository.findOneBy({ id });
+    if (!lead) {
+      throw new NotFoundException(`Lead #${id} not found`);
+    }
+    return lead;
+  }
+
+  async update(id: number, updateLeadDto: UpdateLeadDto): Promise<Lead> {
+    const lead = await this.leadRepository.preload({
+      id: id,
+      ...updateLeadDto,
+    });
+    if (!lead) {
+      throw new NotFoundException(`Lead #${id} not found`);
+    }
+    return this.leadRepository.save(lead);
+  }
+
+  async remove(id: number): Promise<void> {
+    const lead = await this.findOne(id);
+    await this.leadRepository.remove(lead);
+  }
+}
+</file>
+
+<file path="apps/backend/src/main.ts">
+/**
+ * This is not a production server yet!
+ * This is only a minimal backend to get started.
+ */
+
+import { Logger, ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app/app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  const globalPrefix = 'api';
+  app.setGlobalPrefix(globalPrefix);
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    })
+  );
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
+  Logger.log(
+    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
+  );
+}
+
+bootstrap();
+</file>
+
+<file path="apps/backend/tsconfig.app.json">
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "module": "commonjs",
+    "types": ["node"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "es2021",
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "jest.config.ts",
+    "jest.config.cts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
+  ]
+}
+</file>
+
+<file path="apps/backend/tsconfig.json">
+{
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true
+  }
+}
+</file>
+
+<file path="apps/frontend/project.json">
+{
+  "name": "frontend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/frontend/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/frontend",
+        "browser": "apps/frontend/src/main.ts",
+        "tsConfig": "apps/frontend/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/frontend/public"
+          }
+        ],
+        "styles": ["apps/frontend/src/styles.scss"]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
+      "options": {
+        "proxyConfig": "apps/frontend/proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "frontend:build:production"
+        },
+        "development": {
+          "buildTarget": "frontend:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {}
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "frontend:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/frontend/browser",
+        "spa": true
+      }
+    }
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/core/models/lead.model.ts">
+export enum LeadStatus {
+  NEW = 'Novo',
+  NEGOTIATION = 'Em negociação',
+  CONVERTED = 'Convertido',
+  LOST = 'Perdido',
+}
+
+export interface Lead {
+  id: number;
+  name: string;
+  cpf: string;
+  status: LeadStatus;
+  comments?: string;
+  createdAt: string;
+  updatedAt: string;
+  isPriority?: boolean;
+}
+</file>
+
+<file path="apps/frontend/src/app/core/services/dashboard.service.ts">
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({ providedIn: 'root' })
+export class DashboardService {
+  private apiUrl = '/api/dashboard/metrics';
+
+  constructor(private http: HttpClient) {}
+
+  getMetrics(crop?: string): Observable<any> {
+    const url = crop ? `${this.apiUrl}?crop=${crop}` : this.apiUrl;
+    return this.http.get<any>(url);
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/core/services/leads.service.ts">
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Lead } from '../models/lead.model';
+
+@Injectable({ providedIn: 'root' })
+export class LeadsService {
+  private apiUrl = '/api/leads';
+
+  constructor(private http: HttpClient) {}
+
+  getLeads(): Observable<Lead[]> {
+    return this.http.get<Lead[]>(this.apiUrl);
+  }
+
+  getLead(id: number): Observable<Lead> {
+    return this.http.get<Lead>(`${this.apiUrl}/${id}`);
+  }
+
+  createLead(lead: Partial<Lead>): Observable<Lead> {
+    return this.http.post<Lead>(this.apiUrl, lead);
+  }
+
+  updateLead(lead: Lead): Observable<Lead> {
+    const { id, ...updateData } = lead;
+    return this.http.patch<Lead>(`${this.apiUrl}/${id}`, updateData);
+  }
+
+  deleteLead(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/core/services/properties.service.ts">
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Property } from '../models/property.model';
+
+@Injectable({ providedIn: 'root' })
+export class PropertiesService {
+  private apiUrl = '/api/properties';
+
+  constructor(private http: HttpClient) {}
+
+  getProperties(leadId?: number): Observable<Property[]> {
+    const url = leadId ? `${this.apiUrl}?leadId=${leadId}` : this.apiUrl;
+    return this.http.get<Property[]>(url);
+  }
+
+  getProperty(id: number): Observable<Property> {
+    return this.http.get<Property>(`${this.apiUrl}/${id}`);
+  }
+
+  createProperty(property: Partial<Property>): Observable<Property> {
+    return this.http.post<Property>(this.apiUrl, property);
+  }
+
+  updateProperty(property: Property): Observable<Property> {
+    const { id, ...updateData } = property;
+    return this.http.patch<Property>(`${this.apiUrl}/${id}`, updateData);
+  }
+
+  deleteProperty(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/features/leads/lead-form.html">
+<form [formGroup]="form" (ngSubmit)="onSave()">
+  <div class="field mb-3">
+    <label for="name" class="block mb-1">Nome</label>
+    <input pInputText id="name" formControlName="name" class="w-full" />
+    <small class="p-error" *ngIf="form.get('name')?.invalid && form.get('name')?.dirty">
+      Nome é obrigatório.
+    </small>
+  </div>
+
+  <div class="field mb-3">
+    <label for="cpf" class="block mb-1">CPF</label>
+    <p-inputMask
+      id="cpf"
+      formControlName="cpf"
+      mask="999.999.999-99"
+      placeholder="000.000.000-00"
+      styleClass="w-full"
+    ></p-inputMask>
+    <small
+      class="p-error"
+      *ngIf="form.get('cpf')?.invalid && form.get('cpf')?.dirty"
+    >
+      CPF inválido.
+    </small>
+  </div>
+
+  <div class="field mb-3">
+    <label for="status" class="block mb-1">Status</label>
+    <p-select
+      id="status"
+      [options]="statusOptions"
+      formControlName="status"
+      placeholder="Selecione um status"
+      styleClass="w-full"
+      optionLabel="label"
+      optionValue="value"
+    ></p-select>
+  </div>
+
+  <div class="field mb-3">
+    <label for="comments" class="block mb-1">Observações</label>
+    <textarea pTextarea id="comments" formControlName="comments" rows="3" class="w-full"></textarea>
+  </div>
+
+  <div class="flex justify-content-end mt-4">
+    <p-button
+      label="Cancelar"
+      icon="pi pi-times"
+      [text]="true"
+      (click)="cancel.emit()"
+      class="mr-2"
+    ></p-button>
+    <p-button
+      label="Salvar"
+      icon="pi pi-check"
+      type="submit"
+      [disabled]="form.invalid"
+    ></p-button>
+  </div>
+</form>
+</file>
+
+<file path="apps/frontend/src/app/features/leads/lead-form.ts">
+import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Lead, LeadStatus } from '../../core/models/lead.model';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { SelectModule } from 'primeng/select';
+import { ButtonModule } from 'primeng/button';
+import { TextareaModule } from 'primeng/textarea';
+import { Store } from '@ngrx/store';
+import { LeadsActions } from '../../state/leads/leads.actions';
+
+@Component({
+  selector: 'app-lead-form',
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    InputMaskModule,
+    SelectModule,
+    ButtonModule,
+    TextareaModule,
+  ],
+  templateUrl: './lead-form.html',
+})
+export class LeadForm {
+  @Input() set lead(value: Lead | null) {
+    if (value && value.id) {
+      this.form.patchValue(value);
+    } else {
+      this.form.reset({ id: 0, status: LeadStatus.NEW });
+    }
+  }
+  @Output() save = new EventEmitter<void>();
+  @Output() cancel = new EventEmitter<void>();
+
+  private fb = inject(FormBuilder);
+  private store = inject(Store);
+
+  form: FormGroup = this.fb.group({
+    id: [0],
+    name: ['', Validators.required],
+    cpf: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern(/^\d{11}$|^\d{3}\.\d{3}\.\d{3}-\d{2}$/),
+      ],
+    ],
+    status: [LeadStatus.NEW, Validators.required],
+    comments: [''],
+  });
+
+  statusOptions = Object.values(LeadStatus).map((status) => ({
+    label: status,
+    value: status,
+  }));
+
+  onSave() {
+    if (this.form.valid) {
+      const lead = this.form.value;
+      if (lead.id) {
+        this.store.dispatch(LeadsActions.updateLead({ lead }));
+      } else {
+        const { id, ...newLead } = lead;
+        this.store.dispatch(LeadsActions.addLead({ lead: newLead }));
+      }
+      this.save.emit();
+    }
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/features/leads/leads-list.ts">
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { leadsFeature } from '../../state/leads/leads.reducer';
+import { LeadsActions } from '../../state/leads/leads.actions';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { ToolbarModule } from 'primeng/toolbar';
+import { DialogModule } from 'primeng/dialog';
+import { Lead } from '../../core/models/lead.model';
+import { LeadForm } from './lead-form';
+import { PropertiesList } from '../properties/properties-list';
+
+@Component({
+  selector: 'app-leads-list',
+  imports: [
+    CommonModule,
+    TableModule,
+    ButtonModule,
+    ToolbarModule,
+    DialogModule,
+    LeadForm,
+    PropertiesList,
+  ],
+  templateUrl: './leads-list.html',
+})
+export class LeadsList implements OnInit {
+  private store = inject(Store);
+  leads$ = this.store.select(leadsFeature.selectLeads);
+  loading$ = this.store.select(leadsFeature.selectLoading);
+
+  displayForm = false;
+  displayProperties = false;
+  selectedLead: Lead | null = null;
+  currentLeadId: number | null = null;
+
+  ngOnInit() {
+    this.store.dispatch(LeadsActions.loadLeads());
+  }
+
+  openNew() {
+    this.selectedLead = {
+      id: 0,
+      name: '',
+      cpf: '',
+      status: null as any,
+      comments: '',
+      createdAt: '',
+      updatedAt: '',
+    };
+    this.displayForm = true;
+  }
+
+  editLead(lead: Lead) {
+    this.selectedLead = { ...lead };
+    this.displayForm = true;
+  }
+
+  viewProperties(lead: Lead) {
+    this.currentLeadId = lead.id;
+    this.displayProperties = true;
+  }
+
+  deleteLead(id: number) {
+    if (confirm('Tem certeza que deseja excluir este lead?')) {
+      this.store.dispatch(LeadsActions.deleteLead({ id }));
+    }
+  }
+
+  onFormSave() {
+    this.displayForm = false;
+    this.selectedLead = null;
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/features/properties/properties-list.html">
+<p-button
+  label="Nova Propriedade"
+  icon="pi pi-plus"
+  (click)="openNew()"
+  class="mb-3 block"
+></p-button>
+
+<p-table
+  [value]="(properties$ | async) || []"
+  [loading]="loading$ | async"
+  styleClass="p-datatable-sm p-datatable-striped"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Cultura</th>
+      <th>Área (ha)</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-property>
+    <tr>
+      <td>{{ property.crop }}</td>
+      <td>
+        {{ property.area }}
+        <i
+          *ngIf="property.area > 100"
+          class="pi pi-star-fill text-yellow-500 ml-2"
+          title="Prioridade"
+        ></i>
+      </td>
+      <td>
+        <p-button
+          icon="pi pi-pencil"
+          [text]="true"
+          (click)="editProperty(property)"
+        ></p-button>
+        <p-button
+          icon="pi pi-trash"
+          severity="danger"
+          [text]="true"
+          (click)="deleteProperty(property.id)"
+        ></p-button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog
+  [(visible)]="displayForm"
+  [header]="selectedProperty?.id ? 'Editar Propriedade' : 'Nova Propriedade'"
+  [modal]="true"
+  appendTo="body"
+>
+  <app-property-form
+    *ngIf="displayForm"
+    [property]="selectedProperty"
+    (save)="displayForm = false"
+    (cancel)="displayForm = false"
+  ></app-property-form>
+</p-dialog>
+</file>
+
+<file path="apps/frontend/src/styles.scss">
+@import "primeicons/primeicons.css";
+/* You can add global styles to this file, and also import other style files */
+</file>
+
+<file path="conductor/tracks.md">
+# Project Tracks
+
+This file tracks all major tracks for the project. Each track has its own detailed plan in its respective folder.
+
+---
+
+## [~] Track: Build the core Lead and Property Management system with a dashboard and priority indicators.
+*Link: [./conductor/tracks/mvp_setup_20260109/](./conductor/tracks/mvp_setup_20260109/)*
+</file>
+
+<file path="apps/frontend/src/app/app.config.ts">
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  isDevMode,
+} from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
+import { appRoutes } from './app.routes';
+import { leadsFeature } from './state/leads/leads.reducer';
+import { LeadsEffects } from './state/leads/leads.effects';
+import { propertiesFeature } from './state/properties/properties.reducer';
+import { PropertiesEffects } from './state/properties/properties.effects';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideBrowserGlobalErrorListeners(),
+    provideRouter(appRoutes),
+    provideHttpClient(),
+    provideAnimations(),
+    provideStore({
+      [leadsFeature.name]: leadsFeature.reducer,
+      [propertiesFeature.name]: propertiesFeature.reducer,
+    }),
+    provideEffects(LeadsEffects, PropertiesEffects),
+    provideStoreDevtools({ logOnly: !isDevMode() }),
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+      },
+    }),
+  ],
+};
+</file>
+
+<file path="apps/frontend/src/app/app.html">
+<div class="p-4">
+  <header class="mb-4 flex justify-content-between align-items-center border-bottom-1 surface-border pb-3">
+    <h1 class="text-3xl font-bold m-0">tmDigital Sales Lead Manager</h1>
+    <nav>
+        <a routerLink="/dashboard" class="p-button p-button-text mr-2 no-underline">Dashboard</a>
+        <a routerLink="/leads" class="p-button p-button-text no-underline">Leads</a>
+    </nav>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
+</file>
+
+<file path="apps/frontend/src/app/app.routes.ts">
+import { Route } from '@angular/router';
+
+export const appRoutes: Route[] = [
+  {
+    path: 'dashboard',
+    loadComponent: () => import('./features/dashboard').then((m) => m.Dashboard),
+  },
+  {
+    path: 'leads',
+    loadComponent: () =>
+      import('./features/leads/leads-list').then((m) => m.LeadsList),
+  },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+];
+</file>
+
+<file path="apps/frontend/src/app/app.spec.ts">
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { App } from './app';
+import { provideRouter } from '@angular/router';
+import { providePrimeNG } from 'primeng/config';
+
+describe('App', () => {
+  let component: App;
+  let fixture: ComponentFixture<App>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [App],
+      providers: [provideRouter([]), providePrimeNG()],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(App);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'tmDigital Sales Lead Manager'
+    );
+  });
+
+  it(`should have as title 'frontend'`, () => {
+    const fixture = TestBed.createComponent(App);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('frontend');
+  });
+});
+</file>
+
+<file path="apps/frontend/src/app/features/dashboard.html">
+<div class="grid p-fluid">
+  <div class="col-12 mb-4">
+    <p-select
+      [options]="cropOptions"
+      [(ngModel)]="selectedCrop"
+      (onChange)="onFilterChange()"
+      placeholder="Filtrar por Cultura"
+      optionLabel="label"
+      optionValue="value"
+      styleClass="w-full md:w-20rem"
+    ></p-select>
+  </div>
+
+  <div class="col-12 md:col-6 lg:col-3 mb-4">
+    <p-card header="Total de Leads">
+      <div class="text-6xl text-center text-primary font-bold">{{ totalLeads }}</div>
+    </p-card>
+  </div>
+
+  <div class="flex flex-wrap gap-4">
+    <div class="flex-1 min-w-full md:min-w-0">
+      <p-card header="Leads por Status" styleClass="h-full">
+        <div class="flex justify-content-center">
+          <p-chart
+            type="pie"
+            [data]="statusChartData"
+            [options]="chartOptions"
+            height="300px"
+            width="300px"
+          ></p-chart>
+        </div>
+      </p-card>
+    </div>
+    <div class="flex-1 min-w-full md:min-w-0">
+      <p-card header="Área por Cultura" styleClass="h-full">
+        <p-chart
+          type="bar"
+          [data]="cropChartData"
+          [options]="chartOptions"
+          height="300px"
+        ></p-chart>
+      </p-card>
+    </div>
+  </div>
+</div>
+</file>
+
+<file path="apps/frontend/src/app/features/dashboard.ts">
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ChartModule } from 'primeng/chart';
+import { CardModule } from 'primeng/card';
+import { SelectModule } from 'primeng/select';
+import { DashboardService } from '../core/services/dashboard.service';
+import { CropType } from '../core/models/property.model';
+
+@Component({
+  selector: 'app-dashboard',
+  imports: [CommonModule, FormsModule, ChartModule, CardModule, SelectModule],
+  templateUrl: './dashboard.html',
+})
+export class Dashboard implements OnInit {
+  private dashboardService = inject(DashboardService);
+
+  totalLeads = 0;
+  statusChartData: any;
+  cropChartData: any;
+  chartOptions: any;
+
+  selectedCrop: string | null = null;
+  cropOptions = [
+    { label: 'Todas as Culturas', value: null },
+    ...Object.values(CropType).map((c) => ({ label: c, value: c })),
+  ];
+
+  ngOnInit() {
+    this.initChartOptions();
+    this.loadMetrics();
+  }
+
+  initChartOptions() {
+    this.chartOptions = {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: {
+            color: '#495057',
+          },
+        },
+      },
+    };
+  }
+
+  onFilterChange() {
+    this.loadMetrics();
+  }
+
+  loadMetrics() {
+    this.dashboardService
+      .getMetrics(this.selectedCrop || undefined)
+      .subscribe((metrics: any) => {
+        this.totalLeads = metrics.totalLeads;
+
+        // Process Status Breakdown
+        const statuses = metrics.statusBreakdown.map((s: any) => s.status);
+        const statusCounts = metrics.statusBreakdown.map((s: any) => +s.count);
+        this.statusChartData = {
+          labels: statuses,
+          datasets: [
+            {
+              data: statusCounts,
+              backgroundColor: ['#42A5F5', '#66BB6A', '#FFA726', '#FF7043'],
+            },
+          ],
+        };
+
+        // Process Crop Summary
+        const crops = metrics.cropSummary.map((c: any) => c.crop);
+        const areas = metrics.cropSummary.map((c: any) => +c.totalArea);
+        this.cropChartData = {
+          labels: crops,
+          datasets: [
+            {
+              label: 'Área Total (ha)',
+              data: areas,
+              backgroundColor: '#42A5F5',
+            },
+          ],
+        };
+      });
+  }
+}
+</file>
+
+<file path="nx.json">
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultBase": "master",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": [
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.mjs",
+      "!{projectRoot}/cypress/**/*",
+      "!{projectRoot}/**/*.cy.[jt]s?(x)",
+      "!{projectRoot}/cypress.config.[jt]s",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/tsconfig.spec.json",
+      "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/test-setup.[jt]s"
+    ],
+    "sharedGlobals": []
+  },
+  "targetDefaults": {
+    "@angular/build:application": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "@nx/eslint:lint": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.mjs"
+      ]
+    },
+    "@angular/build:unit-test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/cypress/plugin",
+      "options": {
+        "targetName": "e2e",
+        "openTargetName": "open-cypress",
+        "componentTestingTargetName": "component-test",
+        "ciTargetName": "e2e-ci"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps",
+        "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    }
+  ],
+  "generators": {
+    "@nx/angular:application": {
+      "e2eTestRunner": "cypress",
+      "linter": "eslint",
+      "style": "scss",
+      "unitTestRunner": "vitest-angular"
+    },
+    "@nx/angular:component": {
+      "style": "css"
+    }
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/app.ts">
+import { Component, OnInit, inject } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { PrimeNG } from 'primeng/config';
+
+@Component({
+  imports: [RouterModule],
+  selector: 'app-root',
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
+})
+export class App implements OnInit {
+  title = 'frontend';
+  private primeng = inject(PrimeNG);
+
+  ngOnInit() {
+    this.primeng.setTranslation({
+      startsWith: 'Começa com',
+      contains: 'Contém',
+      notContains: 'Não contém',
+      endsWith: 'Termina com',
+      equals: 'Igual',
+      notEquals: 'Diferente',
+      noFilter: 'Sem filtro',
+      lt: 'Menor que',
+      lte: 'Menor ou igual a',
+      gt: 'Maior que',
+      gte: 'Maior ou igual a',
+      is: 'É',
+      isNot: 'Não é',
+      before: 'Antes',
+      after: 'Depois',
+      dateAfter: 'Data depois de',
+      dateBefore: 'Data antes de',
+      dateIs: 'Data é',
+      dateIsNot: 'Data não é',
+      clear: 'Limpar',
+      apply: 'Aplicar',
+      matchAll: 'Match All',
+      matchAny: 'Match Any',
+      addRule: 'Adicionar Regra',
+      removeRule: 'Remover Regra',
+      accept: 'Sim',
+      reject: 'Não',
+      choose: 'Escolher',
+      upload: 'Upload',
+      cancel: 'Cancelar',
+      dayNames: [
+        'Domingo',
+        'Segunda',
+        'Terça',
+        'Quarta',
+        'Quinta',
+        'Sexta',
+        'Sábado',
+      ],
+      dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+      dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+      monthNames: [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+        'Agosto',
+        'Setembro',
+        'Outubro',
+        'Novembro',
+        'Dezembro',
+      ],
+      monthNamesShort: [
+        'Jan',
+        'Fev',
+        'Mar',
+        'Abr',
+        'Mai',
+        'Jun',
+        'Jul',
+        'Ago',
+        'Set',
+        'Out',
+        'Nov',
+        'Dez',
+      ],
+      today: 'Hoje',
+      weekHeader: 'Sem',
+    });
+  }
+}
+</file>
+
+<file path="apps/frontend/src/app/features/leads/leads-list.html">
+<div class="card">
+  <p-toolbar styleClass="mb-4">
+    <ng-template pTemplate="left">
+      <p-button
+        label="Novo Lead"
+        icon="pi pi-plus"
+        class="mr-2"
+        (click)="openNew()"
+      ></p-button>
+    </ng-template>
+  </p-toolbar>
+
+  <p-table
+    [value]="(leads$ | async) || []"
+    [loading]="loading$ | async"
+    responsiveLayout="scroll"
+    styleClass="p-datatable-sm p-datatable-striped"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-lead>
+      <tr>
+        <td>
+          {{ lead.name }}
+          <i
+            *ngIf="lead.isPriority"
+            class="pi pi-star-fill text-yellow-500 ml-2"
+            title="Prioridade"
+          ></i>
+        </td>
+        <td>{{ lead.cpf }}</td>
+        <td>{{ lead.status }}</td>
+        <td>
+          <p-button
+            icon="pi pi-map"
+            class="mr-2"
+            [rounded]="true"
+            [text]="true"
+            title="Propriedades"
+            (click)="viewProperties(lead)"
+          ></p-button>
+          <p-button
+            icon="pi pi-pencil"
+            class="mr-2"
+            [rounded]="true"
+            [text]="true"
+            (click)="editLead(lead)"
+          ></p-button>
+          <p-button
+            icon="pi pi-trash"
+            severity="danger"
+            [rounded]="true"
+            [text]="true"
+            (click)="deleteLead(lead.id)"
+          ></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog
+  [(visible)]="displayForm"
+  [header]="selectedLead?.id ? 'Editar Lead' : 'Novo Lead'"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <app-lead-form
+    *ngIf="displayForm"
+    [lead]="selectedLead"
+    (save)="onFormSave()"
+    (cancel)="displayForm = false"
+  ></app-lead-form>
+</p-dialog>
+
+<p-dialog
+  [(visible)]="displayProperties"
+  header="Propriedades do Lead"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+>
+  <app-properties-list
+    *ngIf="displayProperties"
+    [leadId]="currentLeadId!"
+  ></app-properties-list>
+</p-dialog>
+</file>
+
+<file path="apps/backend/src/app/app.module.ts">
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { LeadsModule } from './leads/leads.module';
+import { PropertiesModule } from './properties/properties.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+
+@Module({
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'password',
+      database: 'tmdigital_db',
+      autoLoadEntities: true,
+      synchronize: true,
+    }),
+    LeadsModule,
+    PropertiesModule,
+    DashboardModule,
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+</file>
+
+<file path="package.json">
+{
+  "name": "tmdigital",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "devDependencies": {
+    "@angular-devkit/core": "~21.0.0",
+    "@angular-devkit/schematics": "~21.0.0",
+    "@angular/build": "~21.0.0",
+    "@angular/cli": "~21.0.0",
+    "@angular/compiler-cli": "~21.0.0",
+    "@angular/language-service": "~21.0.0",
+    "@eslint/js": "^9.8.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "^11.0.0",
+    "@nx/angular": "^22.3.3",
+    "@nx/cypress": "22.3.3",
+    "@nx/eslint": "22.3.3",
+    "@nx/eslint-plugin": "22.3.3",
+    "@nx/jest": "^22.3.3",
+    "@nx/js": "22.3.3",
+    "@nx/nest": "^22.3.3",
+    "@nx/node": "22.3.3",
+    "@nx/web": "22.3.3",
+    "@nx/webpack": "22.3.3",
+    "@nx/workspace": "22.3.3",
+    "@schematics/angular": "~21.0.0",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "@types/jest": "^30.0.0",
+    "@types/node": "20.19.9",
+    "@typescript-eslint/utils": "^8.40.0",
+    "angular-eslint": "^21.0.1",
+    "cypress": "^15.8.0",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-plugin-cypress": "^3.5.0",
+    "jest": "^30.2.0",
+    "jest-environment-node": "^30.0.2",
+    "jest-util": "^30.0.2",
+    "jsdom": "^27.1.0",
+    "nx": "22.3.3",
+    "prettier": "~3.6.2",
+    "ts-jest": "^29.4.6",
+    "ts-node": "10.9.1",
+    "tslib": "^2.3.0",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.40.0",
+    "vitest": "^4.0.8",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@angular/animations": "^21.0.8",
+    "@angular/common": "~21.0.0",
+    "@angular/compiler": "~21.0.0",
+    "@angular/core": "~21.0.0",
+    "@angular/forms": "~21.0.0",
+    "@angular/platform-browser": "~21.0.0",
+    "@angular/router": "~21.0.0",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/mapped-types": "^2.1.0",
+    "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/typeorm": "^11.0.0",
+    "@ngrx/effects": "^21.0.1",
+    "@ngrx/router-store": "^21.0.1",
+    "@ngrx/store": "^21.0.1",
+    "@ngrx/store-devtools": "^21.0.1",
+    "@primeng/themes": "^21.0.2",
+    "axios": "^1.6.0",
+    "chart.js": "^4.5.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.3",
+    "pg": "^8.16.3",
+    "primeicons": "^7.0.0",
+    "primeng": "^21.0.2",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "~7.8.0",
+    "typeorm": "^0.3.28"
+  }
+}
+</file>
+
+<file path="conductor/tracks/mvp_setup_20260109/plan.md">
+# Plan - MVP Setup
+
+## Phase 1: Project Scaffolding [checkpoint: f9d764e]
+- [x] Task: Initialize Nx Monorepo for Angular and NestJS 662b7c1
+- [x] Task: Set up PostgreSQL with Docker Compose e3d71ff
+- [x] Task: Configure PrimeNG and NgRx in the Angular app b9074aa
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding' (Protocol in workflow.md)
+
+## Phase 2: Backend Development (Core API) [checkpoint: 81af74c]
+- [x] Task: Create Lead and Property entities and migrations 4ae3d21
+- [x] Task: Implement Lead CRUD API (with CPF validation) f7440e7
+- [x] Task: Implement Property CRUD API (linked to Leads) ee0339a
+- [x] Task: Implement Dashboard metrics endpoint f58a323
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Backend Development (Core API)' (Protocol in workflow.md)
+
+## Phase 3: Frontend Development (UI & State) [checkpoint: 9eec0d6]
+- [x] Task: Implement NgRx State for Leads and Properties 010d3a6
+- [x] Task: Build Lead Management UI (List, Create, Edit, Delete) 6d5dc2e
+- [x] Task: Build Property Management UI (Linked to Leads) 418d56b
+- [x] Task: Implement PT-BR localization and CPF masking/validation 5e52b1b
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Frontend Development (UI & State)' (Protocol in workflow.md)
+
+## Phase 4: Dashboard & Priority System [checkpoint: 6e62623]
+- [x] Task: Build Dashboard UI with PrimeNG Charts aa567fb
+- [x] Task: Implement Priority logic (> 100ha) and visual indicators ce38106
+- [x] Task: Implement Dashboard filtering logic e3cbe13
+- [x] Task: Conductor - User Manual Verification 'Phase 4: Dashboard & Priority System' (Protocol in workflow.md)
+
+## Phase 5: UI Polish & Refinements
+- [x] Task: Improve Dashboard layout (Charts size, Card styling) 915ebfd
+- [x] Task: Refine Table and Form styling for cleaner look 915ebfd
+- [ ] Task: Conductor - User Manual Verification 'Phase 5: UI Polish & Refinements' (Protocol in workflow.md)
+</file>
+
+</files>
