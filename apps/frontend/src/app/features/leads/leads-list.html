@@ -1,0 +1,60 @@
+<div class="card">
+  <p-toolbar styleClass="mb-4">
+    <ng-template pTemplate="left">
+      <p-button
+        label="Novo Lead"
+        icon="pi pi-plus"
+        class="mr-2"
+        (click)="openNew()"
+      ></p-button>
+    </ng-template>
+  </p-toolbar>
+
+  <p-table [value]="(leads$ | async) || []" [loading]="loading$ | async" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-lead>
+      <tr>
+        <td>{{ lead.name }}</td>
+        <td>{{ lead.cpf }}</td>
+        <td>{{ lead.status }}</td>
+        <td>
+          <p-button
+            icon="pi pi-pencil"
+            class="mr-2"
+            [rounded]="true"
+            [text]="true"
+            (click)="editLead(lead)"
+          ></p-button>
+          <p-button
+            icon="pi pi-trash"
+            severity="danger"
+            [rounded]="true"
+            [text]="true"
+            (click)="deleteLead(lead.id)"
+          ></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog
+  [(visible)]="displayForm"
+  [header]="selectedLead?.id ? 'Editar Lead' : 'Novo Lead'"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <app-lead-form
+    *ngIf="displayForm"
+    [lead]="selectedLead"
+    (save)="onFormSave()"
+    (cancel)="displayForm = false"
+  ></app-lead-form>
+</p-dialog>

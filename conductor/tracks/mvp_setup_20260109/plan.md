@@ -15,7 +15,7 @@
 
 ## Phase 3: Frontend Development (UI & State)
 - [x] Task: Implement NgRx State for Leads and Properties 010d3a6
-- [ ] Task: Build Lead Management UI (List, Create, Edit, Delete)
+- [~] Task: Build Lead Management UI (List, Create, Edit, Delete)
 - [ ] Task: Build Property Management UI (Linked to Leads)
 - [ ] Task: Implement PT-BR localization and CPF masking/validation
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Frontend Development (UI & State)' (Protocol in workflow.md)
