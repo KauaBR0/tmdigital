@@ -1,6 +1,6 @@
 # Plan - MVP Setup
 
-## Phase 1: Project Scaffolding
+## Phase 1: Project Scaffolding [checkpoint: f9d764e]
 - [x] Task: Initialize Nx Monorepo for Angular and NestJS 662b7c1
 - [x] Task: Set up PostgreSQL with Docker Compose e3d71ff
 - [x] Task: Configure PrimeNG and NgRx in the Angular app b9074aa
