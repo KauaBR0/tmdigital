@@ -17,7 +17,7 @@
 - [x] Task: Implement NgRx State for Leads and Properties 010d3a6
 - [x] Task: Build Lead Management UI (List, Create, Edit, Delete) 6d5dc2e
 - [x] Task: Build Property Management UI (Linked to Leads) 418d56b
-- [~] Task: Implement PT-BR localization and CPF masking/validation
+- [x] Task: Implement PT-BR localization and CPF masking/validation 5e52b1b
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Frontend Development (UI & State)' (Protocol in workflow.md)
 
 ## Phase 4: Dashboard & Priority System
