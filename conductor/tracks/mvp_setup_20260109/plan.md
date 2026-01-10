@@ -10,7 +10,7 @@
 - [x] Task: Create Lead and Property entities and migrations 4ae3d21
 - [x] Task: Implement Lead CRUD API (with CPF validation) f7440e7
 - [x] Task: Implement Property CRUD API (linked to Leads) ee0339a
-- [ ] Task: Implement Dashboard metrics endpoint
+- [~] Task: Implement Dashboard metrics endpoint
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Backend Development (Core API)' (Protocol in workflow.md)
 
 ## Phase 3: Frontend Development (UI & State)
