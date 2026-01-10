@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-## [ ] Track: Build the core Lead and Property Management system with a dashboard and priority indicators.
+## [~] Track: Build the core Lead and Property Management system with a dashboard and priority indicators.
 *Link: [./conductor/tracks/mvp_setup_20260109/](./conductor/tracks/mvp_setup_20260109/)*
