@@ -7,7 +7,7 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding' (Protocol in workflow.md)
 
 ## Phase 2: Backend Development (Core API)
-- [~] Task: Create Lead and Property entities and migrations
+- [x] Task: Create Lead and Property entities and migrations 4ae3d21
 - [ ] Task: Implement Lead CRUD API (with CPF validation)
 - [ ] Task: Implement Property CRUD API (linked to Leads)
 - [ ] Task: Implement Dashboard metrics endpoint
