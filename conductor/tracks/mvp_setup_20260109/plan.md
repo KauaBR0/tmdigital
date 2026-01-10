@@ -3,7 +3,7 @@
 ## Phase 1: Project Scaffolding
 - [x] Task: Initialize Nx Monorepo for Angular and NestJS 662b7c1
 - [x] Task: Set up PostgreSQL with Docker Compose e3d71ff
-- [~] Task: Configure PrimeNG and NgRx in the Angular app
+- [x] Task: Configure PrimeNG and NgRx in the Angular app b9074aa
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding' (Protocol in workflow.md)
 
 ## Phase 2: Backend Development (Core API)
