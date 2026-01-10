@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Lead, LeadStatus } from '../../core/models/lead.model';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
 import { SelectModule } from 'primeng/select';
 import { ButtonModule } from 'primeng/button';
 import { TextareaModule } from 'primeng/textarea';
@@ -20,6 +21,7 @@ import { LeadsActions } from '../../state/leads/leads.actions';
     CommonModule,
     ReactiveFormsModule,
     InputTextModule,
+    InputMaskModule,
     SelectModule,
     ButtonModule,
     TextareaModule,

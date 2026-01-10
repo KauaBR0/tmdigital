@@ -9,8 +9,17 @@
 
   <div class="field mb-3">
     <label for="cpf" class="block mb-1">CPF</label>
-    <input pInputText id="cpf" formControlName="cpf" placeholder="000.000.000-00" class="w-full" />
-    <small class="p-error" *ngIf="form.get('cpf')?.invalid && form.get('cpf')?.dirty">
+    <p-inputMask
+      id="cpf"
+      formControlName="cpf"
+      mask="999.999.999-99"
+      placeholder="000.000.000-00"
+      styleClass="w-full"
+    ></p-inputMask>
+    <small
+      class="p-error"
+      *ngIf="form.get('cpf')?.invalid && form.get('cpf')?.dirty"
+    >
       CPF inválido.
     </small>
   </div>
