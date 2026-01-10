@@ -8,7 +8,8 @@ export class DashboardService {
 
   constructor(private http: HttpClient) {}
 
-  getMetrics(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  getMetrics(crop?: string): Observable<any> {
+    const url = crop ? `${this.apiUrl}?crop=${crop}` : this.apiUrl;
+    return this.http.get<any>(url);
   }
 }

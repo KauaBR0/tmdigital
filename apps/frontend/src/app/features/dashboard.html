@@ -1,4 +1,16 @@
 <div class="grid p-fluid">
+  <div class="col-12 mb-4">
+    <p-select
+      [options]="cropOptions"
+      [(ngModel)]="selectedCrop"
+      (onChange)="onFilterChange()"
+      placeholder="Filtrar por Cultura"
+      optionLabel="label"
+      optionValue="value"
+      styleClass="w-full md:w-20rem"
+    ></p-select>
+  </div>
+
   <div class="col-12 md:col-6 lg:col-3 mb-4">
     <p-card header="Total de Leads">
       <div class="text-6xl text-center text-primary font-bold">{{ totalLeads }}</div>

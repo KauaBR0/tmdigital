@@ -1,12 +1,15 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ChartModule } from 'primeng/chart';
 import { CardModule } from 'primeng/card';
+import { SelectModule } from 'primeng/select';
 import { DashboardService } from '../core/services/dashboard.service';
+import { CropType } from '../core/models/property.model';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, ChartModule, CardModule],
+  imports: [CommonModule, FormsModule, ChartModule, CardModule, SelectModule],
   templateUrl: './dashboard.html',
 })
 export class Dashboard implements OnInit {
@@ -16,6 +19,12 @@ export class Dashboard implements OnInit {
   statusChartData: any;
   cropChartData: any;
   chartOptions: any;
+
+  selectedCrop: string | null = null;
+  cropOptions = [
+    { label: 'Todas as Culturas', value: null },
+    ...Object.values(CropType).map((c) => ({ label: c, value: c })),
+  ];
 
   ngOnInit() {
     this.initChartOptions();
@@ -34,36 +43,42 @@ export class Dashboard implements OnInit {
     };
   }
 
+  onFilterChange() {
+    this.loadMetrics();
+  }
+
   loadMetrics() {
-    this.dashboardService.getMetrics().subscribe((metrics: any) => {
-      this.totalLeads = metrics.totalLeads;
+    this.dashboardService
+      .getMetrics(this.selectedCrop || undefined)
+      .subscribe((metrics: any) => {
+        this.totalLeads = metrics.totalLeads;
 
-      // Process Status Breakdown
-      const statuses = metrics.statusBreakdown.map((s: any) => s.status);
-      const statusCounts = metrics.statusBreakdown.map((s: any) => +s.count);
-      this.statusChartData = {
-        labels: statuses,
-        datasets: [
-          {
-            data: statusCounts,
-            backgroundColor: ['#42A5F5', '#66BB6A', '#FFA726', '#FF7043'],
-          },
-        ],
-      };
+        // Process Status Breakdown
+        const statuses = metrics.statusBreakdown.map((s: any) => s.status);
+        const statusCounts = metrics.statusBreakdown.map((s: any) => +s.count);
+        this.statusChartData = {
+          labels: statuses,
+          datasets: [
+            {
+              data: statusCounts,
+              backgroundColor: ['#42A5F5', '#66BB6A', '#FFA726', '#FF7043'],
+            },
+          ],
+        };
 
-      // Process Crop Summary
-      const crops = metrics.cropSummary.map((c: any) => c.crop);
-      const areas = metrics.cropSummary.map((c: any) => +c.totalArea);
-      this.cropChartData = {
-        labels: crops,
-        datasets: [
-          {
-            label: 'Área Total (ha)',
-            data: areas,
-            backgroundColor: '#42A5F5',
-          },
-        ],
-      };
-    });
+        // Process Crop Summary
+        const crops = metrics.cropSummary.map((c: any) => c.crop);
+        const areas = metrics.cropSummary.map((c: any) => +c.totalArea);
+        this.cropChartData = {
+          labels: crops,
+          datasets: [
+            {
+              label: 'Área Total (ha)',
+              data: areas,
+              backgroundColor: '#42A5F5',
+            },
+          ],
+        };
+      });
   }
 }
