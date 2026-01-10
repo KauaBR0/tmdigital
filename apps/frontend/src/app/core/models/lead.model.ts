@@ -13,4 +13,5 @@ export interface Lead {
   comments?: string;
   createdAt: string;
   updatedAt: string;
+  isPriority?: boolean;
 }

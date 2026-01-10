@@ -36,11 +36,12 @@ describe('LeadsService', () => {
   });
 
   describe('findAll', () => {
-    it('should return an array of leads', async () => {
-      const result: Lead[] = [];
+    it('should return an array of leads with priority', async () => {
+      const result = [{ id: 1, properties: [{ area: 150 }] }] as any;
       jest.spyOn(repository, 'find').mockResolvedValue(result);
 
-      expect(await service.findAll()).toBe(result);
+      const leads = await service.findAll();
+      expect(leads[0].isPriority).toBe(true);
     });
   });
 

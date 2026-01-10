@@ -17,8 +17,14 @@ export class LeadsService {
     return this.leadRepository.save(lead);
   }
 
-  async findAll(): Promise<Lead[]> {
-    return this.leadRepository.find();
+  async findAll(): Promise<any[]> {
+    const leads = await this.leadRepository.find({
+      relations: ['properties'],
+    });
+    return leads.map((lead) => ({
+      ...lead,
+      isPriority: lead.properties.some((p) => p.area > 100),
+    }));
   }
 
   async findOne(id: number): Promise<Lead> {
