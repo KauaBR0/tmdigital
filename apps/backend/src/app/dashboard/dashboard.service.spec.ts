@@ -22,7 +22,10 @@ describe('DashboardService', () => {
               select: jest.fn().mockReturnThis(),
               addSelect: jest.fn().mockReturnThis(),
               groupBy: jest.fn().mockReturnThis(),
+              innerJoin: jest.fn().mockReturnThis(),
+              where: jest.fn().mockReturnThis(),
               getRawMany: jest.fn(),
+              getCount: jest.fn().mockResolvedValue(10), // Mock getCount
             })),
           },
         },
@@ -33,6 +36,7 @@ describe('DashboardService', () => {
               select: jest.fn().mockReturnThis(),
               addSelect: jest.fn().mockReturnThis(),
               groupBy: jest.fn().mockReturnThis(),
+              where: jest.fn().mockReturnThis(),
               getRawMany: jest.fn(),
             })),
           },
@@ -51,7 +55,8 @@ describe('DashboardService', () => {
 
   describe('getMetrics', () => {
     it('should return metrics', async () => {
-      jest.spyOn(leadRepository, 'count').mockResolvedValue(10);
+      // No need to spyOn leadRepository.count directly if using query builder for count now
+      // Actually, my implementation uses leadQuery.getCount() which comes from createQueryBuilder
       
       const metrics = await service.getMetrics();
       expect(metrics.totalLeads).toBe(10);

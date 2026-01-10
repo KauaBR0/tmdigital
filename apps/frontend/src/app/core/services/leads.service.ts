@@ -22,7 +22,8 @@ export class LeadsService {
   }
 
   updateLead(lead: Lead): Observable<Lead> {
-    return this.http.patch<Lead>(`${this.apiUrl}/${lead.id}`, lead);
+    const { id, ...updateData } = lead;
+    return this.http.patch<Lead>(`${this.apiUrl}/${id}`, updateData);
   }
 
   deleteLead(id: number): Observable<void> {

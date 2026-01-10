@@ -23,7 +23,8 @@ export class PropertiesService {
   }
 
   updateProperty(property: Property): Observable<Property> {
-    return this.http.patch<Property>(`${this.apiUrl}/${property.id}`, property);
+    const { id, ...updateData } = property;
+    return this.http.patch<Property>(`${this.apiUrl}/${id}`, updateData);
   }
 
   deleteProperty(id: number): Observable<void> {
