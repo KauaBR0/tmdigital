@@ -33,6 +33,7 @@ export class Dashboard implements OnInit {
 
   initChartOptions() {
     this.chartOptions = {
+      maintainAspectRatio: false,
       plugins: {
         legend: {
           labels: {

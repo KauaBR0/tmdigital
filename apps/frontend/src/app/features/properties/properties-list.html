@@ -5,7 +5,11 @@
   class="mb-3 block"
 ></p-button>
 
-<p-table [value]="(properties$ | async) || []" [loading]="loading$ | async">
+<p-table
+  [value]="(properties$ | async) || []"
+  [loading]="loading$ | async"
+  styleClass="p-datatable-sm p-datatable-striped"
+>
   <ng-template pTemplate="header">
     <tr>
       <th>Cultura</th>

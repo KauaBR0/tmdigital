@@ -19,14 +19,27 @@
 
   <div class="flex flex-wrap gap-4">
     <div class="flex-1 min-w-full md:min-w-0">
-        <p-card header="Leads por Status">
-            <p-chart type="pie" [data]="statusChartData" [options]="chartOptions"></p-chart>
-        </p-card>
+      <p-card header="Leads por Status" styleClass="h-full">
+        <div class="flex justify-content-center">
+          <p-chart
+            type="pie"
+            [data]="statusChartData"
+            [options]="chartOptions"
+            height="300px"
+            width="300px"
+          ></p-chart>
+        </div>
+      </p-card>
     </div>
     <div class="flex-1 min-w-full md:min-w-0">
-        <p-card header="Área por Cultura">
-            <p-chart type="bar" [data]="cropChartData" [options]="chartOptions"></p-chart>
-        </p-card>
+      <p-card header="Área por Cultura" styleClass="h-full">
+        <p-chart
+          type="bar"
+          [data]="cropChartData"
+          [options]="chartOptions"
+          height="300px"
+        ></p-chart>
+      </p-card>
     </div>
   </div>
 </div>
