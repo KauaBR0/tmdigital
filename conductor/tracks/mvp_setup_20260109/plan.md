@@ -6,7 +6,7 @@
 - [x] Task: Configure PrimeNG and NgRx in the Angular app b9074aa
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Project Scaffolding' (Protocol in workflow.md)
 
-## Phase 2: Backend Development (Core API)
+## Phase 2: Backend Development (Core API) [checkpoint: 81af74c]
 - [x] Task: Create Lead and Property entities and migrations 4ae3d21
 - [x] Task: Implement Lead CRUD API (with CPF validation) f7440e7
 - [x] Task: Implement Property CRUD API (linked to Leads) ee0339a
