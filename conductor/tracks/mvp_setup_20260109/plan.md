@@ -22,6 +22,6 @@
 
 ## Phase 4: Dashboard & Priority System
 - [x] Task: Build Dashboard UI with PrimeNG Charts aa567fb
-- [~] Task: Implement Priority logic (> 100ha) and visual indicators
+- [x] Task: Implement Priority logic (> 100ha) and visual indicators ce38106
 - [ ] Task: Implement Dashboard filtering logic
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: Dashboard & Priority System' (Protocol in workflow.md)
