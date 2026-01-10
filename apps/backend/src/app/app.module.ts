@@ -2,8 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Lead } from './leads/lead.entity';
-import { Property } from './properties/property.entity';
+import { LeadsModule } from './leads/leads.module';
 
 @Module({
   imports: [
@@ -14,9 +13,10 @@ import { Property } from './properties/property.entity';
       username: 'postgres',
       password: 'password',
       database: 'tmdigital_db',
-      entities: [Lead, Property],
+      autoLoadEntities: true,
       synchronize: true,
     }),
+    LeadsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
