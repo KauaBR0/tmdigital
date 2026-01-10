@@ -27,6 +27,6 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 4: Dashboard & Priority System' (Protocol in workflow.md)
 
 ## Phase 5: UI Polish & Refinements
-- [x] Task: Improve Dashboard layout (Charts size, Card styling) (Implicitly done)
-- [~] Task: Refine Table and Form styling for cleaner look
+- [x] Task: Improve Dashboard layout (Charts size, Card styling) 915ebfd
+- [x] Task: Refine Table and Form styling for cleaner look 915ebfd
 - [ ] Task: Conductor - User Manual Verification 'Phase 5: UI Polish & Refinements' (Protocol in workflow.md)
