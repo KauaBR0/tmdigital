@@ -1,8 +1,8 @@
 # tmDigital Sales Lead Manager
 
-> **Teste Técnico Engenharia 2026** - Aplicação Full Stack para gestão de leads e propriedades rurais.
+> Aplicação Full Stack para gestão de leads e propriedades rurais.
 
-Este projeto foi desenvolvido como parte do processo seletivo da tmDigital, visando resolver o desafio de gestão de carteira de clientes de um distribuidor de insumos agrícolas em MG.
+Este projeto foi desenvolvido visando resolver o desafio de gestão de carteira de clientes de um distribuidor de insumos agrícolas em MG.
 
 ## 🚀 Tecnologias Utilizadas
 
