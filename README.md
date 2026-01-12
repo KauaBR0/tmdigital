@@ -73,7 +73,7 @@ Pré-requisitos: Docker e Node.js (v18+).
 
 - **Gerenciamento de Estado (NgRx):** Utilizado para centralizar a lógica de Leads e Propriedades. Foi implementada uma estratégia de **clonagem mutável** (`[...data]`) nos componentes de lista para resolver conflitos entre a imutabilidade do NgRx e a ordenação interna das tabelas do PrimeNG.
 - **Geometria:** O campo de geometria foi mantido como `string` (WKT/GeoJSON simples) para fins deste teste. Em um cenário real de produção, recomenda-se a migração para **PostGIS** para permitir consultas espaciais reais.
-- **Banco de Dados (TypeORM):** O projeto está configurado com `synchronize: true` para facilitar a primeira execução e criação automática das tabelas. Em um ambiente produtivo, o correto é desativar essa opção e utilizar **Migrations** para garantir o controle de versão e a integridade do esquema do banco.
+- **Banco de Dados (TypeORM):** O projeto está configurado com `synchronize: true` para facilitar a primeira execução e criação automática das tabelas. Em produção, o correto é desativar essa opção e utilizar **Migrations** para garantir o controle de versão e a integridade do esquema do banco.
 - **Qualidade de Código:** Configurado pipeline de **Husky** e **Lint-Staged** para garantir que todo commit respeite as regras de linting (ESLint) e formatação (Prettier).
 
 ---
