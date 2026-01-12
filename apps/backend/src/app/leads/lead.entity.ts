@@ -1,8 +1,16 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { Property } from '../properties/property.entity';
 
 export enum LeadStatus {
   NEW = 'Novo',
+  INITIAL_CONTACT = 'Contato inicial',
   NEGOTIATION = 'Em negociação',
   CONVERTED = 'Convertido',
   LOST = 'Perdido',
@@ -15,6 +23,12 @@ export class Lead {
 
   @Column()
   name: string;
+
+  @Column({ nullable: true })
+  city: string;
+
+  @Column({ nullable: true })
+  state: string;
 
   @Column({ unique: true })
   cpf: string;

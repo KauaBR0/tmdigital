@@ -1,55 +1,286 @@
-<p-button
-  label="Nova Propriedade"
-  icon="pi pi-plus"
-  (click)="openNew()"
-  class="mb-3 block"
-></p-button>
+<!-- GLOBAL VIEW -->
+<div *ngIf="isGlobal; else embeddedView" class="p-4">
+  <p-card header="Gerenciamento de Propriedades" styleClass="shadow-lg">
+    <p-table
+      #dt
+      [value]="properties"
+      [loading]="loading()"
+      [paginator]="true"
+      [rows]="10"
+      [globalFilterFields]="['crop', 'lead.name', 'lead.city', 'lead.state']"
+      styleClass="p-datatable-striped"
+      responsiveLayout="scroll"
+      dataKey="id"
+      sortField="id"
+      [sortOrder]="1"
+      [customSort]="true"
+      (sortFunction)="customSort($event)"
+    >
+      <ng-template pTemplate="caption">
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between gap-4"
+        >
+          <div class="flex gap-4 items-center flex-wrap">
+            <p-button
+              label="Limpar Filtros"
+              [outlined]="true"
+              icon="pi pi-filter-slash"
+              (click)="dt.clear()"
+              size="small"
+            >
+            </p-button>
+          </div>
 
-<p-table
-  [value]="(properties$ | async) || []"
-  [loading]="loading$ | async"
-  styleClass="p-datatable-sm p-datatable-striped"
->
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Cultura</th>
-      <th>Área (ha)</th>
-      <th>Ações</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-property>
-    <tr>
-      <td>{{ property.crop }}</td>
-      <td>
-        {{ property.area }}
-        <i
-          *ngIf="property.area > 100"
-          class="pi pi-star-fill text-yellow-500 ml-2"
-          title="Prioridade"
-        ></i>
-      </td>
-      <td>
-        <p-button
-          icon="pi pi-pencil"
-          [text]="true"
-          (click)="editProperty(property)"
-        ></p-button>
-        <p-button
-          icon="pi pi-trash"
-          severity="danger"
-          [text]="true"
-          (click)="deleteProperty(property.id)"
-        ></p-button>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+          <span class="p-input-icon-left w-full md:w-auto">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+              placeholder="Busca Global..."
+              class="w-full"
+            />
+          </span>
+        </div>
+      </ng-template>
 
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id" style="width: 10%">
+            ID <p-sortIcon field="id"></p-sortIcon>
+          </th>
+
+          <th pSortableColumn="lead.name" style="width: 20%">
+            Proprietário
+            <p-sortIcon field="lead.name"></p-sortIcon>
+            <p-columnFilter
+              type="text"
+              field="lead.name"
+              display="menu"
+              placeholder="Buscar por nome"
+            ></p-columnFilter>
+          </th>
+
+          <th pSortableColumn="lead.state" style="width: 20%">
+            UF
+            <p-sortIcon field="lead.state"></p-sortIcon>
+            <p-columnFilter
+              field="lead.state"
+              matchMode="equals"
+              display="menu"
+              [showMatchModes]="false"
+              [showOperator]="false"
+              [showAddButton]="false"
+            >
+              <ng-template
+                pTemplate="filter"
+                let-value
+                let-filter="filterCallback"
+              >
+                <p-select
+                  [ngModel]="value"
+                  [options]="ufs"
+                  (onChange)="filter($event.value)"
+                  placeholder="Selecione o Estado"
+                  optionLabel="nome"
+                  optionValue="sigla"
+                  styleClass="w-full min-w-[15rem]"
+                  [showClear]="true"
+                  filter="true"
+                  fluid
+                >
+                  <ng-template let-option pTemplate="item">
+                    <div class="flex items-center gap-2">
+                      <span>{{ option.nome }} ({{ option.sigla }})</span>
+                    </div>
+                  </ng-template>
+                </p-select>
+              </ng-template>
+            </p-columnFilter>
+          </th>
+
+          <th pSortableColumn="crop" style="width: 20%">
+            Cultura
+            <p-sortIcon field="crop"></p-sortIcon>
+            <p-columnFilter
+              field="crop"
+              matchMode="equals"
+              display="menu"
+              [showMatchModes]="false"
+              [showOperator]="false"
+              [showAddButton]="false"
+            >
+              <ng-template
+                pTemplate="filter"
+                let-value
+                let-filter="filterCallback"
+              >
+                <p-select
+                  [ngModel]="value"
+                  [options]="cropOptions"
+                  (onChange)="filter($event.value)"
+                  placeholder="Selecione a Cultura"
+                  optionLabel="label"
+                  optionValue="value"
+                  styleClass="w-full min-w-[15rem]"
+                  [showClear]="true"
+                  fluid
+                >
+                  <ng-template let-option pTemplate="item">
+                    <p-tag
+                      [value]="option.label"
+                      [severity]="getCropSeverity(option.value)"
+                    ></p-tag>
+                  </ng-template>
+                </p-select>
+              </ng-template>
+            </p-columnFilter>
+          </th>
+
+          <th pSortableColumn="area" style="width: 15%">
+            Área (ha)
+            <p-sortIcon field="area"></p-sortIcon>
+            <p-columnFilter
+              type="numeric"
+              field="area"
+              display="menu"
+            ></p-columnFilter>
+          </th>
+
+          <th style="width: 15%">Ações</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-property>
+        <tr>
+          <td>{{ property.id }}</td>
+          <td>
+            <div class="font-bold">{{ property.lead?.name || 'N/A' }}</div>
+          </td>
+          <td>{{ property.lead?.city }} - {{ property.lead?.state }}</td>
+          <td>
+            <p-tag
+              [value]="property.crop"
+              [severity]="getCropSeverity(property.crop)"
+            ></p-tag>
+          </td>
+          <td>
+            {{ property.area | number:'1.2-2' }}
+            <i
+              *ngIf="property.area > 500"
+              class="pi pi-star-fill text-yellow-500 ml-2"
+              title="Grande Propriedade (>500ha)"
+            ></i>
+          </td>
+          <td>
+            <div class="flex gap-2">
+              <p-button
+                icon="pi pi-pencil"
+                [text]="true"
+                rounded="true"
+                (click)="editProperty(property)"
+                pTooltip="Editar"
+              ></p-button>
+              <p-button
+                icon="pi pi-trash"
+                severity="danger"
+                [text]="true"
+                rounded="true"
+                (click)="deleteProperty(property.id)"
+                pTooltip="Excluir"
+              ></p-button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="6" class="text-center p-4">
+            Nenhuma propriedade encontrada.
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>
+
+<!-- EMBEDDED VIEW (LEAD MODAL) -->
+<ng-template #embeddedView>
+  <div class="flex justify-end mb-3">
+    <p-button
+      label="Nova Propriedade"
+      icon="pi pi-plus"
+      (click)="openNew()"
+      size="small"
+    ></p-button>
+  </div>
+
+  <p-table
+    [value]="properties"
+    [loading]="loading()"
+    styleClass="p-datatable-sm p-datatable-striped"
+    responsiveLayout="scroll"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Cultura</th>
+        <th pSortableColumn="area">
+          Área (ha) <p-sortIcon field="area"></p-sortIcon>
+        </th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-property>
+      <tr>
+        <td>
+          <p-tag
+            [value]="property.crop"
+            [severity]="getCropSeverity(property.crop)"
+          ></p-tag>
+        </td>
+        <td>
+          {{ property.area | number:'1.2-2' }}
+          <i
+            *ngIf="property.area > 100"
+            class="pi pi-star-fill text-yellow-500 ml-2"
+            title="Destaque"
+          ></i>
+        </td>
+        <td>
+          <p-button
+            icon="pi pi-pencil"
+            [text]="true"
+            size="small"
+            (click)="editProperty(property)"
+          ></p-button>
+          <p-button
+            icon="pi pi-trash"
+            severity="danger"
+            [text]="true"
+            size="small"
+            (click)="deleteProperty(property.id)"
+          ></p-button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="3" class="text-center p-2">
+          Nenhuma propriedade cadastrada para este lead.
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-template>
+
+<!-- SHARED FORM DIALOG -->
 <p-dialog
   [(visible)]="displayForm"
   [header]="selectedProperty?.id ? 'Editar Propriedade' : 'Nova Propriedade'"
   [modal]="true"
   appendTo="body"
+  [style]="{ width: '50vw' }"
+  [breakpoints]="{ '960px': '75vw', '640px': '95vw' }"
 >
   <app-property-form
     *ngIf="displayForm"

@@ -1,68 +1,172 @@
-<div class="card">
-  <p-toolbar styleClass="mb-4">
-    <ng-template pTemplate="left">
-      <p-button
-        label="Novo Lead"
-        icon="pi pi-plus"
-        class="mr-2"
-        (click)="openNew()"
-      ></p-button>
-    </ng-template>
-  </p-toolbar>
+<div class="p-4">
+  <p-card header="Gerenciamento de Leads" styleClass="shadow-lg">
+    <p-table
+      #dt
+      [value]="leads"
+      [loading]="loading()"
+      [paginator]="true"
+      [rows]="10"
+      [globalFilterFields]="['name', 'cpf', 'status']"
+      responsiveLayout="scroll"
+      styleClass="p-datatable-striped"
+      dataKey="id"
+    >
+      <ng-template pTemplate="caption">
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between gap-4"
+        >
+          <div class="flex gap-4 items-center flex-wrap">
+            <p-button
+              label="Novo Lead"
+              icon="pi pi-plus"
+              (click)="openNew()"
+              size="small"
+            ></p-button>
+            <p-toggleButton
+              [(ngModel)]="showPriorityOnly"
+              onLabel="Prioritários"
+              offLabel="Todos"
+              onIcon="pi pi-star-fill"
+              offIcon="pi pi-users"
+              (onChange)="applyFilters()"
+              styleClass="w-36"
+            ></p-toggleButton>
+            <p-button
+              label="Limpar"
+              [outlined]="true"
+              icon="pi pi-filter-slash"
+              (click)="dt.clear()"
+              size="small"
+            >
+            </p-button>
+          </div>
 
-  <p-table
-    [value]="(leads$ | async) || []"
-    [loading]="loading$ | async"
-    responsiveLayout="scroll"
-    styleClass="p-datatable-sm p-datatable-striped"
-  >
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Nome</th>
-        <th>CPF</th>
-        <th>Status</th>
-        <th>Ações</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-lead>
-      <tr>
-        <td>
-          {{ lead.name }}
-          <i
-            *ngIf="lead.isPriority"
-            class="pi pi-star-fill text-yellow-500 ml-2"
-            title="Prioridade"
-          ></i>
-        </td>
-        <td>{{ lead.cpf }}</td>
-        <td>{{ lead.status }}</td>
-        <td>
-          <p-button
-            icon="pi pi-map"
-            class="mr-2"
-            [rounded]="true"
-            [text]="true"
-            title="Propriedades"
-            (click)="viewProperties(lead)"
-          ></p-button>
-          <p-button
-            icon="pi pi-pencil"
-            class="mr-2"
-            [rounded]="true"
-            [text]="true"
-            (click)="editLead(lead)"
-          ></p-button>
-          <p-button
-            icon="pi pi-trash"
-            severity="danger"
-            [rounded]="true"
-            [text]="true"
-            (click)="deleteLead(lead.id)"
-          ></p-button>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
+          <span class="p-input-icon-left w-full md:w-auto">
+            <i class="pi pi-search"></i>
+            <input
+              pInputText
+              type="text"
+              (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+              placeholder="Buscar leads..."
+              class="w-full"
+            />
+          </span>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id" style="width: 10%">
+            ID <p-sortIcon field="id"></p-sortIcon>
+          </th>
+          <th pSortableColumn="name" style="width: 30%">
+            <div class="flex align-items-center">
+              Nome
+              <p-sortIcon field="name"></p-sortIcon>
+              <p-columnFilter
+                type="text"
+                field="name"
+                display="menu"
+              ></p-columnFilter>
+            </div>
+          </th>
+          <th pSortableColumn="cpf">
+            <div class="flex align-items-center">
+              CPF
+              <p-sortIcon field="cpf"></p-sortIcon>
+              <p-columnFilter
+                type="text"
+                field="cpf"
+                display="menu"
+              ></p-columnFilter>
+            </div>
+          </th>
+          <th pSortableColumn="status">
+            <div class="flex align-items-center">
+              Status
+              <p-sortIcon field="status"></p-sortIcon>
+              <p-columnFilter field="status" matchMode="equals" display="menu">
+                <ng-template
+                  pTemplate="filter"
+                  let-value
+                  let-filter="filterCallback"
+                >
+                  <p-select
+                    [ngModel]="value"
+                    [options]="statuses"
+                    (onChange)="filter($event.value)"
+                    placeholder="Todos"
+                    appendTo="body"
+                    optionLabel="label"
+                    optionValue="value"
+                  >
+                    <ng-template let-option pTemplate="item">
+                      <p-tag
+                        [value]="option.value"
+                        [severity]="getSeverity(option.value)"
+                      ></p-tag>
+                    </ng-template>
+                  </p-select>
+                </ng-template>
+              </p-columnFilter>
+            </div>
+          </th>
+          <th>Ações</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-lead>
+        <tr>
+          <td>{{ lead.id }}</td>
+          <td>
+            {{ lead.name }}
+            <i
+              *ngIf="lead.isPriority"
+              class="pi pi-star-fill text-yellow-500 ml-2"
+              title="Prioridade"
+            ></i>
+          </td>
+          <td>{{ lead.cpf }}</td>
+          <td>
+            <p-tag
+              [value]="lead.status"
+              [severity]="getSeverity(lead.status)"
+            ></p-tag>
+          </td>
+          <td>
+            <div class="flex gap-2">
+              <p-button
+                icon="pi pi-map"
+                [rounded]="true"
+                [text]="true"
+                pTooltip="Propriedades"
+                (click)="viewProperties(lead)"
+              ></p-button>
+              <p-button
+                icon="pi pi-pencil"
+                [rounded]="true"
+                [text]="true"
+                pTooltip="Editar"
+                (click)="editLead(lead)"
+              ></p-button>
+              <p-button
+                icon="pi pi-trash"
+                severity="danger"
+                [rounded]="true"
+                [text]="true"
+                pTooltip="Excluir"
+                (click)="deleteLead(lead.id)"
+              ></p-button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="4" class="text-center p-4">Nenhum lead encontrado.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
 </div>
 
 <p-dialog
@@ -70,6 +174,8 @@
   [header]="selectedLead?.id ? 'Editar Lead' : 'Novo Lead'"
   [modal]="true"
   styleClass="p-fluid"
+  [breakpoints]="{ '960px': '75vw', '640px': '95vw' }"
+  [style]="{ width: '50vw' }"
 >
   <app-lead-form
     *ngIf="displayForm"
@@ -83,7 +189,8 @@
   [(visible)]="displayProperties"
   header="Propriedades do Lead"
   [modal]="true"
-  [style]="{ width: '50vw' }"
+  [style]="{ width: '70vw' }"
+  [breakpoints]="{ '960px': '85vw', '640px': '95vw' }"
 >
   <app-properties-list
     *ngIf="displayProperties"

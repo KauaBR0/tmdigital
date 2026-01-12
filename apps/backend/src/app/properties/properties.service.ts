@@ -21,7 +21,7 @@ export class PropertiesService {
     if (leadId) {
       return this.propertyRepository.find({ where: { leadId } });
     }
-    return this.propertyRepository.find();
+    return this.propertyRepository.find({ relations: ['lead'] });
   }
 
   async findOne(id: number): Promise<Property> {
@@ -32,7 +32,10 @@ export class PropertiesService {
     return property;
   }
 
-  async update(id: number, updatePropertyDto: UpdatePropertyDto): Promise<Property> {
+  async update(
+    id: number,
+    updatePropertyDto: UpdatePropertyDto,
+  ): Promise<Property> {
     const property = await this.propertyRepository.preload({
       id: id,
       ...updatePropertyDto,
@@ -40,7 +43,11 @@ export class PropertiesService {
     if (!property) {
       throw new NotFoundException(`Property #${id} not found`);
     }
-    return this.propertyRepository.save(property);
+    await this.propertyRepository.save(property);
+    return this.propertyRepository.findOne({
+      where: { id },
+      relations: ['lead'],
+    });
   }
 
   async remove(id: number): Promise<void> {

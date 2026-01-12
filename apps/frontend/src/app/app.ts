@@ -1,18 +1,34 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PrimeNG } from 'primeng/config';
+import { DrawerModule } from 'primeng/drawer';
+import { ButtonModule } from 'primeng/button';
+import { AvatarModule } from 'primeng/avatar';
+import { RippleModule } from 'primeng/ripple';
+import { StyleClassModule } from 'primeng/styleclass';
 
 @Component({
-  imports: [RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    DrawerModule,
+    ButtonModule,
+    AvatarModule,
+    RippleModule,
+    StyleClassModule,
+  ],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App implements OnInit {
   title = 'frontend';
+  visible = false;
   private primeng = inject(PrimeNG);
 
   ngOnInit() {
+    this.primeng.ripple.set(true);
     this.primeng.setTranslation({
       startsWith: 'Começa com',
       contains: 'Contém',

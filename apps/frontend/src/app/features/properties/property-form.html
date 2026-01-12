@@ -1,46 +1,94 @@
-<form [formGroup]="form" (ngSubmit)="onSave()">
-  <div class="field mb-3">
-    <label for="crop" class="block mb-1">Cultura</label>
-    <p-select
-      id="crop"
-      [options]="cropOptions"
-      formControlName="crop"
-      placeholder="Selecione a cultura"
-      styleClass="w-full"
-      optionLabel="label"
-      optionValue="value"
-    ></p-select>
-  </div>
+<div class="flex justify-center p-2">
+  <p-card styleClass="w-full shadow-lg" header="Cadastro de Propriedade">
+    <ng-template pTemplate="subtitle">
+      <span class="text-gray-500"
+        >Informe os dados técnicos da área produtiva.</span
+      >
+    </ng-template>
 
-  <div class="field mb-3">
-    <label for="area" class="block mb-1">Área (Hectares)</label>
-    <p-inputNumber
-      id="area"
-      formControlName="area"
-      mode="decimal"
-      [minFractionDigits]="2"
-      styleClass="w-full"
-    ></p-inputNumber>
-  </div>
+    <form [formGroup]="form" (ngSubmit)="onSave()" class="flex flex-col gap-6">
+      <p-fieldset legend="Dados Técnicos" [toggleable]="true">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-2">
+            <label for="crop" class="font-bold text-gray-700">Cultura</label>
+            <p-select
+              id="crop"
+              [options]="cropOptions"
+              formControlName="crop"
+              placeholder="Selecione a cultura"
+              styleClass="w-full"
+              optionLabel="label"
+              optionValue="value"
+              fluid
+            ></p-select>
+            <small *ngIf="isFieldInvalid('crop')" class="text-red-500"
+              >Cultura é obrigatória</small
+            >
+          </div>
 
-  <div class="field mb-3">
-    <label for="geometry" class="block mb-1">Geometria (Opcional)</label>
-    <input pInputText id="geometry" formControlName="geometry" class="w-full" />
-  </div>
+          <div class="flex flex-col gap-2">
+            <label for="area" class="font-bold text-gray-700"
+              >Área (Hectares)</label
+            >
+            <p-inputGroup styleClass="w-full">
+              <p-inputGroupAddon>
+                <i class="pi pi-map"></i>
+              </p-inputGroupAddon>
+              <p-inputNumber
+                id="area"
+                formControlName="area"
+                mode="decimal"
+                [minFractionDigits]="2"
+                placeholder="0.00"
+                fluid
+              ></p-inputNumber>
+              <p-inputGroupAddon>ha</p-inputGroupAddon>
+            </p-inputGroup>
+            <small *ngIf="isFieldInvalid('area')" class="text-red-500"
+              >Área mínima é 0.1 ha</small
+            >
+          </div>
+        </div>
 
-  <div class="flex justify-content-end mt-4">
-    <p-button
-      label="Cancelar"
-      icon="pi pi-times"
-      [text]="true"
-      (click)="cancel.emit()"
-      class="mr-2"
-    ></p-button>
-    <p-button
-      label="Salvar"
-      icon="pi pi-check"
-      type="submit"
-      [disabled]="form.invalid"
-    ></p-button>
-  </div>
-</form>
+        <div class="flex flex-col gap-2 mt-4">
+          <label for="geometry" class="font-bold text-gray-700"
+            >Geometria (WKT/GeoJSON)</label
+          >
+          <p-inputGroup styleClass="w-full">
+            <p-inputGroupAddon>
+              <i class="pi pi-map-marker"></i>
+            </p-inputGroupAddon>
+            <input
+              pInputText
+              id="geometry"
+              formControlName="geometry"
+              placeholder="Ex: POINT(-47.88 -15.79)"
+              fluid
+            />
+          </p-inputGroup>
+          <span class="text-xs text-gray-400 italic"
+            >* Campo opcional para georreferenciamento</span
+          >
+        </div>
+      </p-fieldset>
+    </form>
+
+    <ng-template pTemplate="footer">
+      <div class="flex justify-end gap-2 mt-4">
+        <p-button
+          label="Cancelar"
+          icon="pi pi-times"
+          [text]="true"
+          severity="secondary"
+          (onClick)="cancel.emit()"
+        ></p-button>
+        <p-button
+          label="Salvar Propriedade"
+          icon="pi pi-check"
+          (onClick)="onSave()"
+          [disabled]="form.invalid"
+        ></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

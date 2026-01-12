@@ -1,12 +1,57 @@
-<div class="p-4">
-  <header class="mb-4 flex justify-content-between align-items-center border-bottom-1 surface-border pb-3">
-    <h1 class="text-3xl font-bold m-0">tmDigital Sales Lead Manager</h1>
-    <nav>
-        <a routerLink="/dashboard" class="p-button p-button-text mr-2 no-underline">Dashboard</a>
-        <a routerLink="/leads" class="p-button p-button-text no-underline">Leads</a>
-    </nav>
+<div class="layout-wrapper">
+  <header class="topbar">
+    <div class="topbar-start">
+      <p-button
+        icon="pi pi-bars"
+        [text]="true"
+        [rounded]="true"
+        (onClick)="visible = true"
+      ></p-button>
+      <h1 class="app-title">tmDigital CRM</h1>
+    </div>
+    <div class="topbar-end">
+      <p-avatar
+        label="A"
+        shape="circle"
+        size="normal"
+        [style]="{ 'background-color': 'var(--primary-color)', 'color': '#ffffff' }"
+      ></p-avatar>
+    </div>
   </header>
-  <main>
+
+  <p-drawer [(visible)]="visible" header="Menu" [modal]="true">
+    <nav class="sidebar-nav">
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active-link"
+        (click)="visible = false"
+        class="nav-link"
+      >
+        <i class="pi pi-home"></i>
+        <span>Dashboard</span>
+      </a>
+      <a
+        routerLink="/leads"
+        routerLinkActive="active-link"
+        (click)="visible = false"
+        class="nav-link"
+      >
+        <i class="pi pi-users"></i>
+        <span>Leads</span>
+      </a>
+      <a
+        routerLink="/properties"
+        routerLinkActive="active-link"
+        (click)="visible = false"
+        class="nav-link"
+      >
+        <i class="pi pi-list"></i>
+        <span>Propriedades</span>
+      </a>
+    </nav>
+  </p-drawer>
+
+  <main class="main-content">
     <router-outlet></router-outlet>
   </main>
 </div>

@@ -1,0 +1,97 @@
+/* Custom Layout Styles */
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--surface-ground);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--surface-card);
+  border-bottom: 1px solid var(--surface-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.topbar-start {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.topbar-end {
+  display: flex;
+  align-items: center;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: var(--text-color-secondary);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+  cursor: pointer;
+
+  i {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  span {
+    font-weight: 500;
+  }
+
+  &:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-color);
+  }
+
+  &.active-link {
+    background-color: var(--primary-50);
+    color: var(--primary-color);
+
+    i {
+      color: var(--primary-color);
+    }
+  }
+}
+
+/* Dark mode adjustments (if supported later) */
+:host-context(.dark-mode) {
+  .nav-link.active-link {
+    background-color: rgba(var(--primary-color-rgb), 0.15);
+  }
+}

@@ -1,10 +1,24 @@
-import { IsString, IsNotEmpty, IsEnum, IsOptional, Matches } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsEnum,
+  IsOptional,
+  Matches,
+} from 'class-validator';
 import { LeadStatus } from '../lead.entity';
 
 export class CreateLeadDto {
   @IsString()
   @IsNotEmpty()
   name: string;
+
+  @IsString()
+  @IsOptional()
+  city?: string;
+
+  @IsString()
+  @IsOptional()
+  state?: string;
 
   @IsString()
   @IsNotEmpty()

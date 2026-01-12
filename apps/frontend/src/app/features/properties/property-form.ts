@@ -11,6 +11,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { SelectModule } from 'primeng/select';
 import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { FieldsetModule } from 'primeng/fieldset';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { Store } from '@ngrx/store';
 import { PropertiesActions } from '../../state/properties/properties.actions';
 
@@ -23,6 +27,10 @@ import { PropertiesActions } from '../../state/properties/properties.actions';
     InputNumberModule,
     SelectModule,
     ButtonModule,
+    CardModule,
+    FieldsetModule,
+    InputGroupModule,
+    InputGroupAddonModule,
   ],
   templateUrl: './property-form.html',
 })
@@ -53,6 +61,11 @@ export class PropertyForm {
     value: crop,
   }));
 
+  isFieldInvalid(field: string): boolean {
+    const control = this.form.get(field);
+    return !!(control && control.invalid && (control.dirty || control.touched));
+  }
+
   onSave() {
     if (this.form.valid) {
       const property = this.form.value;
@@ -61,7 +74,7 @@ export class PropertyForm {
       } else {
         const { id, ...newProperty } = property;
         this.store.dispatch(
-          PropertiesActions.addProperty({ property: newProperty })
+          PropertiesActions.addProperty({ property: newProperty }),
         );
       }
       this.save.emit();

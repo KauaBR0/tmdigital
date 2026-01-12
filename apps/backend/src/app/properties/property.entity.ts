@@ -1,10 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { Lead } from '../leads/lead.entity';
 
 export enum CropType {
   SOY = 'Soja',
   CORN = 'Milho',
   COTTON = 'Algodão',
+  COFFEE = 'Café',
+  SUGARCANE = 'Cana-de-açúcar',
 }
 
 @Entity('properties')

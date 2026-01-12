@@ -20,7 +20,7 @@ export class DashboardService {
         'lead.properties',
         'property',
         'property.crop = :crop',
-        { crop }
+        { crop },
       );
     }
     const totalLeads = await leadQuery.getCount();
@@ -29,6 +29,12 @@ export class DashboardService {
       .select('lead.status', 'status')
       .addSelect('COUNT(lead.id)', 'count')
       .groupBy('lead.status')
+      .getRawMany();
+
+    const cityBreakdown = await leadQuery
+      .select('lead.city', 'city')
+      .addSelect('COUNT(lead.id)', 'count')
+      .groupBy('lead.city')
       .getRawMany();
 
     const propertyQuery =
@@ -46,6 +52,7 @@ export class DashboardService {
     return {
       totalLeads,
       statusBreakdown,
+      cityBreakdown,
       cropSummary,
     };
   }

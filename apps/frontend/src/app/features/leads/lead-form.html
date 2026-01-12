@@ -1,60 +1,169 @@
-<form [formGroup]="form" (ngSubmit)="onSave()">
-  <div class="field mb-3">
-    <label for="name" class="block mb-1">Nome</label>
-    <input pInputText id="name" formControlName="name" class="w-full" />
-    <small class="p-error" *ngIf="form.get('name')?.invalid && form.get('name')?.dirty">
-      Nome é obrigatório.
-    </small>
-  </div>
+<div class="flex justify-center mt-8 px-4">
+  <p-card
+    styleClass="w-full md:w-3/4 lg:w-1/2 shadow-lg"
+    header="Cadastro de Lead"
+  >
+    <ng-template pTemplate="subtitle">
+      <span class="text-gray-500"
+        >Preencha as informações abaixo para registrar uma nova
+        oportunidade.</span
+      >
+    </ng-template>
 
-  <div class="field mb-3">
-    <label for="cpf" class="block mb-1">CPF</label>
-    <p-inputMask
-      id="cpf"
-      formControlName="cpf"
-      mask="999.999.999-99"
-      placeholder="000.000.000-00"
-      styleClass="w-full"
-    ></p-inputMask>
-    <small
-      class="p-error"
-      *ngIf="form.get('cpf')?.invalid && form.get('cpf')?.dirty"
-    >
-      CPF inválido.
-    </small>
-  </div>
+    <form [formGroup]="form" (ngSubmit)="onSave()" class="flex flex-col gap-6">
+      <p-fieldset legend="Dados do Cliente" [toggleable]="true">
+        <div class="grid grid-cols-1 gap-4">
+          <div class="flex flex-col gap-2">
+            <label for="name" class="font-bold text-gray-700"
+              >Nome Completo</label
+            >
+            <p-inputGroup styleClass="w-full">
+              <p-inputGroupAddon>
+                <i class="pi pi-user"></i>
+              </p-inputGroupAddon>
+              <input
+                pInputText
+                id="name"
+                formControlName="name"
+                placeholder="Ex: João da Silva Agro"
+                fluid
+              />
+            </p-inputGroup>
+            <small *ngIf="isFieldInvalid('name')" class="text-red-500"
+              >Nome é obrigatório</small
+            >
+          </div>
 
-  <div class="field mb-3">
-    <label for="status" class="block mb-1">Status</label>
-    <p-select
-      id="status"
-      [options]="statusOptions"
-      formControlName="status"
-      placeholder="Selecione um status"
-      styleClass="w-full"
-      optionLabel="label"
-      optionValue="value"
-    ></p-select>
-  </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-2">
+              <label for="cpf" class="font-bold text-gray-700">CPF</label>
+              <p-inputMask
+                id="cpf"
+                mask="999.999.999-99"
+                formControlName="cpf"
+                placeholder="000.000.000-00"
+                styleClass="w-full"
+                fluid
+              >
+              </p-inputMask>
+              <small *ngIf="isFieldInvalid('cpf')" class="text-red-500"
+                >CPF inválido</small
+              >
+            </div>
 
-  <div class="field mb-3">
-    <label for="comments" class="block mb-1">Observações</label>
-    <textarea pTextarea id="comments" formControlName="comments" rows="3" class="w-full"></textarea>
-  </div>
+            <div class="flex flex-col gap-2">
+              <label for="status" class="font-bold text-gray-700"
+                >Status do Lead</label
+              >
+              <p-select
+                id="status"
+                [options]="statusOptions"
+                formControlName="status"
+                optionLabel="label"
+                optionValue="value"
+                placeholder="Selecione o status"
+                styleClass="w-full"
+                fluid
+              >
+                <ng-template #selectedItem let-selectedOption>
+                  <div class="flex items-center gap-2" *ngIf="selectedOption">
+                    <p-tag
+                      [value]="selectedOption.label"
+                      [severity]="getSeverity(selectedOption.value)"
+                    ></p-tag>
+                  </div>
+                </ng-template>
+                <ng-template let-option #item>
+                  <div class="flex items-center gap-2">
+                    <p-tag
+                      [value]="option.label"
+                      [severity]="getSeverity(option.value)"
+                    ></p-tag>
+                  </div>
+                </ng-template>
+              </p-select>
+            </div>
+          </div>
+        </div>
+      </p-fieldset>
 
-  <div class="flex justify-content-end mt-4">
-    <p-button
-      label="Cancelar"
-      icon="pi pi-times"
-      [text]="true"
-      (click)="cancel.emit()"
-      class="mr-2"
-    ></p-button>
-    <p-button
-      label="Salvar"
-      icon="pi pi-check"
-      type="submit"
-      [disabled]="form.invalid"
-    ></p-button>
-  </div>
-</form>
+      <p-fieldset legend="Localização" [toggleable]="true">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+          <div class="md:col-span-4 flex flex-col gap-2">
+            <label for="state" class="font-bold text-gray-700"
+              >Estado (UF)</label
+            >
+            <p-select
+              id="state"
+              [options]="ufs"
+              formControlName="state"
+              optionLabel="nome"
+              optionValue="sigla"
+              placeholder="Selecione"
+              [filter]="true"
+              filterBy="nome"
+              [showClear]="true"
+              styleClass="w-full"
+              fluid
+            >
+            </p-select>
+          </div>
+
+          <div class="md:col-span-8 flex flex-col gap-2">
+            <label for="city" class="font-bold text-gray-700">Município</label>
+            <p-select
+              id="city"
+              [options]="municipios"
+              formControlName="city"
+              optionLabel="nome"
+              optionValue="nome"
+              placeholder="Selecione a cidade"
+              [filter]="true"
+              filterBy="nome"
+              emptyMessage="Selecione um estado primeiro"
+              styleClass="w-full"
+              fluid
+            >
+            </p-select>
+          </div>
+        </div>
+      </p-fieldset>
+
+      <div class="flex flex-col gap-2">
+        <label for="comments" class="font-bold text-gray-700"
+          >Observações</label
+        >
+        <textarea
+          pTextarea
+          id="comments"
+          formControlName="comments"
+          rows="3"
+          class="w-full"
+          placeholder="Insira detalhes adicionais sobre a negociação..."
+          fluid
+        >
+        </textarea>
+      </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+      <div class="flex justify-end gap-2 mt-4">
+        <p-button
+          label="Cancelar"
+          icon="pi pi-times"
+          [text]="true"
+          severity="secondary"
+          (onClick)="cancel.emit()"
+        >
+        </p-button>
+        <p-button
+          label="Salvar Lead"
+          icon="pi pi-check"
+          (onClick)="onSave()"
+          [disabled]="form.invalid"
+        >
+        </p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

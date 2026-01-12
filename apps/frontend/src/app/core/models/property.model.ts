@@ -2,6 +2,8 @@ export enum CropType {
   SOY = 'Soja',
   CORN = 'Milho',
   COTTON = 'Algodão',
+  COFFEE = 'Café',
+  SUGARCANE = 'Cana-de-açúcar',
 }
 
 export interface Property {

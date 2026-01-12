@@ -17,6 +17,7 @@ export class Dashboard implements OnInit {
 
   totalLeads = 0;
   statusChartData: any;
+  cityChartData: any;
   cropChartData: any;
   chartOptions: any;
 
@@ -66,6 +67,22 @@ export class Dashboard implements OnInit {
             },
           ],
         };
+
+        // Process City Breakdown
+        if (metrics.cityBreakdown) {
+          const cities = metrics.cityBreakdown.map((c: any) => c.city || 'N/A');
+          const cityCounts = metrics.cityBreakdown.map((c: any) => +c.count);
+          this.cityChartData = {
+            labels: cities,
+            datasets: [
+              {
+                label: 'Leads por Cidade',
+                data: cityCounts,
+                backgroundColor: '#AB47BC',
+              },
+            ],
+          };
+        }
 
         // Process Crop Summary
         const crops = metrics.cropSummary.map((c: any) => c.crop);
