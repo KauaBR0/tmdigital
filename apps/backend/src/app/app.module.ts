@@ -31,7 +31,8 @@ import { AuthModule } from './auth/auth.module';
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
         autoLoadEntities: true,
-        synchronize: true, // Note: In production, use migrations!
+        synchronize: configService.get<string>('DB_SYNCHRONIZE') === 'true',
+        migrationsRun: true, // Auto-run migrations on startup
       }),
       inject: [ConfigService],
     }),

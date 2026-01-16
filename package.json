@@ -11,7 +11,12 @@
     ]
   },
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "typeorm": "ts-node --project apps/backend/tsconfig.app.json -r tsconfig-paths/register ./node_modules/typeorm/cli",
+    "migration:generate": "npm run typeorm -- -d apps/backend/src/config/typeorm.config.ts migration:generate apps/backend/src/migrations/InitialMigration",
+    "migration:create": "npm run typeorm -- migration:create",
+    "migration:run": "npm run typeorm -- -d apps/backend/src/config/typeorm.config.ts migration:run",
+    "migration:revert": "npm run typeorm -- -d apps/backend/src/config/typeorm.config.ts migration:revert"
   },
   "private": true,
   "devDependencies": {
@@ -54,6 +59,7 @@
     "prettier": "~3.6.2",
     "ts-jest": "^29.4.6",
     "ts-node": "10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "tslib": "^2.3.0",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.40.0",
@@ -90,6 +96,7 @@
     "chart.js": "^4.5.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.3",
+    "dotenv": "^17.2.3",
     "helmet": "^8.1.0",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
