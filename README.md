@@ -1,81 +1,137 @@
-# tmDigital Sales Lead Manager
+# tmDigital Sales Lead Manager (Refactored)
 
-> Aplicação Full Stack para gestão de leads e propriedades rurais.
+> **Projeto Refatorado - Nível Sênior**
+>
+> Este repositório é a evolução do teste técnico original, refatorado para atender aos mais altos padrões de arquitetura, segurança e performance exigidos em ambientes de produção Enterprise.
 
-Este projeto foi desenvolvido visando resolver o desafio de gestão de carteira de clientes de um distribuidor de insumos agrícolas em MG.
+Uma aplicação Full Stack robusta para gestão de leads e propriedades rurais, demonstrando domínio em **Segurança**, **Escalabilidade** e **Clean Architecture**.
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Stack Tecnológica & Arquitetura
 
-A solução foi construída utilizando uma stack moderna e robusta, focada em escalabilidade e manutenibilidade:
+### Backend (NestJS)
 
-- **Frontend:** Angular 19+ (Standalone Components, Signals), PrimeNG v21 (Aura Theme), Tailwind CSS, NgRx (State Management).
-- **Backend:** NestJS, TypeORM, PostgreSQL.
-- **DevOps/Tooling:** Nx Monorepo, Docker, Husky, Lint-Staged, Jest/Vitest.
+- **Segurança:** Autenticação **JWT** (`passport-jwt`), Rate Limiting (`@nestjs/throttler`), Proteção de Headers (`helmet`), Bcrypt para hashing.
+- **Banco de Dados:** PostgreSQL com **PostGIS** (Geometria Espacial Real).
+- **ORM:** TypeORM com **Repository Pattern** (Desacoplamento) e **Migrations** versionadas.
+- **Config:** Variáveis de ambiente (`@nestjs/config`) e validação via DTOs (`class-validator`).
+- **Logging:** Tratamento centralizado de erros com **Exception Filters**.
 
-## ✨ Funcionalidades Implementadas
+### Frontend (Angular 19+)
 
-### Essenciais
+- **Core:** Standalone Components, Signals, Interceptors (Auth).
+- **State Management:** **NgRx** (Actions, Reducers, Effects) com Seletores otimizados.
+- **Performance:** **Lazy Loading** real em tabelas (paginação server-side) e estratégia `OnPush`.
+- **UI:** PrimeNG v21 (Aura), Tailwind CSS, Layout Responsivo Enterprise.
+- **Integração:** Consumo da API do IBGE para localidades.
 
-- **Gestão de Leads:** CRUD completo com validação de CPF e integração com API do IBGE para preenchimento de endereço (Estado/Cidade).
-- **Gestão de Propriedades:** Cadastro de propriedades rurais vinculadas aos leads, incluindo dados de Cultura (Soja, Milho, Algodão, Café, Cana) e Área (hectares).
-- **Listagem e Filtros:** Tabelas ricas com filtros globais, filtros por coluna e ordenação (client-side).
+### DevOps & Qualidade
 
-### Diferenciais e Melhorias de UX
-
-- **Dashboard Gerencial:** Visualização gráfica de:
-  - Total de Leads.
-  - Leads por Status (Gráfico de Pizza).
-  - Área Total por Cultura (Gráfico de Barras).
-  - **Leads por Município** (Gráfico de Barras - atendendo à lacuna inicial de dados geográficos).
-- **Indicador de Prioridade:** Lógica visual para destacar leads prioritários (ícone de estrela).
-- **Visão Global de Propriedades:** Além do modal dentro do Lead, foi criada uma rota dedicada (`/properties`) para gestão global de todas as fazendas da carteira, permitindo responder perguntas como _"Quais são as maiores fazendas de Soja da minha base?"_.
-- **Integração IBGE:** Consumo da API de Localidades do IBGE para garantir a integridade dos dados de Cidade e Estado, eliminando erros de digitação.
-- **Layout Padronizado (Enterprise):** Interface limpa e consistente utilizando `p-card` e grids responsivos, com filtros avançados integrados aos cabeçalhos das colunas.
-
-## 🛠️ Instalação e Execução
-
-Pré-requisitos: Docker e Node.js (v18+).
-
-1. **Clone o repositório:**
-
-   ```bash
-   git clone <URL_DO_REPOSITORIO>
-   cd tmdigital
-   ```
-
-2. **Suba o Banco de Dados:**
-
-   ```bash
-   docker-compose up -d
-   ```
-
-3. **Instale as Dependências:**
-
-   ```bash
-   npm install
-   ```
-
-4. **Inicie a Aplicação (Front + Back):**
-
-   ```bash
-   npx nx run-many --targets=serve --projects=backend,frontend
-   ```
-
-   - Frontend: http://localhost:4200
-   - Backend: http://localhost:3000/api
-
-5. **Rodar Testes:**
-   ```bash
-   npx nx run-many --target=test --projects=backend,frontend
-   ```
-
-## 🏗️ Decisões Arquiteturais e Notas
-
-- **Gerenciamento de Estado (NgRx):** Utilizado para centralizar a lógica de Leads e Propriedades. Foi implementada uma estratégia de **clonagem mutável** (`[...data]`) nos componentes de lista para resolver conflitos entre a imutabilidade do NgRx e a ordenação interna das tabelas do PrimeNG.
-- **Geometria:** O campo de geometria foi mantido como `string` (WKT/GeoJSON simples) para fins deste teste. Em um cenário real de produção, recomenda-se a migração para **PostGIS** para permitir consultas espaciais reais.
-- **Banco de Dados (TypeORM):** O projeto está configurado com `synchronize: true` para facilitar a primeira execução e criação automática das tabelas. Em produção, o correto é desativar essa opção e utilizar **Migrations** para garantir o controle de versão e a integridade do esquema do banco.
-- **Qualidade de Código:** Configurado pipeline de **Husky** e **Lint-Staged** para garantir que todo commit respeite as regras de linting (ESLint) e formatação (Prettier).
+- **Monorepo:** Nx.
+- **Containers:** Docker Compose (App + PostGIS).
+- **Pipeline:** Husky (Pre-commit hooks), Lint-Staged, ESLint, Prettier.
+- **Testes:** Unitários (Jest/Vitest) com cobertura de Services, Reducers e Componentes.
 
 ---
 
-Desenvolvido com 💜 e café.
+## 🛠️ Como Rodar o Projeto
+
+### 1. Pré-requisitos
+
+- Node.js (v18+)
+- Docker e Docker Compose
+
+### 2. Configuração de Ambiente
+
+Crie um arquivo `.env` na raiz do projeto (baseado nas chaves abaixo):
+
+```env
+# Database
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=password
+DB_NAME=tmdigital_db
+DB_SYNCHRONIZE=false
+
+# App & Security
+PORT=3000
+JWT_SECRET=sua_chave_secreta_super_segura
+```
+
+### 3. Subir Infraestrutura (PostGIS)
+
+Suba o container do banco de dados preparado com a extensão PostGIS:
+
+```bash
+docker-compose up -d
+```
+
+### 4. Instalar Dependências
+
+```bash
+npm install
+```
+
+### 5. Executar Migrations
+
+Aplique o schema do banco de dados (tabelas users, leads, properties com geometria):
+
+```bash
+npm run migration:run
+```
+
+### 6. Rodar a Aplicação
+
+Inicie o Backend e o Frontend simultaneamente:
+
+```bash
+npx nx run-many --targets=serve --projects=backend,frontend
+```
+
+- **Frontend:** http://localhost:4200
+- **Backend:** http://localhost:3000/api
+
+---
+
+## ✨ Destaques da Refatoração (Post-Feedback)
+
+Este projeto passou por uma refatoração intensiva para cobrir lacunas comuns em testes técnicos:
+
+### 🔒 1. Segurança (Zero Trust)
+
+- **Antes:** API aberta.
+- **Agora:** Todas as rotas críticas protegidas por **Guards JWT**. Login necessário. Senhas salvas com hash forte. Proteção contra ataques de força bruta (Rate Limiting) e vulnerabilidades web conhecidas (Helmet).
+
+### ⚡ 2. Performance Real
+
+- **Antes:** Frontend recebia todos os registros e paginava localmente (risco de crash com dados massivos).
+- **Agora:** **Paginação Server-Side** completa (SQL `OFFSET/LIMIT`). O frontend solicita apenas a página atual via **Lazy Loading**. O Dashboard processa agregações (`COUNT`, `SUM`) diretamente no banco.
+
+### 🗺️ 3. Geoprocessamento (PostGIS)
+
+- **Antes:** Geometria salva como texto simples (`string`).
+- **Agora:** Coluna do tipo `geometry(Geometry, 4326)`. Isso habilita o sistema para consultas espaciais reais (ex: "buscar fazendas num raio de X km", "calcular área exata").
+
+### 🏗️ 4. Arquitetura Limpa (Repository Pattern)
+
+- **Antes:** Services acoplados diretamente ao TypeORM.
+- **Agora:** Camada de **Repositórios** isola a regra de negócio da infraestrutura de dados. Facilita testes e troca de ORM.
+
+### 🔄 5. Versionamento de Banco (Migrations)
+
+- **Antes:** `synchronize: true` (risco alto em produção).
+- **Agora:** Controle total de alterações de schema via **Migrations**, garantindo rastreabilidade e segurança nos deploys.
+
+---
+
+## 🧪 Testes
+
+Para garantir a integridade após a refatoração, execute a suíte de testes:
+
+```bash
+npx nx run-many --target=test --projects=backend,frontend
+```
+
+---
+
+Desenvolvido com foco em excelência técnica.
