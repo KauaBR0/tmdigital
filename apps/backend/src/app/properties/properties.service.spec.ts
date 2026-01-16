@@ -33,17 +33,17 @@ describe('PropertiesService', () => {
   });
 
   describe('findAll', () => {
-    it('should return all properties if no leadId provided', async () => {
-      const result: Property[] = [];
+    it('should return paginated properties if no leadId provided', async () => {
+      const result = { data: [], total: 0 };
       repository.findAll.mockResolvedValue(result);
-      expect(await service.findAll()).toBe(result);
+      expect(await service.findAll({})).toBe(result);
     });
 
-    it('should return properties by leadId', async () => {
-      const result: Property[] = [];
+    it('should return paginated properties by leadId', async () => {
+      const result = { data: [], total: 0 };
       repository.findAll.mockResolvedValue(result);
-      expect(await service.findAll(1)).toBe(result);
-      expect(repository.findAll).toHaveBeenCalledWith(1);
+      expect(await service.findAll({}, 1)).toBe(result);
+      expect(repository.findAll).toHaveBeenCalledWith({}, 1);
     });
   });
 

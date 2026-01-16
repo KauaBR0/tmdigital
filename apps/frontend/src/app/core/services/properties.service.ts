@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Property } from '../models/property.model';
 
@@ -9,9 +9,27 @@ export class PropertiesService {
 
   constructor(private http: HttpClient) {}
 
-  getProperties(leadId?: number): Observable<Property[]> {
-    const url = leadId ? `${this.apiUrl}?leadId=${leadId}` : this.apiUrl;
-    return this.http.get<Property[]>(url);
+  getProperties(
+    leadId?: number,
+    page = 1,
+    limit = 10,
+    filter?: string,
+  ): Observable<{ data: Property[]; total: number }> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('limit', limit.toString());
+
+    if (leadId) {
+      params = params.set('leadId', leadId.toString());
+    }
+
+    if (filter) {
+      params = params.set('filter', filter);
+    }
+
+    return this.http.get<{ data: Property[]; total: number }>(this.apiUrl, {
+      params,
+    });
   }
 
   getProperty(id: number): Observable<Property> {

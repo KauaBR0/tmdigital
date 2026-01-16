@@ -4,8 +4,15 @@ import { Property } from '../../core/models/property.model';
 export const PropertiesActions = createActionGroup({
   source: 'Properties',
   events: {
-    'Load Properties': props<{ leadId?: number }>(),
-    'Load Properties Success': props<{ properties: Property[] }>(),
+    'Load Properties': props<{
+      leadId?: number;
+      page?: number;
+      limit?: number;
+      filter?: string;
+    }>(),
+    'Load Properties Success': props<{
+      response: { data: Property[]; total: number };
+    }>(),
     'Load Properties Failure': props<{ error: any }>(),
     'Add Property': props<{ property: Partial<Property> }>(),
     'Add Property Success': props<{ property: Property }>(),

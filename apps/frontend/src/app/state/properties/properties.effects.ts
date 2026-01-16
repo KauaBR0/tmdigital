@@ -12,13 +12,24 @@ export class PropertiesEffects {
   loadProperties$ = createEffect(() =>
     this.actions$.pipe(
       ofType(PropertiesActions.loadProperties),
-      mergeMap(({ leadId }) =>
-        this.propertiesService.getProperties(leadId).pipe(
-          map((properties) => PropertiesActions.loadPropertiesSuccess({ properties })),
-          catchError((error) => of(PropertiesActions.loadPropertiesFailure({ error })))
-        )
-      )
-    )
+      mergeMap((action: any) =>
+        this.propertiesService
+          .getProperties(
+            action.leadId,
+            action.page || 1,
+            action.limit || 10,
+            action.filter,
+          )
+          .pipe(
+            map((response) =>
+              PropertiesActions.loadPropertiesSuccess({ response }),
+            ),
+            catchError((error) =>
+              of(PropertiesActions.loadPropertiesFailure({ error })),
+            ),
+          ),
+      ),
+    ),
   );
 
   addProperty$ = createEffect(() =>
@@ -26,11 +37,15 @@ export class PropertiesEffects {
       ofType(PropertiesActions.addProperty),
       mergeMap(({ property }) =>
         this.propertiesService.createProperty(property).pipe(
-          map((newProperty) => PropertiesActions.addPropertySuccess({ property: newProperty })),
-          catchError((error) => of(PropertiesActions.addPropertyFailure({ error })))
-        )
-      )
-    )
+          map((newProperty) =>
+            PropertiesActions.addPropertySuccess({ property: newProperty }),
+          ),
+          catchError((error) =>
+            of(PropertiesActions.addPropertyFailure({ error })),
+          ),
+        ),
+      ),
+    ),
   );
 
   updateProperty$ = createEffect(() =>
@@ -38,11 +53,17 @@ export class PropertiesEffects {
       ofType(PropertiesActions.updateProperty),
       mergeMap(({ property }) =>
         this.propertiesService.updateProperty(property).pipe(
-          map((updatedProperty) => PropertiesActions.updatePropertySuccess({ property: updatedProperty })),
-          catchError((error) => of(PropertiesActions.updatePropertyFailure({ error })))
-        )
-      )
-    )
+          map((updatedProperty) =>
+            PropertiesActions.updatePropertySuccess({
+              property: updatedProperty,
+            }),
+          ),
+          catchError((error) =>
+            of(PropertiesActions.updatePropertyFailure({ error })),
+          ),
+        ),
+      ),
+    ),
   );
 
   deleteProperty$ = createEffect(() =>
@@ -51,9 +72,11 @@ export class PropertiesEffects {
       mergeMap(({ id }) =>
         this.propertiesService.deleteProperty(id).pipe(
           map(() => PropertiesActions.deletePropertySuccess({ id })),
-          catchError((error) => of(PropertiesActions.deletePropertyFailure({ error })))
-        )
-      )
-    )
+          catchError((error) =>
+            of(PropertiesActions.deletePropertyFailure({ error })),
+          ),
+        ),
+      ),
+    ),
   );
 }

@@ -55,6 +55,9 @@ export class PropertiesList implements OnInit, OnDestroy {
   loading = toSignal(this.store.select(propertiesFeature.selectLoading), {
     initialValue: false,
   });
+  total = toSignal(this.store.select(propertiesFeature.selectTotal), {
+    initialValue: 0,
+  });
 
   displayForm = false;
   selectedProperty: Property | null = null;
@@ -70,9 +73,7 @@ export class PropertiesList implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.store.dispatch(
-      PropertiesActions.loadProperties({ leadId: this.leadId }),
-    );
+    // Initial load handled by Table LazyLoad
     if (this.isGlobal) {
       this.ibgeService.getUFs().subscribe((data) => (this.ufs = data));
     }
@@ -84,6 +85,18 @@ export class PropertiesList implements OnInit, OnDestroy {
           // Create a mutable copy of the data for PrimeNG Table sorting
           this.properties = [...data];
         }),
+    );
+  }
+
+  onLazyLoad(event: any) {
+    const page = event.first / event.rows + 1;
+    const limit = event.rows;
+    this.store.dispatch(
+      PropertiesActions.loadProperties({
+        leadId: this.leadId,
+        page,
+        limit,
+      }),
     );
   }
 

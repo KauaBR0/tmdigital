@@ -4,6 +4,8 @@ import { Property } from './property.entity';
 import { CreatePropertyDto } from './dto/create-property.dto';
 import { UpdatePropertyDto } from './dto/update-property.dto';
 
+import { PaginationDto } from '../../common/dto/pagination.dto';
+
 @Injectable()
 export class PropertiesService {
   constructor(
@@ -15,8 +17,11 @@ export class PropertiesService {
     return this.propertyRepository.create(createPropertyDto);
   }
 
-  async findAll(leadId?: number): Promise<Property[]> {
-    return this.propertyRepository.findAll(leadId);
+  async findAll(
+    paginationDto: PaginationDto,
+    leadId?: number,
+  ): Promise<{ data: any[]; total: number }> {
+    return this.propertyRepository.findAll(paginationDto, leadId);
   }
 
   async findOne(id: number): Promise<Property> {

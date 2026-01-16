@@ -14,6 +14,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { PropertiesService } from './properties.service';
 import { CreatePropertyDto } from './dto/create-property.dto';
 import { UpdatePropertyDto } from './dto/update-property.dto';
+import { PaginationDto } from '../../common/dto/pagination.dto';
 
 @UseGuards(AuthGuard('jwt'))
 @Controller('properties')
@@ -26,8 +27,14 @@ export class PropertiesController {
   }
 
   @Get()
-  findAll(@Query('leadId') leadId?: string) {
-    return this.propertiesService.findAll(leadId ? +leadId : undefined);
+  findAll(
+    @Query() paginationDto: PaginationDto,
+    @Query('leadId') leadId?: string,
+  ) {
+    return this.propertiesService.findAll(
+      paginationDto,
+      leadId ? +leadId : undefined,
+    );
   }
 
   @Get(':id')

@@ -6,6 +6,8 @@ import { IPropertiesRepository } from './property.repository.interface';
 import { CreatePropertyDto } from '../dto/create-property.dto';
 import { UpdatePropertyDto } from '../dto/update-property.dto';
 
+import { PaginationDto } from '../../../common/dto/pagination.dto';
+
 @Injectable()
 export class PropertiesRepository implements IPropertiesRepository {
   constructor(
@@ -18,11 +20,48 @@ export class PropertiesRepository implements IPropertiesRepository {
     return this.typeOrmRepository.save(property);
   }
 
-  async findAll(leadId?: number): Promise<Property[]> {
+  async findAll(
+    paginationDto: PaginationDto,
+    leadId?: number,
+  ): Promise<{ data: any[]; total: number }> {
+    const {
+      page = 1,
+      limit = 10,
+      sortBy,
+      sortOrder = 'ASC',
+      filter,
+    } = paginationDto;
+
+    const query = this.typeOrmRepository
+      .createQueryBuilder('property')
+      .leftJoinAndSelect('property.lead', 'lead');
+
     if (leadId) {
-      return this.typeOrmRepository.find({ where: { leadId } });
+      query.where('property.leadId = :leadId', { leadId });
     }
-    return this.typeOrmRepository.find({ relations: ['lead'] });
+
+    if (filter) {
+      // Basic filter by crop or owner name
+      query.andWhere(
+        '(property.crop ILIKE :filter OR lead.name ILIKE :filter)',
+        { filter: `%${filter}%` },
+      );
+    }
+
+    if (sortBy) {
+      // Handle nested sorting like lead.name
+      const orderField = sortBy.includes('.') ? sortBy : `property.${sortBy}`;
+      query.orderBy(orderField, sortOrder as 'ASC' | 'DESC');
+    } else {
+      query.orderBy('property.id', 'DESC');
+    }
+
+    const [data, total] = await query
+      .skip((page - 1) * limit)
+      .take(limit)
+      .getManyAndCount();
+
+    return { data, total };
   }
 
   async findOne(id: number): Promise<Property | null> {
