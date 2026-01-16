@@ -1,7 +1,18 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseIntPipe,
+  Query,
+} from '@nestjs/common';
 import { LeadsService } from './leads.service';
 import { CreateLeadDto } from './dto/create-lead.dto';
 import { UpdateLeadDto } from './dto/update-lead.dto';
+import { PaginationDto } from '../../common/dto/pagination.dto';
 
 @Controller('leads')
 export class LeadsController {
@@ -13,8 +24,8 @@ export class LeadsController {
   }
 
   @Get()
-  findAll() {
-    return this.leadsService.findAll();
+  findAll(@Query() paginationDto: PaginationDto) {
+    return this.leadsService.findAll(paginationDto);
   }
 
   @Get(':id')
@@ -23,7 +34,10 @@ export class LeadsController {
   }
 
   @Patch(':id')
-  update(@Param('id', ParseIntPipe) id: number, @Body() updateLeadDto: UpdateLeadDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateLeadDto: UpdateLeadDto,
+  ) {
     return this.leadsService.update(id, updateLeadDto);
   }
 

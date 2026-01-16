@@ -4,8 +4,10 @@ import { Lead } from '../../core/models/lead.model';
 export const LeadsActions = createActionGroup({
   source: 'Leads',
   events: {
-    'Load Leads': emptyProps(),
-    'Load Leads Success': props<{ leads: Lead[] }>(),
+    'Load Leads': props<{ page?: number; limit?: number; filter?: string }>(),
+    'Load Leads Success': props<{
+      response: { data: Lead[]; total: number };
+    }>(),
     'Load Leads Failure': props<{ error: any }>(),
     'Add Lead': props<{ lead: Partial<Lead> }>(),
     'Add Lead Success': props<{ lead: Lead }>(),

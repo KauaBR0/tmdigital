@@ -3,11 +3,18 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PropertiesService } from './properties.service';
 import { PropertiesController } from './properties.controller';
 import { Property } from './property.entity';
+import { PropertiesRepository } from './repositories/property.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Property])],
   controllers: [PropertiesController],
-  providers: [PropertiesService],
+  providers: [
+    PropertiesService,
+    {
+      provide: 'IPropertiesRepository',
+      useClass: PropertiesRepository,
+    },
+  ],
   exports: [PropertiesService],
 })
 export class PropertiesModule {}

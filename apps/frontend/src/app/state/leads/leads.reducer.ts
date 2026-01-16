@@ -4,12 +4,14 @@ import { LeadsActions } from './leads.actions';
 
 export interface LeadsState {
   leads: Lead[];
+  total: number;
   loading: boolean;
   error: any;
 }
 
 export const initialState: LeadsState = {
   leads: [],
+  total: 0,
   loading: false,
   error: null,
 };
@@ -19,9 +21,10 @@ export const leadsFeature = createFeature({
   reducer: createReducer(
     initialState,
     on(LeadsActions.loadLeads, (state) => ({ ...state, loading: true })),
-    on(LeadsActions.loadLeadsSuccess, (state, { leads }) => ({
+    on(LeadsActions.loadLeadsSuccess, (state, { response }) => ({
       ...state,
-      leads,
+      leads: response.data,
+      total: response.total,
       loading: false,
     })),
     on(LeadsActions.loadLeadsFailure, (state, { error }) => ({
@@ -40,6 +43,6 @@ export const leadsFeature = createFeature({
     on(LeadsActions.deleteLeadSuccess, (state, { id }) => ({
       ...state,
       leads: state.leads.filter((l) => l.id !== id),
-    }))
+    })),
   ),
 });

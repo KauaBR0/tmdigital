@@ -63,26 +63,35 @@ describe('LeadsList', () => {
   });
 
   it('should load leads on init', () => {
-    expect(component.allLeads.length).toBe(2);
     expect(component.leads.length).toBe(2);
   });
 
-  it('should filter by priority', () => {
+  it('should dispatch filter action on priority toggle', () => {
+    const storeSpy = vi.spyOn(store, 'dispatch');
     component.showPriorityOnly = true;
     component.applyFilters();
 
-    expect(component.leads.length).toBe(1);
-    expect(component.leads[0].isPriority).toBe(true);
-    expect(component.leads[0].name).toBe('Priority Lead');
+    expect(storeSpy).toHaveBeenCalled();
   });
+  it('should dispatch loadLeads when applying filters', () => {
+    const storeSpy = vi.spyOn(store, 'dispatch');
 
-  it('should reset filter', () => {
+    // Test priority filter on
     component.showPriorityOnly = true;
     component.applyFilters();
-    expect(component.leads.length).toBe(1);
+    expect(storeSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        filter: 'PRIORITY',
+      }),
+    );
 
+    // Test priority filter off
     component.showPriorityOnly = false;
     component.applyFilters();
-    expect(component.leads.length).toBe(2);
+    expect(storeSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        filter: undefined,
+      }),
+    );
   });
 });

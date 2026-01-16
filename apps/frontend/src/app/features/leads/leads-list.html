@@ -6,12 +6,13 @@
       [loading]="loading()"
       [paginator]="true"
       [rows]="10"
+      [totalRecords]="total()"
+      [lazy]="true"
+      (onLazyLoad)="onLazyLoad($event)"
       [globalFilterFields]="['name', 'cpf', 'status']"
       responsiveLayout="scroll"
       styleClass="p-datatable-striped"
       dataKey="id"
-      sortField="id"
-      [sortOrder]="-1"
     >
       <ng-template pTemplate="caption">
         <div

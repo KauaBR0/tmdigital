@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Lead } from '../models/lead.model';
 
@@ -9,8 +9,22 @@ export class LeadsService {
 
   constructor(private http: HttpClient) {}
 
-  getLeads(): Observable<Lead[]> {
-    return this.http.get<Lead[]>(this.apiUrl);
+  getLeads(
+    page = 1,
+    limit = 10,
+    filter?: string,
+  ): Observable<{ data: Lead[]; total: number }> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('limit', limit.toString());
+
+    if (filter) {
+      params = params.set('filter', filter);
+    }
+
+    return this.http.get<{ data: Lead[]; total: number }>(this.apiUrl, {
+      params,
+    });
   }
 
   getLead(id: number): Observable<Lead> {

@@ -46,10 +46,12 @@ export class LeadsList implements OnInit, OnDestroy {
   private store = inject(Store);
   private subscription = new Subscription();
 
-  allLeads: Lead[] = [];
   leads: Lead[] = [];
   loading = toSignal(this.store.select(leadsFeature.selectLoading), {
     initialValue: false,
+  });
+  total = toSignal(this.store.select(leadsFeature.selectTotal), {
+    initialValue: 0,
   });
   showPriorityOnly = false;
 
@@ -58,27 +60,43 @@ export class LeadsList implements OnInit, OnDestroy {
   selectedLead: Lead | null = null;
   currentLeadId: number | null = null;
 
+  lastLazyLoadEvent: any;
+
   statuses = Object.values(LeadStatus).map((status) => ({
     label: status,
     value: status,
   }));
 
   ngOnInit() {
-    this.store.dispatch(LeadsActions.loadLeads());
-
+    // Initial load handled by Table LazyLoad
     this.subscription.add(
       this.store.select(leadsFeature.selectLeads).subscribe((data) => {
-        this.allLeads = [...data];
-        this.applyFilters();
+        this.leads = [...data];
       }),
     );
   }
 
+  onLazyLoad(event: any) {
+    this.lastLazyLoadEvent = event;
+    const page = event.first / event.rows + 1;
+    const limit = event.rows;
+    const filter = this.showPriorityOnly ? 'PRIORITY' : undefined; // Simple logic for now
+
+    this.store.dispatch(LeadsActions.loadLeads({ page, limit, filter }));
+  }
+
   applyFilters() {
-    if (this.showPriorityOnly) {
-      this.leads = this.allLeads.filter((l) => l.isPriority);
+    // Trigger reload via LazyLoad event logic simulation or reset
+    if (this.lastLazyLoadEvent) {
+      this.onLazyLoad({ ...this.lastLazyLoadEvent, first: 0 }); // Reset to page 1
     } else {
-      this.leads = [...this.allLeads];
+      this.store.dispatch(
+        LeadsActions.loadLeads({
+          page: 1,
+          limit: 10,
+          filter: this.showPriorityOnly ? 'PRIORITY' : undefined,
+        }),
+      );
     }
   }
 

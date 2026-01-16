@@ -1,26 +1,23 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { getRepositoryToken } from '@nestjs/typeorm';
 import { PropertiesService } from './properties.service';
 import { Property, CropType } from './property.entity';
-import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 
 describe('PropertiesService', () => {
   let service: PropertiesService;
-  let repository: Repository<Property>;
+  let repository: any;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         PropertiesService,
         {
-          provide: getRepositoryToken(Property),
+          provide: 'IPropertiesRepository',
           useValue: {
-            find: jest.fn(),
-            findOneBy: jest.fn(),
+            findAll: jest.fn(),
+            findOne: jest.fn(),
             create: jest.fn(),
-            save: jest.fn(),
-            preload: jest.fn(),
+            update: jest.fn(),
             remove: jest.fn(),
           },
         },
@@ -28,7 +25,7 @@ describe('PropertiesService', () => {
     }).compile();
 
     service = module.get<PropertiesService>(PropertiesService);
-    repository = module.get<Repository<Property>>(getRepositoryToken(Property));
+    repository = module.get('IPropertiesRepository');
   });
 
   it('should be defined', () => {
@@ -38,15 +35,15 @@ describe('PropertiesService', () => {
   describe('findAll', () => {
     it('should return all properties if no leadId provided', async () => {
       const result: Property[] = [];
-      jest.spyOn(repository, 'find').mockResolvedValue(result);
+      repository.findAll.mockResolvedValue(result);
       expect(await service.findAll()).toBe(result);
     });
 
     it('should return properties by leadId', async () => {
       const result: Property[] = [];
-      jest.spyOn(repository, 'find').mockResolvedValue(result);
+      repository.findAll.mockResolvedValue(result);
       expect(await service.findAll(1)).toBe(result);
-      expect(repository.find).toHaveBeenCalledWith({ where: { leadId: 1 } });
+      expect(repository.findAll).toHaveBeenCalledWith(1);
     });
   });
 
@@ -54,8 +51,7 @@ describe('PropertiesService', () => {
     it('should create a property', async () => {
       const dto = { crop: CropType.SOY, area: 150, leadId: 1 };
       const property = { id: 1, ...dto } as Property;
-      jest.spyOn(repository, 'create').mockReturnValue(property);
-      jest.spyOn(repository, 'save').mockResolvedValue(property);
+      repository.create.mockResolvedValue(property);
       expect(await service.create(dto)).toBe(property);
     });
   });
@@ -63,12 +59,12 @@ describe('PropertiesService', () => {
   describe('findOne', () => {
     it('should return a property', async () => {
       const property = { id: 1 } as Property;
-      jest.spyOn(repository, 'findOneBy').mockResolvedValue(property);
+      repository.findOne.mockResolvedValue(property);
       expect(await service.findOne(1)).toBe(property);
     });
 
     it('should throw NotFoundException', async () => {
-      jest.spyOn(repository, 'findOneBy').mockResolvedValue(null);
+      repository.findOne.mockResolvedValue(null);
       await expect(service.findOne(1)).rejects.toThrow(NotFoundException);
     });
   });

@@ -18,12 +18,15 @@ export class LeadsEffects {
         PropertiesActions.updatePropertySuccess,
         PropertiesActions.deletePropertySuccess,
       ),
-      mergeMap(() =>
-        this.leadsService.getLeads().pipe(
-          map((leads) => LeadsActions.loadLeadsSuccess({ leads })),
+      mergeMap((action: any) => {
+        const page = action.page || 1;
+        const limit = action.limit || 10;
+        const filter = action.filter;
+        return this.leadsService.getLeads(page, limit, filter).pipe(
+          map((response) => LeadsActions.loadLeadsSuccess({ response })),
           catchError((error) => of(LeadsActions.loadLeadsFailure({ error }))),
-        ),
-      ),
+        );
+      }),
     ),
   );
 

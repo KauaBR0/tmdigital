@@ -1,34 +1,29 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Injectable, NotFoundException, Inject } from '@nestjs/common';
+import { ILeadsRepository } from './repositories/lead.repository.interface';
 import { Lead } from './lead.entity';
 import { CreateLeadDto } from './dto/create-lead.dto';
 import { UpdateLeadDto } from './dto/update-lead.dto';
+import { PaginationDto } from '../../common/dto/pagination.dto';
 
 @Injectable()
 export class LeadsService {
   constructor(
-    @InjectRepository(Lead)
-    private readonly leadRepository: Repository<Lead>,
+    @Inject('ILeadsRepository')
+    private readonly leadsRepository: ILeadsRepository,
   ) {}
 
   async create(createLeadDto: CreateLeadDto): Promise<Lead> {
-    const lead = this.leadRepository.create(createLeadDto);
-    return this.leadRepository.save(lead);
+    return this.leadsRepository.create(createLeadDto);
   }
 
-  async findAll(): Promise<any[]> {
-    const leads = await this.leadRepository.find({
-      relations: ['properties'],
-    });
-    return leads.map((lead) => ({
-      ...lead,
-      isPriority: lead.properties.some((p) => p.area > 100),
-    }));
+  async findAll(
+    paginationDto: PaginationDto,
+  ): Promise<{ data: any[]; total: number }> {
+    return this.leadsRepository.findAll(paginationDto);
   }
 
   async findOne(id: number): Promise<Lead> {
-    const lead = await this.leadRepository.findOneBy({ id });
+    const lead = await this.leadsRepository.findOne(id);
     if (!lead) {
       throw new NotFoundException(`Lead #${id} not found`);
     }
@@ -36,18 +31,18 @@ export class LeadsService {
   }
 
   async update(id: number, updateLeadDto: UpdateLeadDto): Promise<Lead> {
-    const lead = await this.leadRepository.preload({
-      id: id,
-      ...updateLeadDto,
-    });
+    const lead = await this.leadsRepository.update(id, updateLeadDto);
     if (!lead) {
       throw new NotFoundException(`Lead #${id} not found`);
     }
-    return this.leadRepository.save(lead);
+    return lead;
   }
 
   async remove(id: number): Promise<void> {
-    const lead = await this.findOne(id);
-    await this.leadRepository.remove(lead);
+    const lead = await this.leadsRepository.findOne(id);
+    if (!lead) {
+      throw new NotFoundException(`Lead #${id} not found`);
+    }
+    await this.leadsRepository.remove(id);
   }
 }
