@@ -4,7 +4,7 @@ import {
   isDevMode,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
@@ -15,12 +15,13 @@ import { leadsFeature } from './state/leads/leads.reducer';
 import { LeadsEffects } from './state/leads/leads.effects';
 import { propertiesFeature } from './state/properties/properties.reducer';
 import { PropertiesEffects } from './state/properties/properties.effects';
+import { authInterceptor } from './core/interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(appRoutes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([authInterceptor])),
     provideStore({
       [leadsFeature.name]: leadsFeature.reducer,
       [propertiesFeature.name]: propertiesFeature.reducer,

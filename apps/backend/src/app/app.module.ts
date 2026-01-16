@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { LeadsModule } from './leads/leads.module';
 import { PropertiesModule } from './properties/properties.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     LeadsModule,
     PropertiesModule,
     DashboardModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [

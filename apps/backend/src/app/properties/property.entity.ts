@@ -30,7 +30,12 @@ export class Property {
   @Column('float')
   area: number;
 
-  @Column({ type: 'text', nullable: true })
+  @Column({
+    type: 'geometry',
+    spatialFeatureType: 'Geometry',
+    srid: 4326,
+    nullable: true,
+  })
   geometry: string;
 
   @ManyToOne(() => Lead, (lead) => lead.properties, { onDelete: 'CASCADE' })

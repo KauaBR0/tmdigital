@@ -8,12 +8,15 @@ import {
   Delete,
   ParseIntPipe,
   Query,
+  UseGuards,
 } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { LeadsService } from './leads.service';
 import { CreateLeadDto } from './dto/create-lead.dto';
 import { UpdateLeadDto } from './dto/update-lead.dto';
 import { PaginationDto } from '../../common/dto/pagination.dto';
 
+@UseGuards(AuthGuard('jwt'))
 @Controller('leads')
 export class LeadsController {
   constructor(private readonly leadsService: LeadsService) {}
