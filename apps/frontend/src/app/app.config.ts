@@ -16,12 +16,13 @@ import { LeadsEffects } from './state/leads/leads.effects';
 import { propertiesFeature } from './state/properties/properties.reducer';
 import { PropertiesEffects } from './state/properties/properties.effects';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
+import { errorInterceptor } from './core/interceptors/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(appRoutes),
-    provideHttpClient(withInterceptors([authInterceptor])),
+    provideHttpClient(withInterceptors([authInterceptor, errorInterceptor])),
     provideStore({
       [leadsFeature.name]: leadsFeature.reducer,
       [propertiesFeature.name]: propertiesFeature.reducer,

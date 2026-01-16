@@ -7,6 +7,8 @@ import { ButtonModule } from 'primeng/button';
 import { AvatarModule } from 'primeng/avatar';
 import { RippleModule } from 'primeng/ripple';
 import { StyleClassModule } from 'primeng/styleclass';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   imports: [
@@ -17,10 +19,12 @@ import { StyleClassModule } from 'primeng/styleclass';
     AvatarModule,
     RippleModule,
     StyleClassModule,
+    ToastModule,
   ],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
+  providers: [MessageService],
 })
 export class App implements OnInit {
   title = 'frontend';
