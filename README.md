@@ -1,8 +1,6 @@
 # tmDigital Sales Lead Manager (Refactored)
 
-> **Projeto Refatorado - Nível Sênior**
->
-> Este repositório é a evolução do teste técnico original, refatorado para atender aos mais altos padrões de arquitetura, segurança e performance exigidos em ambientes de produção Enterprise.
+
 
 Uma aplicação Full Stack robusta para gestão de leads e propriedades rurais, demonstrando domínio em **Segurança**, **Escalabilidade** e **Clean Architecture**.
 
